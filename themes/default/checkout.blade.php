@@ -84,6 +84,7 @@
               <span class="rounded-circle bg-primary">{{ $carts['quantity'] }}</span>
             </div>
             <div class="card-body">
+              @hookwrapper('checkout.products')
               <div class="products-wrap">
                 @foreach ($carts['carts'] as $cart)
                   <div class="item">
@@ -103,6 +104,7 @@
                   </div>
                 @endforeach
               </div>
+              @endhookwrapper
               <ul class="totals">
                 @foreach ($totals as $total)
                   <li><span>{{ $total['title'] }}</span><span>{{ $total['amount_format'] }}</span></li>
