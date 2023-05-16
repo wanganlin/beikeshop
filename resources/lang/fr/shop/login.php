@@ -13,7 +13,7 @@
 return [
     'index'                   => 'Connexion et enregistrement de l\'utilisateur',
     'login_and_sign'          => 'S\'identifier S\'enregistrer',
-    'home'                    => 'page de garde',
+    'home'                    => 'Page de garde',
     'library'                 => 'centre personnel',
     'login'                   => 'Connexion',
     'already'                 => 'Déjà notre client ?',

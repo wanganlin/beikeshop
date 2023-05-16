@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('body-class', 'page-pages')
+@section('body-class', 'Page-pages')
 @section('title', $page->description->meta_title ?: $page->description->title)
 @section('keywords', $page->description->meta_keywords)
 @section('description', $page->description->meta_description)
@@ -30,7 +30,7 @@
             @if ($products)
               <div class="relations-wrap mt-5">
                 <div class="container position-relative">
-                  <div class="title text-center fs-4 mb-4">{{ __('admin/product.product_relations') }}</div>
+                  <div class="title text-center fs-4 mb-4">{{ __('Admin/product.product_relations') }}</div>
                   <div class="product swiper-style-plus">
                     <div class="swiper relations-swiper">
                       <div class="swiper-wrapper">

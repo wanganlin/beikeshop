@@ -57,7 +57,7 @@ return [
     'default_currency'       => 'デフォルトの通貨',
     'default_customer_group' => 'デフォルトの顧客グループ',
     'admin_name'             => 'バックグラウンド ディレクトリ',
-    'admin_name_info'        => '管理バックグラウンド ディレクトリ、デフォルトは admin',
+    'admin_name_info'        => '管理バックグラウンド ディレクトリ、デフォルトは Admin',
     'enable_tax'             => '税金を有効にする',
     'enable_tax_info'        => '税金計算を有効にするかどうか',
     'tax_address'            => '納税先住所',

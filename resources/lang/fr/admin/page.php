@@ -1,6 +1,6 @@
 <?php
 /**
- * page.php
+ * Page.php
  *
  * @copyright  2022 beikeshop.com - All Rights Reserved
  * @link       https://beikeshop.com
@@ -10,13 +10,13 @@
  */
 
 return [
-    'index'        => 'page d\'information',
+    'index'        => 'Page d\'information',
     'info_title'   => 'titre des informations',
     'info_content' => 'contenu',
 
     'pages_index'  => 'Liste de pages simples',
-    'pages_create' => 'Créer une seule page',
-    'pages_show'   => 'Détails d\'une seule page',
-    'pages_update' => 'Modification d\'une seule page',
-    'pages_delete' => 'Supprimer une seule page',
+    'pages_create' => 'Créer une seule Page',
+    'pages_show'   => 'Détails d\'une seule Page',
+    'pages_update' => 'Modification d\'une seule Page',
+    'pages_delete' => 'Supprimer une seule Page',
 ];

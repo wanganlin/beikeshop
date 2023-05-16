@@ -29,7 +29,7 @@ class PluginRepo
         foreach (BPlugin::TYPES as $item) {
             $types[] = [
                 'value' => $item,
-                'label' => trans("admin/plugin.{$item}"),
+                'label' => trans("Admin/plugin.{$item}"),
             ];
         }
 

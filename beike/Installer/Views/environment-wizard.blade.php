@@ -155,7 +155,7 @@
       })
 
       if ($('input[name="admin_email"]').hasClass('is-invalid')) {
-        $('.admin-data-wrap').removeClass('d-none')
+        $('.Admin-data-wrap').removeClass('d-none')
       }
 
       if ($('.content > .alert-danger').length) {
@@ -245,13 +245,13 @@
               $('.title-status .text-danger').removeClass('d-none').find('span').text(json.data.database_other);
             }
 
-            $('.admin-data-wrap').addClass('d-none')
+            $('.Admin-data-wrap').addClass('d-none')
           }
 
           if (json.status == 'success') {
             $('.database-link-wrap input').addClass('is-valid')
             $('.title-status .text-success').removeClass('d-none')
-            $('.admin-data-wrap').removeClass('d-none')
+            $('.Admin-data-wrap').removeClass('d-none')
           }
         }
       });

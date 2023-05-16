@@ -76,12 +76,12 @@ class DesignService
      */
     private static function handleSlideShow($content): array
     {
-        $images = $content['images'];
+        $images = $content['Images'];
         if (empty($images)) {
             return $content;
         }
 
-        $content['images'] = self::handleImages($images);
+        $content['Images'] = self::handleImages($images);
 
         return $content;
     }
@@ -113,12 +113,12 @@ class DesignService
      */
     private static function handleImage401($content): array
     {
-        $images = $content['images'];
+        $images = $content['Images'];
         if (empty($images)) {
             return $content;
         }
 
-        $content['images'] = self::handleImages($images);
+        $content['Images'] = self::handleImages($images);
         $content['full']   = $content['full'] ?? false;
 
         return $content;
@@ -135,12 +135,12 @@ class DesignService
     {
         $content['title'] = $content['title'][locale()] ?? '';
 
-        if (empty($content['images'])) {
+        if (empty($content['Images'])) {
             return $content;
         }
 
         $images = [];
-        foreach ($content['images'] as $image) {
+        foreach ($content['Images'] as $image) {
             $images[] = [
                 'image'     => image_origin($image['image'] ?? ''),
                 'text'      => $image['text'][locale()]     ?? '',
@@ -149,7 +149,7 @@ class DesignService
             ];
         }
 
-        $content['images'] = $images;
+        $content['Images'] = $images;
 
         return $content;
     }

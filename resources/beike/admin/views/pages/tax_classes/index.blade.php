@@ -1,18 +1,18 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/tax_rate.tax_classes_index'))
+@section('title', __('Admin/tax_rate.tax_classes_index'))
 
-@section('page-title-right')
-  <a href="{{ admin_route('settings.index') }}?tab=tab-checkout&line=tax_address" class="btn btn-outline-info" target="_blank">{{ __('admin/setting.tax_address') }}</a>
+@section('Page-title-right')
+  <a href="{{ admin_route('settings.index') }}?tab=tab-checkout&line=tax_address" class="btn btn-outline-info" target="_blank">{{ __('Admin/setting.tax_address') }}</a>
 @endsection
 
 @section('content')
   <ul class="nav-bordered nav nav-tabs mb-3">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="{{ admin_route('tax_classes.index') }}">{{ __('admin/tax_rate.tax_classes_index') }}</a>
+      <a class="nav-link active" aria-current="page" href="{{ admin_route('tax_classes.index') }}">{{ __('Admin/tax_rate.tax_classes_index') }}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ admin_route('tax_rates.index') }}">{{ __('admin/tax_rate.index') }}</a>
+      <a class="nav-link" href="{{ admin_route('tax_rates.index') }}">{{ __('Admin/tax_rate.index') }}</a>
     </li>
   </ul>
 
@@ -26,8 +26,8 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>{{ __('admin/region.name') }}</th>
-              <th>{{ __('admin/region.describe') }}</th>
+              <th>{{ __('Admin/region.name') }}</th>
+              <th>{{ __('Admin/region.describe') }}</th>
               <th>{{ __('common.created_at') }}</th>
               <th>{{ __('common.updated_at') }}</th>
               <th class="text-end">{{ __('common.action') }}</th>
@@ -51,25 +51,25 @@
       </div>
     </div>
 
-    <el-dialog title="{{ __('admin/tax_class.tax_classes_create') }}" :visible.sync="dialog.show" width="700px"
+    <el-dialog title="{{ __('Admin/tax_class.tax_classes_create') }}" :visible.sync="dialog.show" width="700px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="100px">
-        <el-form-item label="{{ __('admin/region.name') }}" prop="title">
-          <el-input v-model="dialog.form.title" placeholder="{{ __('admin/region.name') }}"></el-input>
+        <el-form-item label="{{ __('Admin/region.name') }}" prop="title">
+          <el-input v-model="dialog.form.title" placeholder="{{ __('Admin/region.name') }}"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/region.describe') }}" prop="description">
-          <el-input v-model="dialog.form.description" placeholder="{{ __('admin/region.describe') }}"></el-input>
+        <el-form-item label="{{ __('Admin/region.describe') }}" prop="description">
+          <el-input v-model="dialog.form.description" placeholder="{{ __('Admin/region.describe') }}"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/tax_class.rule') }}">
+        <el-form-item label="{{ __('Admin/tax_class.rule') }}">
             <table class="table table-bordered" style="line-height: 1.6;">
               <thead>
                 <tr>
-                  <th>{{ __('admin/tax_rate.tax_rate') }}</th>
-                  <th>{{ __('admin/tax_class.based_on') }}</th>
-                  <th>{{ __('admin/tax_class.priority') }}</th>
+                  <th>{{ __('Admin/tax_rate.tax_rate') }}</th>
+                  <th>{{ __('Admin/tax_class.based_on') }}</th>
+                  <th>{{ __('Admin/tax_class.priority') }}</th>
                   <th></th>
                 </tr>
               </thead>
@@ -85,7 +85,7 @@
                       <el-option v-for="base in source.bases" :key="base" :label="base" :value="base"></el-option>
                     </el-select>
                   </td>
-                  <td width="80px"><el-input v-model="rule.priority" size="mini" placeholder="{{ __('admin/tax_class.priority') }}"></el-input></td>
+                  <td width="80px"><el-input v-model="rule.priority" size="mini" placeholder="{{ __('Admin/tax_class.priority') }}"></el-input></td>
                   <td>
                     <button class="btn btn-outline-danger btn-sm ml-1" type="button" @click="deleteRates(index)">{{ __('common.delete') }}</button>
                   </td>
@@ -129,8 +129,8 @@
         },
 
         rules: {
-          title: [{required: true,message: "{{ __('common.error_required', ['name' => __('admin/region.name')])}}",trigger: 'blur'}, ],
-          description: [{required: true,message: '{{ __('common.error_required', ['name' => __('admin/region.describe')])}}',trigger: 'blur'}, ],
+          title: [{required: true,message: "{{ __('common.error_required', ['name' => __('Admin/region.name')])}}",trigger: 'blur'}, ],
+          description: [{required: true,message: '{{ __('common.error_required', ['name' => __('Admin/region.describe')])}}',trigger: 'blur'}, ],
         }
       },
 

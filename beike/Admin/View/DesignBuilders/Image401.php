@@ -35,10 +35,10 @@ class Image401 extends Component
         $data['register'] = [
             'code' => 'image401',
             'sort' => 0,
-            'name' => trans('admin/design_builder.module_four_image_pro'),
+            'name' => trans('Admin/design_builder.module_four_image_pro'),
             'icon' => '&#xe663;',
         ];
 
-        return view('admin::pages.design.module.image401', $data);
+        return view('Admin::pages.design.module.image401', $data);
     }
 }

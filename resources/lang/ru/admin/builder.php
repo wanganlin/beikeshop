@@ -143,7 +143,7 @@ return [
     'text_bgi'                         => 'фоновое изображение',
     'text_btn'                         => 'кнопка',
 
-    // page
+    // Page
     'page_product_title_size'          => 'Размер шрифта названия товара',
     'page_product_title_color'         => 'Цвет названия товара',
     'page_product_price_color'         => 'Цвет цены товара',

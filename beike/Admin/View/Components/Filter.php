@@ -28,6 +28,6 @@ class Filter extends Component
      */
     public function render()
     {
-        return view('Resources::components.admin.filter');
+        return view('Resources::components.Admin.filter');
     }
 }

@@ -133,7 +133,7 @@ export default {
   // 设置vip更新提示
   vipUpdateTips() {
     let data = JSON.parse(Cookies.get('beike_vip') || null);
-    const isHome = document.body.classList.contains('admin-home');
+    const isHome = document.body.classList.contains('Admin-home');
 
     if (!data || isHome) {
       $http.get(`${config.api_url}/api/vip?domain=${config.app_url}`, null, {hload: true}).then((res) => {

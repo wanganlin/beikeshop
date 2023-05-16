@@ -35,10 +35,10 @@ class Image300 extends Component
         $data['register'] = [
             'code' => 'image300',
             'sort' => 0,
-            'name' => trans('admin/builder.modules_image_300'),
+            'name' => trans('Admin/builder.modules_image_300'),
             'icon' => '&#xe663;',
         ];
 
-        return view('admin::pages.design.module.image300', $data);
+        return view('Admin::pages.design.module.image300', $data);
     }
 }

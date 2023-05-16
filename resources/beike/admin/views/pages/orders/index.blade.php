@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/order.list'))
+@section('title', __('Admin/order.list'))
 
 @section('content')
   @if ($errors->has('error'))
@@ -102,7 +102,7 @@
             </tbody>
           </table>
         </div>
-        {{ $orders->withQueryString()->links('admin::vendor/pagination/bootstrap-4') }}
+        {{ $orders->withQueryString()->links('Admin::vendor/pagination/bootstrap-4') }}
       @else
         <x-admin-no-data />
       @endif

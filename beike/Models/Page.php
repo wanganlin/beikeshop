@@ -49,8 +49,8 @@ class Page extends Base
 
     public function getUrlAttribute()
     {
-        $url     = shop_route('pages.show', ['page' => $this]);
-        $filters = hook_filter('model.page.url', ['url' => $url, 'page' => $this]);
+        $url     = shop_route('pages.show', ['Page' => $this]);
+        $filters = hook_filter('model.Page.url', ['url' => $url, 'Page' => $this]);
 
         return $filters['url'] ?? '';
     }

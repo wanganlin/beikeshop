@@ -23,12 +23,12 @@ class AttributeGroupController extends Controller
             $data = [
                 'attribute_groups' => AttributeGroupRepo::getList(),
             ];
-            $data = hook_filter('admin.attribute_group.index.data', $data);
+            $data = hook_filter('Admin.attribute_group.index.data', $data);
         } catch (Exception $e) {
-            return view('admin::pages.attribute_group.index', $data)->withErrors(['error' => $e->getMessage()]);
+            return view('Admin::pages.attribute_group.index', $data)->withErrors(['error' => $e->getMessage()]);
         }
 
-        return view('admin::pages.attribute_group.index', $data);
+        return view('Admin::pages.attribute_group.index', $data);
     }
 
     public function store(Request $request)

@@ -35,10 +35,10 @@ class RichText extends Component
         $data['register'] = [
             'code' => 'rich_text',
             'sort' => 0,
-            'name' => trans('admin/design_builder.module_rich_text'),
+            'name' => trans('Admin/design_builder.module_rich_text'),
             'icon' => '&#xe601;',
         ];
 
-        return view('admin::pages.design.module.rich_text', $data);
+        return view('Admin::pages.design.module.rich_text', $data);
     }
 }

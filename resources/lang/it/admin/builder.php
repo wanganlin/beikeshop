@@ -102,7 +102,7 @@ return [
 
     'text_edit_product'                => 'Modifica i dettagli del prodotto',
     'text_edit_home'                   => 'Modifica casa',
-    'text_edit_mb_home'                => 'Modifica la home page mobile',
+    'text_edit_mb_home'                => 'Modifica la home Page mobile',
     'text_footer_edit'                 => 'Modifica piè di pagina',
     'text_header_edit'                 => 'modifica intestazione',
     'text_save_refresh'                => 'salva e aggiorna',
@@ -122,7 +122,7 @@ return [
     'text_hot_keywords'                => 'Parole chiave di ricerca calde',
     'text_title'                       => 'titolo',
     'text_text_notific'                => 'notifica di testo',
-    'text_only_home'                   => 'Mostra solo sulla home page',
+    'text_only_home'                   => 'Mostra solo sulla home Page',
     'text_background_color'            => 'colore di sfondo',
     'text_font_color'                  => 'colore del carattere',
     'text_image'                       => 'immagine',
@@ -142,7 +142,7 @@ return [
     'text_bgi'                         => 'immagine di sfondo',
     'text_btn'                         => 'pulsante',
 
-    // page
+    // Page
     'page_product_title_size'          => 'Dimensione del carattere del titolo del prodotto',
     'page_product_title_color'         => 'colore del titolo del prodotto',
     'page_product_price_color'         => 'colore prezzo prodotto',

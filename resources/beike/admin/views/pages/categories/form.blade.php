@@ -1,10 +1,10 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.category'))
+@section('title', __('Admin/common.category'))
 
 @section('content')
   <div id="category-app" class="card">
-    <div class="card-header">{{ __('admin/category.edit_category') }}</div>
+    <div class="card-header">{{ __('Admin/category.edit_category') }}</div>
     <div class="card-body">
       <form class="needs-validation" novalidate action="{{ admin_route($category->id ? 'categories.update' : 'categories.store', $category) }}"
         method="POST">
@@ -19,11 +19,11 @@
         @hook('admin.category.form.before')
 
         <x-admin-form-input-locale name="descriptions.*.name" title="{{ __('common.name') }}" :value="$descriptions" :required="true" />
-        <x-admin-form-input-locale name="descriptions.*.content" title="{{ __('admin/builder.modules_content') }}" :value="$descriptions" />
+        <x-admin-form-input-locale name="descriptions.*.content" title="{{ __('Admin/builder.modules_content') }}" :value="$descriptions" />
 
-        {{-- <x-admin-form-select title="上级分类" name="parent_id" :value="old('parent_id', $category->parent_id ?? 0)" :options="$categories->toArray()" key="id" label="name" /> --}}
+        {{-- <x-Admin-form-select title="上级分类" name="parent_id" :value="old('parent_id', $category->parent_id ?? 0)" :options="$categories->toArray()" key="id" label="name" /> --}}
 
-        <x-admin::form.row title="{{ __('admin/category.parent_category') }}">
+        <x-admin::form.row title="{{ __('Admin/category.parent_category') }}">
           @php
             $_parent_id = old('parent_id', $category->parent_id ?? 0);
           @endphp

@@ -29,9 +29,9 @@ class CustomerGroupController extends Controller
             'customer_groups' => $customers,
             'languages'       => LanguageRepo::all(),
         ];
-        $data = hook_filter('admin.customer_group.index.data', $data);
+        $data = hook_filter('Admin.customer_group.index.data', $data);
 
-        return view('admin::pages.customer_groups.index', $data);
+        return view('Admin::pages.customer_groups.index', $data);
     }
 
     public function store(CustomerGroupRequest $request)
@@ -39,7 +39,7 @@ class CustomerGroupController extends Controller
         $customerGroup = CustomerGroupService::create($request->all());
         $customerGroup->load('descriptions', 'description');
 
-        hook_action('admin.customer_group.store.after', $customerGroup);
+        hook_action('Admin.customer_group.store.after', $customerGroup);
 
         return json_success(trans('common.created_success'), $customerGroup);
     }
@@ -49,7 +49,7 @@ class CustomerGroupController extends Controller
         $customerGroup = CustomerGroupService::update($id, $request->all());
         $customerGroup->load('descriptions', 'description');
 
-        hook_action('admin.customer_group.update.after', $customerGroup);
+        hook_action('Admin.customer_group.update.after', $customerGroup);
 
         return json_success(trans('common.updated_success'), $customerGroup);
     }
@@ -58,7 +58,7 @@ class CustomerGroupController extends Controller
     {
         CustomerGroupRepo::delete($id);
 
-        hook_action('admin.customer_group.destroy.after', $id);
+        hook_action('Admin.customer_group.destroy.after', $id);
 
         return json_success(trans('common.deleted_success'));
     }

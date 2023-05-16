@@ -1,14 +1,14 @@
 <template id="module-editor-brand-template">
   <div class="image-edit-wrapper">
-    <div class="module-editor-row">{{ __('admin/builder.text_set_up') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.text_set_up') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.text_module_title') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.text_module_title') }}</div>
       <text-i18n v-model="module.title"></text-i18n>
     </div>
 
-    <div class="module-editor-row">{{ __('admin/builder.modules_content') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.modules_content') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.modules_choose_brand') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.modules_choose_brand') }}</div>
 
       <div class="autocomplete-group-wrapper">
         <el-autocomplete
@@ -17,7 +17,7 @@
           value-key="name"
           size="small"
           :fetch-suggestions="querySearch"
-          placeholder="{{ __('admin/builder.modules_keywords_search') }}"
+          placeholder="{{ __('Admin/builder.modules_keywords_search') }}"
           :trigger-on-focus="false"
           :highlight-first-item="true"
           @select="handleSelect"
@@ -117,7 +117,7 @@ Vue.component('module-editor-brand', {
       },
       floor: languagesFill(''),
       full: true,
-      title: languagesFill('{{ __('admin/builder.text_module_title') }}'),
+      title: languagesFill('{{ __('Admin/builder.text_module_title') }}'),
       brands: []
     }
 

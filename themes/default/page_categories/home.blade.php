@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('body-class', 'page-categories-home')
+@section('body-class', 'Page-categories-home')
 
 @push('header')
   <script src="{{ asset('vendor/scrolltofixed/jquery-scrolltofixed-min.js') }}"></script>

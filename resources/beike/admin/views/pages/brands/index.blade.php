@@ -1,12 +1,12 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.brand'))
+@section('title', __('Admin/common.brand'))
 
 @section('content')
   <div id="customer-app" class="card h-min-600" v-cloak>
     <div class="card-body">
       <div class="d-flex justify-content-between mb-4">
-        <button type="button" class="btn btn-primary" @click="checkedCreate('add', null)">{{ __('admin/brand.brands_create') }}</button>
+        <button type="button" class="btn btn-primary" @click="checkedCreate('add', null)">{{ __('Admin/brand.brands_create') }}</button>
       </div>
       <div class="table-push">
         <table class="table">
@@ -46,7 +46,7 @@
         :total="brands.total" :current-page.sync="page"></el-pagination>
     </div>
 
-    <el-dialog title="{{ __('admin/common.brand') }}" :visible.sync="dialog.show" width="600px"
+    <el-dialog title="{{ __('Admin/common.brand') }}" :visible.sync="dialog.show" width="600px"
       @close="closeDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="100px">
@@ -86,7 +86,7 @@
 
 
 @push('footer')
-  @include('admin::shared.vue-image')
+  @include('Admin::shared.vue-image')
   <script>
     new Vue({
       el: '#customer-app',
@@ -111,7 +111,7 @@
         rules: {
           name: [{required: true,message: '{{ __('common.error_required', ['name' => __('common.name')])}}',trigger: 'blur'}, ],
           first: [{required: true,message: '{{ __('common.error_required', ['name' => __('brand.first_letter')])}}',trigger: 'blur'}, ],
-          logo: [{required: true,message: '{{ __('admin/brand.error_upload') }}',trigger: 'change'}, ],
+          logo: [{required: true,message: '{{ __('Admin/brand.error_upload') }}',trigger: 'change'}, ],
         }
       },
 
@@ -130,7 +130,7 @@
           const url = @json(admin_route('brands.index'));
 
           if (this.page) {
-            return url + '?page=' + this.page;
+            return url + '?Page=' + this.page;
           }
 
           return url;

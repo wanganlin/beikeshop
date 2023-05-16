@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('body-class', 'page-account-wishlist')
+@section('body-class', 'Page-account-wishlist')
 
 @section('content')
   <x-shop-breadcrumb type="static" value="account.wishlist.index" />

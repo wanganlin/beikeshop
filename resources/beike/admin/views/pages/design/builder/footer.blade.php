@@ -9,21 +9,21 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="asset" content="{{ asset('/') }}">
   <base href="{{$admin_base_url}}">
-  <title>{{ __('admin/builder.footer_edit') }}</title>
+  <title>{{ __('Admin/builder.footer_edit') }}</title>
   <script src="{{ asset('vendor/jquery/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('vendor/layer/3.5.1/layer.js') }}"></script>
   <script src="{{ asset('vendor/vue/2.7/vue' . (!config('app.debug') ? '.min' : '') . '.js') }}"></script>
-  <script src="{{ mix('build/beike/admin/js/app.js') }}"></script>
+  <script src="{{ mix('build/beike/Admin/js/app.js') }}"></script>
   <script src="{{ asset('vendor/vue/Sortable.min.js') }}"></script>
   <script src="{{ asset('vendor/vue/vuedraggable.js') }}"></script>
   <script src="{{ asset('vendor/tinymce/5.9.1/tinymce.min.js') }}"></script>
   <script src="{{ asset('vendor/element-ui/2.15.6/js.js') }}"></script>
   <link rel="stylesheet" href="{{ asset('vendor/element-ui/2.15.6/css.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('/build/beike/admin/css/design.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('/build/beike/Admin/css/design.css') }}">
   @stack('header')
   <script>
     const lang = {
-      file_manager: '{{ __('admin/file_manager.file_manager') }}',
+      file_manager: '{{ __('Admin/file_manager.file_manager') }}',
     }
   </script>
 </head>
@@ -37,10 +37,10 @@
       </div>
       <div class="module-edit">
         <el-collapse value="intro" @change="footerItemChange" accordion>
-          <el-collapse-item title="{{ __('admin/builder.text_service_icon') }}" name="services-wrap">
+          <el-collapse-item title="{{ __('Admin/builder.text_service_icon') }}" name="services-wrap">
             <div class="module-edit-group">
               <div class="module-edit-group">
-                <div class="module-edit-title">{{ __('admin/builder.text_enable') }}</div>
+                <div class="module-edit-title">{{ __('Admin/builder.text_enable') }}</div>
                 <el-switch v-model="form.services.enable"></el-switch>
               </div>
               <draggable
@@ -65,41 +65,41 @@
                   </div>
                   <div :class="'pb-images-list ' + (item.show ? 'active' : '')">
                     <pb-image-selector v-model="item.image" :is-language="false"></pb-image-selector>
-                    <div class="tag">{{ __('admin/builder.text_suggested_size') }} 100 x 100</div>
-                    <div class="module-edit-title">{{ __('admin/builder.text_title') }}</div>
+                    <div class="tag">{{ __('Admin/builder.text_suggested_size') }} 100 x 100</div>
+                    <div class="module-edit-title">{{ __('Admin/builder.text_title') }}</div>
                     <text-i18n v-model="item.title"></text-i18n>
-                    <div class="module-edit-title">{{ __('admin/builder.sub_title') }}</div>
+                    <div class="module-edit-title">{{ __('Admin/builder.sub_title') }}</div>
                     <text-i18n v-model="item.sub_title"></text-i18n>
                   </div>
                 </div>
               </draggable>
             </div>
           </el-collapse-item>
-          <el-collapse-item title="Logo/{{ __('admin/builder.text_introduce') }}" name="footer-content-left">
+          <el-collapse-item title="Logo/{{ __('Admin/builder.text_introduce') }}" name="footer-content-left">
             <div class="module-edit-group">
               <div class="module-edit-title">logo</div>
               <pb-image-selector v-model="form.content.intro.logo" :is-language="false"></pb-image-selector>
             </div>
             <div class="module-edit-group">
-              <div class="module-edit-title">{{ __('admin/builder.introduction') }}</div>
+              <div class="module-edit-title">{{ __('Admin/builder.introduction') }}</div>
               <rich-text-i18n v-model="form.content.intro.text"></rich-text-i18n>
             </div>
           </el-collapse-item>
           @for ($i = 1; $i <= 3; $i++)
-          <el-collapse-item title="{{ __('admin/builder.text_link_bar') }}{{ $i }}" name="footer-content-link{{ $i }}">
+          <el-collapse-item title="{{ __('Admin/builder.text_link_bar') }}{{ $i }}" name="footer-content-link{{ $i }}">
             <div class="module-edit-group">
-              <div class="module-edit-title">{{ __('admin/builder.text_set_title') }}</div>
+              <div class="module-edit-title">{{ __('Admin/builder.text_set_title') }}</div>
               <text-i18n v-model="form.content.link{{ $i }}.title"></text-i18n>
             </div>
             <div class="module-edit-group">
-              <div class="module-edit-title">{{ __('admin/builder.modules_link') }}</div>
+              <div class="module-edit-title">{{ __('Admin/builder.modules_link') }}</div>
 
               <draggable
                 ghost-class="dragabble-ghost"
                 :list="form.content.link{{ $i }}.links"
                 :options="{animation: 330, handle: '.icon-rank'}">
                 <div v-for="(item, index) in form.content.link{{ $i }}.links" :key="index" class="footer-link-item">
-                  <el-tooltip class="icon-rank" effect="dark" content="{{ __('admin/builder.text_drag_sort') }}" placement="left">
+                  <el-tooltip class="icon-rank" effect="dark" content="{{ __('Admin/builder.text_drag_sort') }}" placement="left">
                     <i class="el-icon-rank"></i>
                   </el-tooltip>
                   <link-selector :is-custom-name="true" :hide-types="['product', 'category', 'brand']" v-model="form.content.link{{ $i }}.links[index]"></link-selector>
@@ -107,33 +107,33 @@
                 </div>
               </draggable>
             </div>
-            <el-button class="add-item" size="mini" type="primary" plain @click="topLinkAddLinkButtonClicked({{ $i }})">{{ __('admin/builder.text_add_link') }}</el-button>
+            <el-button class="add-item" size="mini" type="primary" plain @click="topLinkAddLinkButtonClicked({{ $i }})">{{ __('Admin/builder.text_add_link') }}</el-button>
           </el-collapse-item>
           @endfor
 
-          <el-collapse-item title="{{ __('admin/builder.text_static_information_contact') }}" name="footer-content-contact">
+          <el-collapse-item title="{{ __('Admin/builder.text_static_information_contact') }}" name="footer-content-contact">
             <div class="module-edit-group">
               <div class="module-edit-title">{{ __('common.phone') }}</div>
               <el-input placeholder="{{ __('common.phone') }}" size="small" v-model="form.content.contact.telephone"></el-input>
             </div>
             <div class="module-edit-group">
-              <div class="module-edit-title">{{ __('admin/builder.text_address') }}</div>
+              <div class="module-edit-title">{{ __('Admin/builder.text_address') }}</div>
               {{-- <el-input placeholder="地址" size="small" v-model="form.content.contact.address"></el-input> --}}
               <text-i18n type="textarea" v-model="form.content.contact.address"></text-i18n>
             </div>
             <div class="module-edit-group">
-              <div class="module-edit-title">{{ __('admin/builder.text_email') }}</div>
-              <el-input placeholder="{{ __('admin/builder.text_email') }}" size="small" v-model="form.content.contact.email"></el-input>
+              <div class="module-edit-title">{{ __('Admin/builder.text_email') }}</div>
+              <el-input placeholder="{{ __('Admin/builder.text_email') }}" size="small" v-model="form.content.contact.email"></el-input>
             </div>
           </el-collapse-item>
 
-          <el-collapse-item title="{{ __('admin/builder.text_copyright') }}" name="footer-bottom">
+          <el-collapse-item title="{{ __('Admin/builder.text_copyright') }}" name="footer-bottom">
             <div class="module-edit-group">
-              <div class="module-edit-title">{{ __('admin/builder.copyright_settings') }}</div>
+              <div class="module-edit-title">{{ __('Admin/builder.copyright_settings') }}</div>
               <rich-text-i18n v-model="form.bottom.copyright"></rich-text-i18n>
             </div>
             <div class="module-edit-group">
-              <div class="module-edit-title">{{ __('admin/builder.text_image') }}</div>
+              <div class="module-edit-title">{{ __('Admin/builder.text_image') }}</div>
               <pb-image-selector v-model="form.bottom.image" :is-language="false"></pb-image-selector>
             </div>
           </el-collapse-item>
@@ -171,10 +171,10 @@
     });
   </script>
 
-  @include('admin::pages.design.builder.component.image_selector')
-  @include('admin::pages.design.builder.component.link_selector')
-  @include('admin::pages.design.builder.component.text_i18n')
-  @include('admin::pages.design.builder.component.rich_text_i18n')
+  @include('Admin::pages.design.builder.component.image_selector')
+  @include('Admin::pages.design.builder.component.link_selector')
+  @include('Admin::pages.design.builder.component.text_i18n')
+  @include('Admin::pages.design.builder.component.rich_text_i18n')
 
   <script>
     let app = new Vue({

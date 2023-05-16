@@ -3,7 +3,7 @@
 
   <div class="module-image-banner module-info {{ !$content['full'] ? 'container' : '' }} mb-3 mb-md-5 d-flex justify-content-center">
     <div class="container{{ $content['full'] ? '-fluid' : '' }} d-flex justify-content-center">
-      <a href="{{ $content['images'][0]['link']['link'] ?: 'javascript:void(0)' }}"><img src="{{ $content['images'][0]['image'] }}" class="img-fluid"></a>
+      <a href="{{ $content['Images'][0]['link']['link'] ?: 'javascript:void(0)' }}"><img src="{{ $content['Images'][0]['image'] }}" class="img-fluid"></a>
     </div>
   </div>
 </section>

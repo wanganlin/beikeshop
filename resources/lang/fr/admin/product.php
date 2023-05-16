@@ -33,7 +33,7 @@ return [
     'cost_price'             => 'prix de revient',
     'quantity'               => 'quantité',
     'enable_multi_spec'      => 'Activer multi-spec',
-    'image_help'             => 'La première image sera utilisée comme image principale du produit, et plusieurs images peuvent être téléchargées en même temps, et la position de plusieurs images peut être ajustée à volonté',
+    'image_help'             => 'La première image sera utilisée comme image principale du produit, et plusieurs Images peuvent être téléchargées en même temps, et la position de plusieurs Images peut être ajustée à volonté',
     'add_variable'           => 'Ajouter une spécification',
     'add_variable_value'     => 'Ajouter une valeur de spécification',
     'add_variable_image'     => 'Ajouter une image de spécification',

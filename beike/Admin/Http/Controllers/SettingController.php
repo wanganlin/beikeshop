@@ -31,8 +31,8 @@ class SettingController extends Controller
         $themes = ThemeRepo::getAllThemes();
 
         $taxAddress = [
-            ['value' => 'shipping', 'label' => trans('admin/setting.shipping_address')],
-            ['value' => 'payment', 'label' => trans('admin/setting.payment_address')],
+            ['value' => 'shipping', 'label' => trans('Admin/setting.shipping_address')],
+            ['value' => 'payment', 'label' => trans('Admin/setting.payment_address')],
         ];
 
         $data = [
@@ -43,9 +43,9 @@ class SettingController extends Controller
             'themes'          => $themes,
         ];
 
-        $data = hook_filter('admin.setting.index.data', $data);
+        $data = hook_filter('Admin.setting.index.data', $data);
 
-        return view('admin::pages.setting', $data);
+        return view('Admin::pages.setting', $data);
     }
 
     /**
@@ -61,7 +61,7 @@ class SettingController extends Controller
         }
 
         $oldAdminName = admin_name();
-        $newAdminName = $settings['admin_name'] ?: 'admin';
+        $newAdminName = $settings['admin_name'] ?: 'Admin';
         $settingUrl   = str_replace($oldAdminName, $newAdminName, admin_route('settings.index'));
 
         return redirect($settingUrl)->with('success', trans('common.updated_success'));

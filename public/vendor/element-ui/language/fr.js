@@ -8,7 +8,7 @@
       exports: {}
     };
     factory(mod, mod.exports);
-    global.ELEMENT.lang = global.ELEMENT.lang || {}; 
+    global.ELEMENT.lang = global.ELEMENT.lang || {};
     global.ELEMENT.lang.fr = mod.exports;
   }
 })(this, function (module, exports) {
@@ -89,7 +89,7 @@
       },
       pagination: {
         goto: 'Aller à',
-        pagesize: '/page',
+        pagesize: '/Page',
         total: 'Total {total}',
         pageClassifier: ''
       },

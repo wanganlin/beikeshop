@@ -23,19 +23,19 @@ class CountryController extends Controller
         $data = [
             'country' => $countries,
         ];
-        $data = hook_filter('admin.country.index.data', $data);
+        $data = hook_filter('Admin.country.index.data', $data);
         if ($request->expectsJson()) {
             return json_success(trans('common.success'), $data);
         }
 
-        return view('admin::pages.country.index', $data);
+        return view('Admin::pages.country.index', $data);
     }
 
     public function store(Request $request)
     {
         $country = CountryRepo::create($request->only('name', 'code', 'sort_order', 'status'));
 
-        hook_action('admin.country.store.after', $country);
+        hook_action('Admin.country.store.after', $country);
 
         return json_success(trans('common.created_success'), $country);
     }
@@ -44,7 +44,7 @@ class CountryController extends Controller
     {
         $country = CountryRepo::update($id, $request->only('name', 'code', 'sort_order', 'status'));
 
-        hook_action('admin.country.store.after', $country);
+        hook_action('Admin.country.store.after', $country);
 
         return json_success(trans('common.updated_success'), $country);
     }
@@ -53,7 +53,7 @@ class CountryController extends Controller
     {
         CountryRepo::delete($id);
 
-        hook_action('admin.country.destroy.after', $id);
+        hook_action('Admin.country.destroy.after', $id);
 
         return json_success(trans('common.deleted_success'));
     }

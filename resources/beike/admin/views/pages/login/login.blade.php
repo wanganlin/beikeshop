@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <link href="{{ mix('/build/beike/admin/css/bootstrap.css') }}" rel="stylesheet">
-  {{-- <link href="{{ mix('build/css/admin/login.css') }}" rel="stylesheet"> --}}
-  <link href="{{ mix('build/beike/admin/css/app.css') }}" rel="stylesheet">
-  <title>{{ __('admin/login.plugins_index') }}</title>
+  <link href="{{ mix('/build/beike/Admin/css/bootstrap.css') }}" rel="stylesheet">
+  {{-- <link href="{{ mix('build/css/Admin/login.css') }}" rel="stylesheet"> --}}
+  <link href="{{ mix('build/beike/Admin/css/app.css') }}" rel="stylesheet">
+  <title>{{ __('Admin/login.plugins_index') }}</title>
 </head>
 <body class="page-login">
   <div class="d-flex align-items-center vh-100 pt-2 pt-sm-5 pb-4 pb-sm-5">
@@ -14,8 +14,8 @@
       <div class="card">
         <div class="w-480">
           <div class="card-header mt-3 mb-4">
-            <h4 class="fw-bold">{{ __('admin/login.plugins_index') }}</h4>
-            {{-- <div class="text-muted fw-normal">{{ __('admin/login.plugins_index') }}</div> --}}
+            <h4 class="fw-bold">{{ __('Admin/login.plugins_index') }}</h4>
+            {{-- <div class="text-muted fw-normal">{{ __('Admin/login.plugins_index') }}</div> --}}
           </div>
 
           <div class="card-body">
@@ -44,7 +44,7 @@
                 </div>
               @endif
 
-              <div class="d-grid mb-4"><button type="submit" class="btn btn-lg btn-primary">{{ __('admin/login.log_in') }}</button></div>
+              <div class="d-grid mb-4"><button type="submit" class="btn btn-lg btn-primary">{{ __('Admin/login.log_in') }}</button></div>
               <a href="{{ admin_route('forgotten.index') }}" class="text-muted"><i class="bi bi-question-circle"></i> 忘记密码</a>
             </form>
           </div>

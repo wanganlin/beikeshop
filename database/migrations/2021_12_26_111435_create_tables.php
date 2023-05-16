@@ -300,7 +300,7 @@ class CreateTables extends Migration
             $table->comment('产品');
             $table->id()->startingValue(100_000)->comment('ID');
             $table->unsignedInteger('brand_id')->index()->comment('品牌 ID')->index('brand_id');
-            $table->json('images')->nullable()->comment('图片');
+            $table->json('Images')->nullable()->comment('图片');
             $table->decimal('price')->default(0)->comment('价格');
             $table->string('video')->default('')->comment('视频');
             $table->integer('position')->default(0)->comment('排序');
@@ -335,7 +335,7 @@ class CreateTables extends Migration
             $table->unsignedBigInteger('product_id')->comment('产品 ID')->index('product_id');
             $table->json('variants')->nullable()->comment('SKU 规格');
             $table->integer('position')->default(0)->comment('排序');
-            $table->json('images')->nullable()->comment('图片');
+            $table->json('Images')->nullable()->comment('图片');
             $table->string('model')->default('')->comment('模型');
             $table->string('sku')->default('')->comment('SKU');
             $table->double('price')->default(0)->comment('价格');

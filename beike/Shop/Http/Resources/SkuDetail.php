@@ -21,7 +21,7 @@ class SkuDetail extends JsonResource
             'id'                  => $this->id,
             'variants'            => $this->variants ?: [],
             'position'            => $this->position,
-            'images'              => array_map(function ($image) {
+            'Images'              => array_map(function ($image) {
                 return [
                     'preview' => image_resize($image, 500, 500),
                     'popup'   => image_resize($image, 800, 800),

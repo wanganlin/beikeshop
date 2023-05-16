@@ -94,7 +94,7 @@ class PluginServiceProvider extends ServiceProvider
     }
 
     /**
-     * Load and register for admin and shop
+     * Load and register for Admin and shop
      *
      * @param $pluginCode
      */
@@ -105,19 +105,19 @@ class PluginServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register admin routes
+     * Register Admin routes
      *
      * @param $pluginCode
      */
     private function registerAdminRoutes($pluginCode)
     {
         $pluginBasePath = $this->pluginBasePath;
-        $adminRoutePath = "{$pluginBasePath}/{$pluginCode}/Routes/admin.php";
+        $adminRoutePath = "{$pluginBasePath}/{$pluginCode}/Routes/Admin.php";
         if (file_exists($adminRoutePath)) {
             $adminName = admin_name();
             Route::prefix($adminName)
                 ->name("{$adminName}.")
-                ->middleware(['admin', 'admin_auth:' . AdminUser::AUTH_GUARD])
+                ->middleware(['Admin', 'admin_auth:' . AdminUser::AUTH_GUARD])
                 ->group(function () use ($adminRoutePath) {
                     $this->loadRoutesFrom($adminRoutePath);
                 });
@@ -182,7 +182,7 @@ class PluginServiceProvider extends ServiceProvider
 
         if ($adminMiddlewares) {
             foreach ($adminMiddlewares as $adminMiddleware) {
-                $router->pushMiddlewareToGroup('admin', $adminMiddleware);
+                $router->pushMiddlewareToGroup('Admin', $adminMiddleware);
             }
         }
     }
@@ -214,7 +214,7 @@ class PluginServiceProvider extends ServiceProvider
     }
 
     /**
-     * 加载插件内首页 page builder 相关组件
+     * 加载插件内首页 Page builder 相关组件
      *
      * @throws \Exception
      */

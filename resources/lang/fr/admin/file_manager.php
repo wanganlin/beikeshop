@@ -22,7 +22,7 @@ return [
     'download'                => 'télécharger',
     'upload_files'            => 'Télécharger des fichiers',
     'click_upload'            => 'Cliquez pour télécharger ou faites glisser l\'image ici',
-    'image_uploading'         => 'téléchargement d\'images',
+    'image_uploading'         => 'téléchargement d\'Images',
     'no_file'                 => 'pas de fichier',
     'picture_space'           => 'espace image',
     'show_pc'                 => 'Veuillez passer du côté PC pour opérer',
@@ -33,5 +33,5 @@ return [
     'can_empty'               => 'ne peut pas être vide',
     'finish'                  => 'finir',
     'uploading'               => 'Téléchargement',
-    'file_manager'            => 'gestionnaire d\'images',
+    'file_manager'            => 'gestionnaire d\'Images',
 ];

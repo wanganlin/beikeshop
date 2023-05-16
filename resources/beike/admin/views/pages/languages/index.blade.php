@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.language'))
+@section('title', __('Admin/common.language'))
 
 @section('content')
   <div id="tax-classes-app" class="card" v-cloak>
@@ -8,7 +8,7 @@
       {{-- <div class="d-flex justify-content-between mb-4"> --}}
         {{-- <button type="button" class="btn btn-primary" @click="checkedCreate('add', null)">添加</button> --}}
       {{-- </div> --}}
-      <div class="mb-3 alert alert-info">{{ __('admin/language.help_install') }}</div>
+      <div class="mb-3 alert alert-info">{{ __('Admin/language.help_install') }}</div>
       <table class="table">
         <thead>
           <tr>
@@ -31,10 +31,10 @@
             <td class="text-end">
               <div v-if="language.id">
                 <button class="btn btn-outline-secondary btn-sm" @click="checkedCreate('edit', index)">{{ __('common.edit') }}</button>
-                <button :disabled="settingLocale == language.code" class="btn btn-outline-danger btn-sm ml-1" type="button" @click="deleteItem(language.id, index)">{{ __('admin/common.uninstall') }}</button>
+                <button :disabled="settingLocale == language.code" class="btn btn-outline-danger btn-sm ml-1" type="button" @click="deleteItem(language.id, index)">{{ __('Admin/common.uninstall') }}</button>
               </div>
               <div v-else>
-                <button class="btn btn-outline-success btn-sm" @click="install(language.code, language.name, index)">{{ __('admin/common.install') }}</button>
+                <button class="btn btn-outline-success btn-sm" @click="install(language.code, language.name, index)">{{ __('Admin/common.install') }}</button>
               </div>
             </td>
           </tr>
@@ -42,7 +42,7 @@
       </table>
     </div>
 
-    <el-dialog title="{{ __('admin/common.language') }}" :visible.sync="dialog.show" width="500px"
+    <el-dialog title="{{ __('Admin/common.language') }}" :visible.sync="dialog.show" width="500px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="100px">
@@ -72,7 +72,7 @@
 @endsection
 
 @push('footer')
-  @include('admin::shared.vue-image')
+  @include('Admin::shared.vue-image')
 
   <script>
     new Vue({

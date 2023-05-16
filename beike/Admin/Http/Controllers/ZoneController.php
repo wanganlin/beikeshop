@@ -26,13 +26,13 @@ class ZoneController extends Controller
             'countries' => CountryRepo::all(),
         ];
 
-        $data = hook_filter('admin.zone.index.data', $data);
+        $data = hook_filter('Admin.zone.index.data', $data);
 
         if ($request->expectsJson()) {
             return json_success(trans('common.success'), $data);
         }
 
-        return view('admin::pages.zones.index', $data);
+        return view('Admin::pages.zones.index', $data);
     }
 
     public function store(Request $request)

@@ -1,18 +1,18 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/tax_rate.index'))
+@section('title', __('Admin/tax_rate.index'))
 
-@section('page-title-right')
-  <a href="{{ admin_route('settings.index') }}?tab=tab-checkout&line=tax_address" class="btn btn-outline-info" target="_blank">{{ __('admin/setting.tax_address') }}</a>
+@section('Page-title-right')
+  <a href="{{ admin_route('settings.index') }}?tab=tab-checkout&line=tax_address" class="btn btn-outline-info" target="_blank">{{ __('Admin/setting.tax_address') }}</a>
 @endsection
 
 @section('content')
   <ul class="nav-bordered nav nav-tabs mb-3">
     <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="{{ admin_route('tax_classes.index') }}">{{ __('admin/tax_rate.tax_classes_index') }}</a>
+      <a class="nav-link" aria-current="page" href="{{ admin_route('tax_classes.index') }}">{{ __('Admin/tax_rate.tax_classes_index') }}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="{{ admin_route('tax_rates.index') }}">{{ __('admin/tax_rate.index') }}</a>
+      <a class="nav-link active" href="{{ admin_route('tax_rates.index') }}">{{ __('Admin/tax_rate.index') }}</a>
     </li>
   </ul>
 
@@ -26,10 +26,10 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>{{ __('admin/tax_rate.tax') }}</th>
-              <th>{{ __('admin/tax_rate.tax_rate') }}</th>
-              <th>{{ __('admin/tax_rate.type') }}</th>
-              <th>{{ __('admin/tax_rate.area') }}</th>
+              <th>{{ __('Admin/tax_rate.tax') }}</th>
+              <th>{{ __('Admin/tax_rate.tax_rate') }}</th>
+              <th>{{ __('Admin/tax_rate.type') }}</th>
+              <th>{{ __('Admin/tax_rate.area') }}</th>
               <th>{{ __('common.created_at') }}</th>
               <th>{{ __('common.updated_at') }}</th>
               <th class="text-end">{{ __('common.action') }}</th>
@@ -54,30 +54,30 @@
         </table>
       </div>
 
-      {{-- {{ $tax_rates->links('admin::vendor/pagination/bootstrap-4') }} --}}
+      {{-- {{ $tax_rates->links('Admin::vendor/pagination/bootstrap-4') }} --}}
     </div>
 
-    <el-dialog title="{{ __('admin/tax_rate.tax_rate') }}" :visible.sync="dialog.show" width="500px"
+    <el-dialog title="{{ __('Admin/tax_rate.tax_rate') }}" :visible.sync="dialog.show" width="500px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="100px">
-        <el-form-item label="{{ __('admin/tax_rate.tax') }}" prop="name">
-          <el-input v-model="dialog.form.name" placeholder="{{ __('admin/tax_rate.tax') }}"></el-input>
+        <el-form-item label="{{ __('Admin/tax_rate.tax') }}" prop="name">
+          <el-input v-model="dialog.form.name" placeholder="{{ __('Admin/tax_rate.tax') }}"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/tax_rate.tax_rate') }}" prop="rate">
-          <el-input v-model="dialog.form.rate" placeholder="{{ __('admin/tax_rate.tax_rate') }}">
+        <el-form-item label="{{ __('Admin/tax_rate.tax_rate') }}" prop="rate">
+          <el-input v-model="dialog.form.rate" placeholder="{{ __('Admin/tax_rate.tax_rate') }}">
             <template slot="append" v-if="dialog.form.type == 'percent'">%</template>
           </el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/tax_rate.type') }}">
+        <el-form-item label="{{ __('Admin/tax_rate.type') }}">
           <el-select v-model="dialog.form.type" size="small" placeholder="{{ __('common.please_choose') }}">
             <el-option v-for="type in source.types" :key="type.value" :label="type.name" :value="type.value"></el-option>
           </el-select>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/tax_rate.area') }}">
+        <el-form-item label="{{ __('Admin/tax_rate.area') }}">
           <el-select v-model="dialog.form.region_id" size="small" placeholder="{{ __('common.please_choose') }}">
             <el-option v-for="region in source.regions" :key="region.value" :label="region.name" :value="region.id"></el-option>
           </el-select>
@@ -103,7 +103,7 @@
         source: {
           all_tax_rates: @json($all_tax_rates ?? []),
           regions: @json($regions ?? []),
-          types: [{value:'percent', name: '{{ __('admin/tax_rate.percentage') }}'}, {value:'flat', name: '{{ __('admin/tax_rate.fixed_tax_rate') }}'}]
+          types: [{value:'percent', name: '{{ __('Admin/tax_rate.percentage') }}'}, {value:'flat', name: '{{ __('Admin/tax_rate.fixed_tax_rate') }}'}]
         },
 
         dialog: {
@@ -120,8 +120,8 @@
         },
 
         rules: {
-          name: [{required: true,message: '{{ __('common.error_required', ['name' => __('admin/tax_rate.tax')])}}',trigger: 'blur'}, ],
-          rate: [{required: true,message: '{{ __('common.error_required', ['name' => __('admin/tax_rate.tax_rate')])}}',trigger: 'blur'}, ],
+          name: [{required: true,message: '{{ __('common.error_required', ['name' => __('Admin/tax_rate.tax')])}}',trigger: 'blur'}, ],
+          rate: [{required: true,message: '{{ __('common.error_required', ['name' => __('Admin/tax_rate.tax_rate')])}}',trigger: 'blur'}, ],
         }
       },
 

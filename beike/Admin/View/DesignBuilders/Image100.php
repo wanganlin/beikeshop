@@ -35,10 +35,10 @@ class Image100 extends Component
         $data['register'] = [
             'code' => 'image100',
             'sort' => 0,
-            'name' => trans('admin/design_builder.module_banner'),
+            'name' => trans('Admin/design_builder.module_banner'),
             'icon' => '&#xe663;',
         ];
 
-        return view('admin::pages.design.module.image100', $data);
+        return view('Admin::pages.design.module.image100', $data);
     }
 }

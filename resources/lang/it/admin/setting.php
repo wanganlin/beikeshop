@@ -57,7 +57,7 @@ return [
     'default_currency'       => 'valuta predefinita',
     'default_customer_group' => 'gruppo di clienti predefinito',
     'admin_name'             => 'directory in background',
-    'admin_name_info'        => 'Directory in background di gestione, l\'impostazione predefinita è admin',
+    'admin_name_info'        => 'Directory in background di gestione, l\'impostazione predefinita è Admin',
     'enable_tax'             => 'Abilita le tasse',
     'enable_tax_info'        => 'Se abilitare il calcolo delle tasse',
     'tax_address'            => 'indirizzo fiscale',
@@ -68,6 +68,6 @@ return [
     'placeholder_image'      => 'mappa segnaposto',
     'placeholder_image_info' => 'Immagine segnaposto visualizzata quando non viene trovata alcuna immagine o immagine, dimensione consigliata: 500*500',
     'head_code'              => 'inserisci codice',
-    'head_code_info'         => 'Il codice nella casella di input verrà inserito nell\'intestazione della pagina front-end, che può essere utilizzata per contare il codice o aggiungere plug-in speciali, ecc.',
+    'head_code_info'         => 'Il codice nella casella di input verrà inserito nell\'intestazione della pagina Front-end, che può essere utilizzata per contare il codice o aggiungere plug-in speciali, ecc.',
     'rate_api_key'           => 'tasso di cambio API KEY',
 ];

@@ -21,6 +21,6 @@ class SwitchRadio extends Component
 
     public function render()
     {
-        return view('admin::components.form.switch-radio');
+        return view('Admin::components.form.switch-radio');
     }
 }

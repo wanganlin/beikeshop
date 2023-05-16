@@ -25,9 +25,9 @@ class TaxClassController extends Controller
             'bases'         => TaxClassRepo::BASE_TYPES,
         ];
 
-        $data = hook_filter('admin.tax_class.index.data', $data);
+        $data = hook_filter('Admin.tax_class.index.data', $data);
 
-        return view('admin::pages.tax_classes.index', $data);
+        return view('Admin::pages.tax_classes.index', $data);
     }
 
     public function store(Request $request)

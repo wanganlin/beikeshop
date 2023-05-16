@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.multi_filter_index'))
+@section('title', __('Admin/common.multi_filter_index'))
 
 @section('content')
 <div class="card">
@@ -12,12 +12,12 @@
       @endif
       <h6 class="border-bottom pb-3 mb-4">{{ __('common.data') }}</h6>
 
-      <x-admin::form.row :title="__('admin/setting.filter_attribute')">
+      <x-admin::form.row :title="__('Admin/setting.filter_attribute')">
         <div class="module-edit-group wp-600">
           <div class="autocomplete-group-wrapper">
             <el-autocomplete class="inline-input" v-model="multi_filter.keyword" value-key="name" size="small"
               :fetch-suggestions="(keyword, cb) => {attributesQuerySearch(keyword, cb, 'products')}"
-              placeholder="{{ __('admin/builder.modules_keywords_search') }}"
+              placeholder="{{ __('Admin/builder.modules_keywords_search') }}"
               @select="(e) => {handleSelect(e, 'product_attributes')}"></el-autocomplete>
 
             <div class="item-group-wrapper" v-loading="multi_filter.loading">
@@ -33,16 +33,16 @@
                 </div>
               </template>
               <template v-else>
-                {{ __('admin/setting.please_select') }}
+                {{ __('Admin/setting.please_select') }}
                 <input type="text" name="multi_filter" value="" class="form-control d-none">
               </template>
             </div>
-            <div class="help-text font-size-12 lh-base">{{ __('admin/setting.multi_filter_helper') }}</div>
+            <div class="help-text font-size-12 lh-base">{{ __('Admin/setting.multi_filter_helper') }}</div>
           </div>
         </div>
       </x-admin::form.row>
 
-      <x-admin-form-switch name="multi_filter[price_filter]" :title="__('admin/multi_filter.price_filter')" :value="old('price_filter', $multi_filter['price_filter'] ?? 1)" />
+      <x-admin-form-switch name="multi_filter[price_filter]" :title="__('Admin/multi_filter.price_filter')" :value="old('price_filter', $multi_filter['price_filter'] ?? 1)" />
 
       <x-admin::form.row title="">
         <button class="btn btn-lg btn-primary mt-5">{{ __('common.save') }}</button>
@@ -65,7 +65,7 @@
 
         source: {
           mailEngines: [
-            {name: '{{ __('admin/builder.text_no') }}', code: ''},
+            {name: '{{ __('Admin/builder.text_no') }}', code: ''},
             {name: 'SMTP', code: 'smtp'},
             {name: 'Sendmail', code: 'sendmail'},
             {name: 'Mailgun', code: 'mailgun'},

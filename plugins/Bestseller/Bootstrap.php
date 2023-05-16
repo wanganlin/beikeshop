@@ -18,16 +18,16 @@ class Bootstrap
     public function boot()
     {
         /**
-         * Add module for admin design.
+         * Add module for Admin design.
          */
-        add_hook_filter('admin.design.index.data', function ($data) {
+        add_hook_filter('Admin.design.index.data', function ($data) {
             $data['editors'][] = 'editor-bestseller';
 
             return $data;
         });
 
         /**
-         * Get module content for home page and preview.
+         * Get module content for home Page and preview.
          */
         add_hook_filter('service.design.module.content', function ($data) {
             $module = $data['module_code'] ?? '';

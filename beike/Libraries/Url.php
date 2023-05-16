@@ -21,7 +21,7 @@ use Illuminate\Support\Str;
 class Url
 {
     public const TYPES = [
-        'category', 'product', 'brand', 'page', 'page_category', 'order', 'rma', 'static', 'custom',
+        'category', 'product', 'brand', 'Page', 'page_category', 'order', 'rma', 'static', 'custom',
     ];
 
     public static function getInstance(): self
@@ -63,7 +63,7 @@ class Url
             }
 
             return $value->url ?? '';
-        } elseif ($type == 'page') {
+        } elseif ($type == 'Page') {
             if (! $value instanceof \Beike\Models\Page) {
                 $value = \Beike\Models\Page::query()->find($value);
             }
@@ -102,7 +102,7 @@ class Url
      */
     public function label($type, $value, $texts)
     {
-        $types = ['category', 'product', 'brand', 'page', 'page_category', 'static', 'custom'];
+        $types = ['category', 'product', 'brand', 'Page', 'page_category', 'static', 'custom'];
         if (empty($type) || empty($value) || ! in_array($type, $types)) {
             return '';
         }
@@ -119,7 +119,7 @@ class Url
             return ProductRepo::getName($value);
         } elseif ($type == 'brand') {
             return BrandRepo::getName($value);
-        } elseif ($type == 'page') {
+        } elseif ($type == 'Page') {
             return PageRepo::getName($value);
         } elseif ($type == 'page_category') {
             return PageCategoryRepo::getName($value);

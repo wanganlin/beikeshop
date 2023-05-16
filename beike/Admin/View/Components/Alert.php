@@ -18,6 +18,6 @@ class Alert extends Component
 
     public function render()
     {
-        return view('admin::components.alert');
+        return view('Admin::components.alert');
     }
 }

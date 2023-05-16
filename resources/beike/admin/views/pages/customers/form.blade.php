@@ -1,24 +1,24 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.customer'))
+@section('title', __('Admin/common.customer'))
 
 @section('content')
   <div id="customer-app-form" class="card" v-cloak>
     <div class="card-body">
       <el-form :model="form" :rules="rules" ref="form" label-width="140px">
         <el-tabs v-model="customerTab">
-          <el-tab-pane label="{{ __('admin/customer.user_info') }}" name="customer">
+          <el-tab-pane label="{{ __('Admin/customer.user_info') }}" name="customer">
             <div class="form-max-w">
-              <el-form-item label="{{ __('admin/customer.user_name') }}" prop="name">
-                <el-input v-model="form.name" placeholder="{{ __('admin/customer.user_name') }}"></el-input>
+              <el-form-item label="{{ __('Admin/customer.user_name') }}" prop="name">
+                <el-input v-model="form.name" placeholder="{{ __('Admin/customer.user_name') }}"></el-input>
               </el-form-item>
               <el-form-item label="{{ __('common.email') }}" prop="email">
                 <el-input v-model="form.email" placeholder="{{ __('common.email') }}"></el-input>
               </el-form-item>
               <el-form-item label="{{ __('shop/login.password') }}" prop="password">
-                <el-input v-model="form.password" placeholder="{{ __('admin/customer.password_info') }}"></el-input>
+                <el-input v-model="form.password" placeholder="{{ __('Admin/customer.password_info') }}"></el-input>
               </el-form-item>
-              <el-form-item label="{{ __('admin/customer_group.index') }}">
+              <el-form-item label="{{ __('Admin/customer_group.index') }}">
                 <el-select v-model="form.customer_group_id" placeholder="请选择">
                   <el-option v-for="item in source.customer_group" :key="item.id" :label="item.name"
                     :value="item.id">
@@ -33,7 +33,7 @@
               </el-form-item>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="{{ __('admin/customer.address_management') }}" name="address" v-if="form.id">
+          <el-tab-pane label="{{ __('Admin/customer.address_management') }}" name="address" v-if="form.id">
             <button class="btn btn-primary mb-3" type="button" @click="editAddress">{{ __('common.add') }}</button>
             <div class="table-push">
               <table class="table">
@@ -62,8 +62,8 @@
                 <tbody v-else>
                   <tr>
                     <td colspan="6" class="text-center">
-                      <span class="me-2">{{ __('admin/customer.no_address') }}</span>
-                      <el-link type="primary" @click="editAddress">{{ __('admin/customer.add_address') }}</el-link>
+                      <span class="me-2">{{ __('Admin/customer.no_address') }}</span>
+                      <el-link type="primary" @click="editAddress">{{ __('Admin/customer.add_address') }}</el-link>
                     </td>
                 </tbody>
               </table>
@@ -73,7 +73,7 @@
       </el-form>
     </div>
 
-    <el-dialog title="{{ __('admin/customer.edit_address') }}" :visible.sync="dialogAddress.show" width="650px"
+    <el-dialog title="{{ __('Admin/customer.edit_address') }}" :visible.sync="dialogAddress.show" width="650px"
       @close="closeAddressDialog('addressForm')">
       <el-form ref="addressForm" :rules="addressRules" :model="dialogAddress.form" label-width="100px">
         <el-form-item label="{{ __('common.name') }}" prop="name">
@@ -82,11 +82,11 @@
         <el-form-item label="{{ __('common.phone') }}" prop="phone">
           <el-input maxlength="11" v-model="dialogAddress.form.phone"></el-input>
         </el-form-item>
-        <el-form-item label="{{ __('admin/customer.address') }}" required>
+        <el-form-item label="{{ __('Admin/customer.address') }}" required>
           <div class="row">
             <div class="col-4">
               <el-form-item>
-                <el-select v-model="dialogAddress.form.country_id" filterable placeholder="{{ __('admin/customer.choose_country') }}" @change="countryChange">
+                <el-select v-model="dialogAddress.form.country_id" filterable placeholder="{{ __('Admin/customer.choose_country') }}" @change="countryChange">
                   <el-option v-for="item in source.countries" :key="item.id" :label="item.name"
                     :value="item.id">
                   </el-option>
@@ -95,7 +95,7 @@
             </div>
             <div class="col-4">
               <el-form-item prop="zone_id">
-                <el-select v-model="dialogAddress.form.zone_id" filterable placeholder="{{ __('admin/customer.choose_zones') }}">
+                <el-select v-model="dialogAddress.form.zone_id" filterable placeholder="{{ __('Admin/customer.choose_zones') }}">
                   <el-option v-for="item in source.zones" :key="item.id" :label="item.name"
                     :value="item.id">
                   </el-option>
@@ -104,18 +104,18 @@
             </div>
             <div class="col-4">
               <el-form-item prop="city">
-                <el-input v-model="dialogAddress.form.city" placeholder="{{ __('admin/customer.enter_city') }}"></el-input>
+                <el-input v-model="dialogAddress.form.city" placeholder="{{ __('Admin/customer.enter_city') }}"></el-input>
               </el-form-item>
             </div>
           </div>
         </el-form-item>
-        <el-form-item label="{{ __('admin/customer.zipcode') }}" prop="zipcode">
+        <el-form-item label="{{ __('Admin/customer.zipcode') }}" prop="zipcode">
           <el-input v-model="dialogAddress.form.zipcode"></el-input>
         </el-form-item>
-        <el-form-item label="{{ __('admin/customer.address_1') }}" prop="address_1">
+        <el-form-item label="{{ __('Admin/customer.address_1') }}" prop="address_1">
           <el-input v-model="dialogAddress.form.address_1"></el-input>
         </el-form-item>
-        <el-form-item label="{{ __('admin/customer.address_2') }}">
+        <el-form-item label="{{ __('Admin/customer.address_2') }}">
           <el-input v-model="dialogAddress.form.address_2"></el-input>
         </el-form-item>
         <el-form-item>
@@ -169,17 +169,17 @@
         },
 
         rules: {
-          name: [{required: true, message: "{{ __('common.error_required', ['name' => __('admin/customer.user_name')] ) }}", trigger: 'blur'}, ],
+          name: [{required: true, message: "{{ __('common.error_required', ['name' => __('Admin/customer.user_name')] ) }}", trigger: 'blur'}, ],
           email: [
             {required: true, message: '{{ __('common.error_required', ['name' => __('common.email')] ) }}', trigger: 'blur'},
-            {type: 'email', message: '{{ __('common.error_required', ['name' => __('admin/customer.error_email')] ) }}' ,trigger: 'blur'},
+            {type: 'email', message: '{{ __('common.error_required', ['name' => __('Admin/customer.error_email')] ) }}' ,trigger: 'blur'},
           ],
         },
 
         addressRules: {
           name: [{
             required: true,
-            message: '{{ __('common.error_required', ['name' => __('admin/customer.user_name')] ) }}',
+            message: '{{ __('common.error_required', ['name' => __('Admin/customer.user_name')] ) }}',
             trigger: 'blur'
           }, ],
           phone: [{
@@ -189,17 +189,17 @@
           }, ],
           address_1: [{
             required: true,
-            message: '{{ __('common.error_required', ['name' => __('admin/customer.address_1')] ) }}',
+            message: '{{ __('common.error_required', ['name' => __('Admin/customer.address_1')] ) }}',
             trigger: 'blur'
           }, ],
           zone_id: [{
             required: true,
-            message: '{{ __('common.error_required', ['name' => __('admin/customer.zones')] ) }}',
+            message: '{{ __('common.error_required', ['name' => __('Admin/customer.zones')] ) }}',
             trigger: 'blur'
           }, ],
           city: [{
             required: true,
-            message: '{{ __('common.error_required', ['name' => __('admin/customer.city')] ) }}',
+            message: '{{ __('common.error_required', ['name' => __('Admin/customer.city')] ) }}',
             trigger: 'blur'
           }, ],
         }
@@ -253,7 +253,7 @@
         },
 
         deleteAddress(id, index) {
-          this.$confirm('{{ __('admin/customer.confirm_delete_address') }}', '{{__('common.text_hint')}}', {
+          this.$confirm('{{ __('Admin/customer.confirm_delete_address') }}', '{{__('common.text_hint')}}', {
             confirmButtonText: '{{__('common.confirm')}}',
             cancelButtonText: '{{__('common.cancel')}}',
             type: 'warning'
@@ -311,6 +311,6 @@
       }
     });
 
-    @hook('admin.customer.form.js.after')
+    @hook('Admin.customer.form.js.after')
   </script>
 @endpush

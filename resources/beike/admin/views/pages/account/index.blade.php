@@ -1,8 +1,8 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.account_index'))
+@section('title', __('Admin/common.account_index'))
 
-@section('page-title-right')
+@section('Page-title-right')
   <button type="button" class="btn btn-lg btn-primary submit-form" form="form-account">{{ __('common.save') }}</button>
 @endsection
 
@@ -18,10 +18,10 @@
 
       <ul class="nav nav-tabs nav-bordered mb-5" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="nav-link active" data-bs-toggle="tab" href="#tab-general">{{ __('admin/setting.basic_settings') }}</a>
+          <a class="nav-link active" data-bs-toggle="tab" href="#tab-general">{{ __('Admin/setting.basic_settings') }}</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" data-bs-toggle="tab" href="#tab-token">{{ __('admin/account.create_token') }}</a>
+          <a class="nav-link" data-bs-toggle="tab" href="#tab-token">{{ __('Admin/account.create_token') }}</a>
         </li>
         @hook('admin.account.nav.after')
       </ul>
@@ -31,12 +31,12 @@
           <x-admin-form-input name="name" title="{{ __('common.name') }}" value="{{ old('name', $current_user->name) }}" />
           <x-admin-form-input name="email" title="{{ __('common.email') }}" type="email" value="{{ old('email', $current_user->email) }}" />
           <x-admin-form-input name="password" title="{{ __('shop/login.password') }}" value="{{ old('password', '') }}">
-            <div class="help-text font-size-12 lh-base">{{ __('admin/account.password_text') }}</div>
+            <div class="help-text font-size-12 lh-base">{{ __('Admin/account.password_text') }}</div>
           </x-admin-form-input>
           <x-admin-form-select title="{{ __('common.language') }}" name="locale" :value="old('locale', $current_user->locale)" :options="$admin_languages" key="code" label="name" />
         </div>
         <div class="tab-pane fade show" id="tab-token">
-          <x-admin::form.row :title="__('admin/account.create_token')">
+          <x-admin::form.row :title="__('Admin/account.create_token')">
             <div class="col-auto wp-200-">
               <table class="table table-bordered w-max-500" id="token-app">
                 <thead>

@@ -24,6 +24,6 @@ class Textarea extends Component
 
     public function render()
     {
-        return view('admin::components.form.textarea');
+        return view('Admin::components.form.textarea');
     }
 }

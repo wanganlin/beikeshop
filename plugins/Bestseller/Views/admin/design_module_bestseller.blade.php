@@ -1,8 +1,8 @@
 <template id="module-editor-bestseller-template">
   <div class="image-edit-wrapper">
-    <div class="module-editor-row">{{ __('admin/builder.text_set_up') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.text_set_up') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.text_module_title') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.text_module_title') }}</div>
       <text-i18n v-model="module.title"></text-i18n>
     </div>
     <div class="module-edit-group">
@@ -44,7 +44,7 @@ Vue.component('module-editor-bestseller', {
       style: {
         background_color: ''
       },
-      title: languagesFill('{{ __('admin/builder.text_module_title') }}'),
+      title: languagesFill('{{ __('Admin/builder.text_module_title') }}'),
       limit: 8,
     }
 

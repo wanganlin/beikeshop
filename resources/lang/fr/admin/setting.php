@@ -14,9 +14,9 @@ return [
     'settings_index'         => 'Afficher les paramètres système',
     'settings_update'        => 'Modifier les paramètres système',
     'design_index'           => 'Éditeur d\'accueil',
-    'design_footer_index'    => 'éditeur de pied de page',
+    'design_footer_index'    => 'éditeur de pied de Page',
     'design_menu_index'      => 'Éditeur de navigation',
-    'product_per_page'       => 'Le nombre de produits affichés sur chaque page',
+    'product_per_page'       => 'Le nombre de produits affichés sur chaque Page',
 
     'checkout_settings'      => 'paramètres de paiement',
     'basic_settings'         => 'paramètres de base',
@@ -57,7 +57,7 @@ return [
     'default_currency'       => 'devise par défaut',
     'default_customer_group' => 'groupe de clients par défaut',
     'admin_name'             => 'répertoire d\'arrière-plan',
-    'admin_name_info'        => 'Répertoire d\'arrière-plan de gestion, la valeur par défaut est admin',
+    'admin_name_info'        => 'Répertoire d\'arrière-plan de gestion, la valeur par défaut est Admin',
     'enable_tax'             => 'Activer la taxe',
     'enable_tax_info'        => 'activer ou non le calcul des taxes',
     'tax_address'            => 'adresse fiscale',
@@ -68,6 +68,6 @@ return [
     'placeholder_image'      => 'image d\'espace réservé',
     'placeholder_image_info' => 'L\'image d\'espace réservé s\'affiche lorsqu\'il n\'y a pas d\'image ou si l\'image n\'est pas trouvée, taille recommandée: 500*500',
     'head_code'              => 'insérer le code',
-    'head_code_info'         => 'Le code dans la zone de saisie sera inséré dans l\'en-tête de la page frontale, qui peut être utilisé pour compter le code ou ajouter des plug-ins spéciaux, etc',
+    'head_code_info'         => 'Le code dans la zone de saisie sera inséré dans l\'en-tête de la Page frontale, qui peut être utilisé pour compter le code ou ajouter des plug-ins spéciaux, etc',
     'rate_api_key'           => 'taux de change API KEY',
 ];

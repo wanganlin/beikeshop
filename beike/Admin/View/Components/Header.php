@@ -36,7 +36,7 @@ class Header extends Component
         $this->commonLinks  = $this->getCommonLinks();
         $this->historyLinks = $this->handleHistoryLinks();
 
-        return view('admin::components.header');
+        return view('Admin::components.header');
     }
 
     /**
@@ -57,10 +57,10 @@ class Header extends Component
             $route                        = $commonLink['route'];
             $permissionRoute              = str_replace('.', '_', $route);
             $commonLinks[$index]['url']   = admin_route($route);
-            $commonLinks[$index]['title'] = trans("admin/common.{$permissionRoute}");
+            $commonLinks[$index]['title'] = trans("Admin/common.{$permissionRoute}");
         }
 
-        return hook_filter('admin.components.header.common_links', $commonLinks);
+        return hook_filter('Admin.components.header.common_links', $commonLinks);
     }
 
     /**
@@ -71,23 +71,23 @@ class Header extends Component
         $links     = [];
         $histories = $this->getHistoryRoutesFromSession();
         foreach ($histories as $history) {
-            $routeName       = str_replace('admin.', '', $history);
+            $routeName       = str_replace('Admin.', '', $history);
             $permissionRoute = str_replace('.', '_', $routeName);
 
             if (stripos($routeName, 'plugins.') !== false) {
                 $type  = str_replace('plugins.', '', $routeName);
                 if ($type == 'index') {
-                    $title = trans("admin/common.{$permissionRoute}");
+                    $title = trans("Admin/common.{$permissionRoute}");
                 } else {
-                $title = trans("admin/plugin.{$type}");
+                $title = trans("Admin/plugin.{$type}");
                 }
             } else {
-                $title = trans("admin/common.{$permissionRoute}");
+                $title = trans("Admin/common.{$permissionRoute}");
             }
 
-            if (stripos($title, 'admin/common.') !== false) {
+            if (stripos($title, 'Admin/common.') !== false) {
                 $tempRouteName = str_replace('s.index', '', $routeName);
-                $title         = trans("admin/common.{$tempRouteName}");
+                $title         = trans("Admin/common.{$tempRouteName}");
             }
 
             try {
@@ -119,7 +119,7 @@ class Header extends Component
         $histories = session('histories', []);
 
         $currentRoute = request()->route()->getName();
-        $routeName    = str_replace('admin.', '', $currentRoute);
+        $routeName    = str_replace('Admin.', '', $currentRoute);
 
         if (in_array($routeName, ['edit.locale', 'home.menus'])) {
             return $histories;

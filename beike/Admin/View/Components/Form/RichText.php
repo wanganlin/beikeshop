@@ -33,6 +33,6 @@ class RichText extends Component
 
     public function render()
     {
-        return view('admin::components.form.rich-text');
+        return view('Admin::components.form.rich-text');
     }
 }

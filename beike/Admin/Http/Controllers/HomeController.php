@@ -25,7 +25,7 @@ class HomeController extends Controller
             ],
         ];
 
-        return view('admin::pages.home', $data);
+        return view('Admin::pages.home', $data);
     }
 
     /**
@@ -40,7 +40,7 @@ class HomeController extends Controller
         $routes  = Route::getRoutes();
         foreach ($routes as $route) {
             $routeName = $route->getName();
-            if (! Str::startsWith($routeName, 'admin')) {
+            if (! Str::startsWith($routeName, 'Admin')) {
                 continue;
             }
 
@@ -49,7 +49,7 @@ class HomeController extends Controller
                 continue;
             }
 
-            $routeName       = str_replace('admin.', '', $routeName);
+            $routeName       = str_replace('Admin.', '', $routeName);
             $permissionRoute = str_replace('.', '_', $routeName);
 
             try {
@@ -61,8 +61,8 @@ class HomeController extends Controller
                 continue;
             }
 
-            $title = trans("admin/common.{$permissionRoute}");
-            if (stripos($title, 'admin/common.') !== false) {
+            $title = trans("Admin/common.{$permissionRoute}");
+            if (stripos($title, 'Admin/common.') !== false) {
                 continue;
             }
 

@@ -34,12 +34,12 @@ class CustomerController extends Controller
             'customer_groups'  => CustomerGroupDetail::collection(CustomerGroupRepo::list())->jsonSerialize(),
             'type'             => 'customer',
         ];
-        $data = hook_filter('admin.customer.index.data', $data);
+        $data = hook_filter('Admin.customer.index.data', $data);
         if ($request->expectsJson()) {
             return json_success(trans('success'), $data);
         }
 
-        return view('admin::pages.customers.index', $data);
+        return view('Admin::pages.customers.index', $data);
     }
 
     public function trashed(Request $request)
@@ -52,23 +52,23 @@ class CustomerController extends Controller
             'customer_groups'  => CustomerGroupDetail::collection(CustomerGroupRepo::list())->jsonSerialize(),
             'type'             => 'trashed',
         ];
-        $data = hook_filter('admin.customer.trashed.data', $data);
+        $data = hook_filter('Admin.customer.trashed.data', $data);
         if ($request->expectsJson()) {
             return json_success(trans('success'), $data);
         }
 
-        return view('admin::pages.customers.index', $data);
+        return view('Admin::pages.customers.index', $data);
     }
 
     public function store(CustomerRequest $request)
     {
         $requestData = $request->all();
 
-        hook_action('admin.customer.store.before', ['request_data' => $requestData]);
+        hook_action('Admin.customer.store.before', ['request_data' => $requestData]);
 
         $customer = CustomerService::create($requestData);
 
-        hook_action('admin.customer.store.after', ['customer_id' => $customer->id, 'request_data' => $requestData]);
+        hook_action('Admin.customer.store.after', ['customer_id' => $customer->id, 'request_data' => $requestData]);
 
         return json_success(trans('common.success'), new CustomerResource($customer));
     }
@@ -85,9 +85,9 @@ class CustomerController extends Controller
             'country_id'      => system_setting('base.country_id'),
             '_redirect'       => $this->getRedirect(),
         ];
-        $data = hook_filter('admin.customer.edit.data', $data);
+        $data = hook_filter('Admin.customer.edit.data', $data);
 
-        return view('admin::pages.customers.form', $data);
+        return view('Admin::pages.customers.form', $data);
     }
 
     public function update(CustomerRequest $request, int $customerId)
@@ -98,11 +98,11 @@ class CustomerController extends Controller
             unset($requestData['password']);
         }
 
-        hook_action('admin.customer.update.before', ['customer_id' => $customerId, 'request_data' => $requestData]);
+        hook_action('Admin.customer.update.before', ['customer_id' => $customerId, 'request_data' => $requestData]);
 
         $customer = CustomerRepo::update($customerId, $requestData);
 
-        hook_action('admin.customer.update.after', ['customer_id' => $customerId, 'request_data' => $requestData]);
+        hook_action('Admin.customer.update.after', ['customer_id' => $customerId, 'request_data' => $requestData]);
 
         return json_success(trans('common.updated_success'), $customer);
     }
@@ -110,7 +110,7 @@ class CustomerController extends Controller
     public function destroy(Request $request, int $customerId)
     {
         CustomerRepo::delete($customerId);
-        hook_action('admin.customer.destroy.after', $customerId);
+        hook_action('Admin.customer.destroy.after', $customerId);
 
         return json_success(trans('common.deleted_success'));
     }
@@ -118,7 +118,7 @@ class CustomerController extends Controller
     public function restore(Request $request, int $customerId)
     {
         CustomerRepo::restore($customerId);
-        hook_action('admin.customer.restore.after', $customerId);
+        hook_action('Admin.customer.restore.after', $customerId);
 
         return json_success(trans('common.restored_success'));
     }
@@ -126,7 +126,7 @@ class CustomerController extends Controller
     public function forceDelete(Request $request, int $customerId)
     {
         CustomerRepo::forceDelete($customerId);
-        hook_action('admin.customer.force_delete.after', $customerId);
+        hook_action('Admin.customer.force_delete.after', $customerId);
 
         return json_success(trans('common.success'));
     }
@@ -134,7 +134,7 @@ class CustomerController extends Controller
     public function forceDeleteAll(Request $request)
     {
         CustomerRepo::forceDeleteAll();
-        hook_action('admin.customer.force_delete_all.after', ['module' => 'customer']);
+        hook_action('Admin.customer.force_delete_all.after', ['module' => 'customer']);
 
         return json_success(trans('common.success'));
     }

@@ -51,16 +51,16 @@ class UserService
         if ($verifyCode->created_at->addMinutes(10) < Carbon::now()) {
             $verifyCode->delete();
 
-            throw new \Exception(trans('admin/user.verify_code_expired'));
+            throw new \Exception(trans('Admin/user.verify_code_expired'));
         }
 
         if ($verifyCode->code != $code) {
-            throw new \Exception(trans('admin/user.verify_code_error'));
+            throw new \Exception(trans('Admin/user.verify_code_error'));
         }
 
         $user = UserRepo::findByEmail($account);
         if (! $user) {
-            throw new \Exception(trans('admin/user.account_not_exist'));
+            throw new \Exception(trans('Admin/user.account_not_exist'));
         }
 
         UserRepo::update($user, ['password' => $password]);

@@ -1,6 +1,6 @@
 <?php
 /**
- * admin.php
+ * Admin.php
  *
  * @copyright  2022 beikeshop.com - All Rights Reserved
  * @link       https://beikeshop.com

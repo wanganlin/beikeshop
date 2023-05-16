@@ -142,7 +142,7 @@ return [
     'text_bgi'                         => 'Hintergrundbild',
     'text_btn'                         => 'Schaltfläche',
 
-    // page
+    // Page
     'page_product_title_size'          => 'Schriftgröße des  Produkttitels',
     'page_product_title_color'         => 'Produkttitelfarbe',
     'page_product_price_color'         => 'Produktpreisfarbe',
@@ -181,7 +181,7 @@ return [
     'modules_image_300'                => 'eine Zeile drei Bilder',
     'modules_image_301'                => 'eine Zeile drei Bilder-Pro',
     'modules_image_400'                => 'eine Zeile vier Bilder',
-    'modules_image_401'                => 'one line four images-pro',
+    'modules_image_401'                => 'one line four Images-pro',
     'modules_latest'                   => 'neuestes Produkt',
     'modules_manufacturer'             => 'Markenliste',
     'modules_product'                  => 'Produkt',

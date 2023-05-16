@@ -17,10 +17,10 @@ class Bootstrap
     {
         $this->addSocialData();
 
-        add_hook_blade('admin.plugin.form', function ($callback, $output, $data) {
+        add_hook_blade('Admin.plugin.form', function ($callback, $output, $data) {
             $code = $data['plugin']->code;
             if ($code == 'social') {
-                return view('Social::admin.config_form', $data)->render();
+                return view('Social::Admin.config_form', $data)->render();
             }
 
             return $output;

@@ -28,7 +28,7 @@ class MultiFilterController extends Controller
             'multi_filter'    => $multiFilter,
         ];
 
-        return view('admin::pages.multi_filter.index', $data);
+        return view('Admin::pages.multi_filter.index', $data);
     }
 
     public function store(Request $request)

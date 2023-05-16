@@ -1,13 +1,13 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/attribute.index'))
+@section('title', __('Admin/attribute.index'))
 
 @section('content')
   <div id="customer-app-form" class="card" v-cloak>
     <div class="card-body h-min-600">
       <el-form :model="form" :rules="rules" ref="form" label-width="140px">
         <el-tabs v-model="customerTab">
-          <el-tab-pane label="{{ __('admin/attribute.attribute_info') }}" name="customer">
+          <el-tab-pane label="{{ __('Admin/attribute.attribute_info') }}" name="customer">
             <div class="form-max-w">
               <el-form-item label="{{ __('common.name') }}" required class="language-inputs">
                 <el-form-item :prop="'name.' + lang.code" :inline-message="true"  v-for="lang, lang_i in source.languages" :key="lang_i"
@@ -19,7 +19,7 @@
                 </el-form-item>
               </el-form-item>
 
-              <el-form-item label="{{ __('admin/attribute_group.index') }}" required prop="attribute_group_id">
+              <el-form-item label="{{ __('Admin/attribute_group.index') }}" required prop="attribute_group_id">
                 <el-select v-model="form.attribute_group_id" placeholder="{{ __('common.please_choose') }}">
                   <el-option
                     v-for="item in source.attributeGroup"
@@ -38,14 +38,14 @@
               </el-form-item>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="{{ __('admin/attribute.attribute_value') }}" name="address" v-if="form.id">
+          <el-tab-pane label="{{ __('Admin/attribute.attribute_value') }}" name="address" v-if="form.id">
             <button class="btn btn-primary mb-3" type="button" @click="editAddress">{{ __('common.add') }}</button>
             <div class="table-push">
               <table class="table">
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>{{ __('admin/attribute.attribute_value') }}</th>
+                    <th>{{ __('Admin/attribute.attribute_value') }}</th>
                     {{-- <th>排序</th> --}}
                     <th width="160px">{{ __('common.action') }}</th>
                   </tr>
@@ -69,7 +69,7 @@
       </el-form>
     </div>
 
-    <el-dialog title="{{ __('admin/attribute.attribute_value') }}" :visible.sync="dialog.show" width="670px"
+    <el-dialog title="{{ __('Admin/attribute.attribute_value') }}" :visible.sync="dialog.show" width="670px"
       @close="closeDialog('valuesform')" :close-on-click-modal="false">
 
       <el-form ref="valuesform" :rules="attributeRules" :model="dialog.form" label-width="155px">
@@ -128,7 +128,7 @@
         },
 
         rules: {
-          name: [{required: true, message: "{{ __('common.error_required', ['name' => __('admin/customer.user_name')] ) }}", trigger: 'blur'}, ],
+          name: [{required: true, message: "{{ __('common.error_required', ['name' => __('Admin/customer.user_name')] ) }}", trigger: 'blur'}, ],
           sort_order: [{required: true,message: '{{ __('common.error_required', ['name' => __('common.sort_order')])}}',trigger: 'blur'}, ],
         },
 
@@ -174,7 +174,7 @@
         },
 
         deleteAddress(id, index) {
-          this.$confirm('{{ __('admin/customer.confirm_delete_address') }}', '{{__('common.text_hint')}}', {
+          this.$confirm('{{ __('Admin/customer.confirm_delete_address') }}', '{{__('common.text_hint')}}', {
             confirmButtonText: '{{__('common.confirm')}}',
             cancelButtonText: '{{__('common.cancel')}}',
             type: 'warning'

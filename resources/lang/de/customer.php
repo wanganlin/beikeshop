@@ -1,6 +1,6 @@
 <?php
 /**
- * customer.php
+ * Customer.php
  *
  * @copyright  2022 beikeshop.com - All Rights Reserved
  * @link       https://beikeshop.com

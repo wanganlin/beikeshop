@@ -35,10 +35,10 @@ class Icons extends Component
         $data['register'] = [
             'code' => 'icons',
             'sort' => 0,
-            'name' => trans('admin/design_builder.module_icons'),
+            'name' => trans('Admin/design_builder.module_icons'),
             'icon' => '&#xe60e;',
         ];
 
-        return view('admin::pages.design.module.icons', $data);
+        return view('Admin::pages.design.module.icons', $data);
     }
 }

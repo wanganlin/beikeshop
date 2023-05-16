@@ -625,7 +625,7 @@
   // multiple renders, cloning them avoids errors when DOM manipulations rely
   // on their elm reference.
   function cloneVNode(vnode) {
-      var cloned = new VNode(vnode.tag, vnode.data, 
+      var cloned = new VNode(vnode.tag, vnode.data,
       // #7975
       // clone children array to avoid mutating original in case of cloning
       // a child.
@@ -2036,7 +2036,7 @@
       return data;
   }
 
-  function resolveScopedSlots(fns, res, 
+  function resolveScopedSlots(fns, res,
   // the following are added in 2.6
   hasDynamicKeys, contentHashKey) {
       res = res || { $stable: !hasDynamicKeys };
@@ -3099,14 +3099,14 @@
   }
   // Async edge case #6566 requires saving the timestamp when event listeners are
   // attached. However, calling performance.now() has a perf overhead especially
-  // if the page has thousands of event listeners. Instead, we take a timestamp
+  // if the Page has thousands of event listeners. Instead, we take a timestamp
   // every time the scheduler flushes and use that for all event listeners
   // attached during that flush.
   var currentFlushTimestamp = 0;
   // Async edge case fix requires storing an event listener's attach timestamp.
   var getNow = Date.now;
   // Determine what event timestamp the browser is using. Annoyingly, the
-  // timestamp can either be hi-res (relative to page load) or low-res
+  // timestamp can either be hi-res (relative to Page load) or low-res
   // (relative to UNIX epoch), so in order to compare time we have to use the
   // same timestamp type when saving the flush timestamp.
   // All IE versions use low-res event timestamps, and have problematic clock
@@ -4977,14 +4977,14 @@
       var name = getComponentName(Ctor.options) || tag;
       var vnode = new VNode(
       // @ts-expect-error
-      "vue-component-".concat(Ctor.cid).concat(name ? "-".concat(name) : ''), data, undefined, undefined, undefined, context, 
+      "vue-component-".concat(Ctor.cid).concat(name ? "-".concat(name) : ''), data, undefined, undefined, undefined, context,
       // @ts-expect-error
       { Ctor: Ctor, propsData: propsData, listeners: listeners, tag: tag, children: children }, asyncFactory);
       return vnode;
   }
   function createComponentInstanceForVnode(
   // we know it's MountedComponentVNode but flow doesn't
-  vnode, 
+  vnode,
   // activeInstance in lifecycle state
   parent) {
       var options = {
@@ -7058,7 +7058,7 @@
                   var oldElm = oldVnode.elm;
                   var parentElm = nodeOps.parentNode(oldElm);
                   // create new node
-                  createElm(vnode, insertedVnodeQueue, 
+                  createElm(vnode, insertedVnodeQueue,
                   // extremely rare edge case: do not insert if old element is in a
                   // leaving transition. Only happens when combining transition +
                   // keep-alive + HOCs. (#4590)
@@ -7425,7 +7425,7 @@
               if (c === 0x2f) {
                   // /
                   var j = i - 1;
-                  var p 
+                  var p
                   // find first non-whitespace prev char
                   = void 0;
                   // find first non-whitespace prev char
@@ -7938,7 +7938,7 @@
                   // #9462 iOS 9 bug: event.timeStamp is 0 after history.pushState
                   // #9681 QtWebEngine event.timeStamp is negative value
                   e.timeStamp <= 0 ||
-                  // #9448 bail if event is fired in another document in a multi-page
+                  // #9448 bail if event is fired in another document in a multi-Page
                   // electron/nw.js app, since event.timeStamp will be using a different
                   // starting reference
                   e.target.ownerDocument !== document) {
@@ -7949,7 +7949,7 @@
       target.addEventListener(name, handler, supportsPassive ? { capture: capture, passive: passive } : capture);
   }
   function remove(name, handler, capture, _target) {
-      (_target || target).removeEventListener(name, 
+      (_target || target).removeEventListener(name,
       //@ts-expect-error
       handler._wrapper || handler, capture);
   }
@@ -9413,7 +9413,7 @@
   var startTagClose = /^\s*(\/?)>/;
   var endTag = new RegExp("^<\\/".concat(qnameCapture, "[^>]*>"));
   var doctype = /^<!DOCTYPE [^>]+>/i;
-  // #7298: escape - to avoid being passed as HTML comment when inlined in page
+  // #7298: escape - to avoid being passed as HTML comment when inlined in Page
   var comment = /^<!\--/;
   var conditionalComment = /^<!\[/;
   // Special Elements (can contain anything)
@@ -10948,7 +10948,7 @@
               if (!el.plain || (el.pre && maybeComponent)) {
                   data = genData(el, state);
               }
-              var tag 
+              var tag
               // check if this is a component in <script setup>
               = void 0;
               // check if this is a component in <script setup>

@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.zone'))
+@section('title', __('Admin/common.zone'))
 
 @section('content')
   <div id="tax-classes-app" class="card" v-cloak>
@@ -48,20 +48,20 @@
         :total="zones.total"></el-pagination>
     </div>
 
-    <el-dialog title="{{ __('admin/common.zone') }}" :visible.sync="dialog.show" width="620px"
+    <el-dialog title="{{ __('Admin/common.zone') }}" :visible.sync="dialog.show" width="620px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="148px">
-        <el-form-item label="{{ __('admin/zone.zone_name') }}" prop="name">
-          <el-input v-model="dialog.form.name" placeholder="{{ __('admin/zone.zone_name') }}"></el-input>
+        <el-form-item label="{{ __('Admin/zone.zone_name') }}" prop="name">
+          <el-input v-model="dialog.form.name" placeholder="{{ __('Admin/zone.zone_name') }}"></el-input>
         </el-form-item>
 
         <el-form-item label="{{ __('currency.code') }}">
           <el-input v-model="dialog.form.code" placeholder="{{ __('currency.code') }}"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/zone.country_of_origin') }}" prop="country_id">
-          <el-select v-model="dialog.form.country_id" placeholder="{{ __('admin/zone.country_of_origin') }}">
+        <el-form-item label="{{ __('Admin/zone.country_of_origin') }}" prop="country_id">
+          <el-select v-model="dialog.form.country_id" placeholder="{{ __('Admin/zone.country_of_origin') }}">
             <el-option
               v-for="item in countries"
               :key="item.id"
@@ -90,7 +90,7 @@
 @endsection
 
 @push('footer')
-  @include('admin::shared.vue-image')
+  @include('Admin::shared.vue-image')
 
   <script>
     new Vue({
@@ -117,8 +117,8 @@
         },
 
         rules: {
-          name: [{required: true, message: '{{ __('common.error_required', ['name' => __('admin/zone.zone_name')]) }}', trigger: 'blur'}, ],
-          country_id: [{required: true, message: '{{ __('admin/zone.error_country') }}', trigger: 'blur'}, ],
+          name: [{required: true, message: '{{ __('common.error_required', ['name' => __('Admin/zone.zone_name')]) }}', trigger: 'blur'}, ],
+          country_id: [{required: true, message: '{{ __('Admin/zone.error_country') }}', trigger: 'blur'}, ],
         }
       },
 

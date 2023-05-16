@@ -44,32 +44,32 @@ class PermissionRepo
     public function getRoleCorePermissions(): array
     {
         $corePermissions = [
-            ['title' => trans('admin/common.order'), 'permissions' => $this->getOrderPermissions()],
-            ['title' => trans('admin/common.rma'), 'permissions' => $this->getRmaPermissions()],
-            ['title' => trans('admin/common.rma_reason'), 'permissions' => $this->getRmaReasonPermissions()],
-            ['title' => trans('admin/common.product'), 'permissions' => $this->getProductPermissions()],
-            ['title' => trans('admin/common.category'), 'permissions' => $this->getCategoryPermissions()],
-            ['title' => trans('admin/common.brand'), 'permissions' => $this->getBrandPermissions()],
-            ['title' => trans('admin/common.attribute'), 'permissions' => $this->getAttributePermissions()],
-            ['title' => trans('admin/common.attribute_group'), 'permissions' => $this->getAttributeGroupPermissions()],
-            ['title' => trans('admin/common.customer'), 'permissions' => $this->getCustomerPermissions()],
-            ['title' => trans('admin/common.customer_group'), 'permissions' => $this->getCustomerGroupPermissions()],
-            ['title' => trans('admin/common.page'), 'permissions' => $this->getPagePermissions()],
-            ['title' => trans('admin/common.page_category'), 'permissions' => $this->getPageCategoryPermissions()],
-            ['title' => trans('admin/common.setting'), 'permissions' => $this->getSettingPermissions()],
+            ['title' => trans('Admin/common.order'), 'permissions' => $this->getOrderPermissions()],
+            ['title' => trans('Admin/common.rma'), 'permissions' => $this->getRmaPermissions()],
+            ['title' => trans('Admin/common.rma_reason'), 'permissions' => $this->getRmaReasonPermissions()],
+            ['title' => trans('Admin/common.product'), 'permissions' => $this->getProductPermissions()],
+            ['title' => trans('Admin/common.category'), 'permissions' => $this->getCategoryPermissions()],
+            ['title' => trans('Admin/common.brand'), 'permissions' => $this->getBrandPermissions()],
+            ['title' => trans('Admin/common.attribute'), 'permissions' => $this->getAttributePermissions()],
+            ['title' => trans('Admin/common.attribute_group'), 'permissions' => $this->getAttributeGroupPermissions()],
+            ['title' => trans('Admin/common.customer'), 'permissions' => $this->getCustomerPermissions()],
+            ['title' => trans('Admin/common.customer_group'), 'permissions' => $this->getCustomerGroupPermissions()],
+            ['title' => trans('Admin/common.Page'), 'permissions' => $this->getPagePermissions()],
+            ['title' => trans('Admin/common.page_category'), 'permissions' => $this->getPageCategoryPermissions()],
+            ['title' => trans('Admin/common.setting'), 'permissions' => $this->getSettingPermissions()],
 
-            ['title' => trans('admin/common.plugin'), 'permissions' => $this->getPluginPermissions()],
-            ['title' => trans('admin/common.marketing'), 'permissions' => $this->getMarketingPermissions()],
-            ['title' => trans('admin/common.admin_user'), 'permissions' => $this->getAdminUserPermissions()],
-            ['title' => trans('admin/common.admin_role'), 'permissions' => $this->getAdminRolePermissions()],
-            ['title' => trans('admin/common.region'), 'permissions' => $this->getRegionPermissions()],
-            ['title' => trans('admin/common.tax_rate'), 'permissions' => $this->getTaxRatePermissions()],
-            ['title' => trans('admin/common.tax_class'), 'permissions' => $this->getTaxClassPermissions()],
-            ['title' => trans('admin/common.currency'), 'permissions' => $this->getCurrencyPermissions()],
-            ['title' => trans('admin/common.language'), 'permissions' => $this->getLanguagePermissions()],
-            ['title' => trans('admin/common.file_manager'), 'permissions' => $this->getFileManagerPermissions()],
-            ['title' => trans('admin/common.zone'), 'permissions' => $this->getZonePermissions()],
-            ['title' => trans('admin/common.country'), 'permissions' => $this->getCountryPermissions()],
+            ['title' => trans('Admin/common.plugin'), 'permissions' => $this->getPluginPermissions()],
+            ['title' => trans('Admin/common.marketing'), 'permissions' => $this->getMarketingPermissions()],
+            ['title' => trans('Admin/common.admin_user'), 'permissions' => $this->getAdminUserPermissions()],
+            ['title' => trans('Admin/common.admin_role'), 'permissions' => $this->getAdminRolePermissions()],
+            ['title' => trans('Admin/common.region'), 'permissions' => $this->getRegionPermissions()],
+            ['title' => trans('Admin/common.tax_rate'), 'permissions' => $this->getTaxRatePermissions()],
+            ['title' => trans('Admin/common.tax_class'), 'permissions' => $this->getTaxClassPermissions()],
+            ['title' => trans('Admin/common.currency'), 'permissions' => $this->getCurrencyPermissions()],
+            ['title' => trans('Admin/common.language'), 'permissions' => $this->getLanguagePermissions()],
+            ['title' => trans('Admin/common.file_manager'), 'permissions' => $this->getFileManagerPermissions()],
+            ['title' => trans('Admin/common.zone'), 'permissions' => $this->getZonePermissions()],
+            ['title' => trans('Admin/common.country'), 'permissions' => $this->getCountryPermissions()],
         ];
 
         $corePermissions   = hook_filter('role.permissions.all', $corePermissions);
@@ -242,7 +242,7 @@ class PermissionRepo
     private function getPagePermissions(): array
     {
         $routes = ['pages_index', 'pages_create', 'pages_show', 'pages_update', 'pages_delete'];
-        $items  = $this->getPermissionList('page', $routes);
+        $items  = $this->getPermissionList('Page', $routes);
 
         return hook_filter('role.page_permissions', $items);
     }
@@ -456,7 +456,7 @@ class PermissionRepo
     {
         $items = [];
         foreach ($routes as $route) {
-            $items[] = ['code' => $route, 'name' => trans("admin/{$module}.{$route}"), 'selected' => $this->hasPermission($route)];
+            $items[] = ['code' => $route, 'name' => trans("Admin/{$module}.{$route}"), 'selected' => $this->hasPermission($route)];
         }
 
         return $items;

@@ -12,10 +12,10 @@
 
 return [
     'index'                   => 'User login and registration',
-    'login_and_sign'          => 'Login/Sign In',
+    'login_and_sign'          => 'LoginData/Sign In',
     'home'                    => 'Home',
     'library'                 => 'Library',
-    'login'                   => 'Login',
+    'login'                   => 'LoginData',
     'already'                 => 'Already our customer?',
     'description'             => 'Already our customer?',
     'email'                   => 'Email',
@@ -34,7 +34,7 @@ return [
     'check_form'              => 'Please check that the form is filled out correctly',
     'email_or_password_error' => 'Email or Password is incorrect!',
     'customer_inactive'       => 'The customer is inactive!',
-    'login_successfully'      => 'Login successfully!',
+    'login_successfully'      => 'LoginData successfully!',
     'register_success'        => 'Registered successfully',
-    'third_party_logins'      => 'Third-party Login',
+    'third_party_logins'      => 'Third-party LoginData',
 ];

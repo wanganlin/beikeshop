@@ -254,8 +254,8 @@ class ThemeSeeder extends Seeder
                             "type" => "image",
                             "image" => [
                                 "image" => [
-                                    "en" => "catalog/demo/banner/2_en.jpg",
-                                    "zh_cn" => "catalog/demo/banner/2.jpg"
+                                    "en" => "Catalog/demo/banner/2_en.jpg",
+                                    "zh_cn" => "Catalog/demo/banner/2.jpg"
                                 ],
                                 "link" => [
                                     "type" => "product",
@@ -346,7 +346,7 @@ class ThemeSeeder extends Seeder
                                 [
                                     "name" => [],
                                     "link" => [
-                                        "type" => "page",
+                                        "type" => "Page",
                                         "value" => 21,
                                         "text" => [
                                             "en" => "",
@@ -365,8 +365,8 @@ class ThemeSeeder extends Seeder
                             "type" => "image",
                             "image" => [
                                 "image" => [
-                                    "en" => "catalog/demo/product/16.jpg",
-                                    "zh_cn" => "catalog/demo/product/16.jpg"
+                                    "en" => "Catalog/demo/product/16.jpg",
+                                    "zh_cn" => "Catalog/demo/product/16.jpg"
                                 ],
                                 "link" => [
                                     "type" => "product",
@@ -399,8 +399,8 @@ class ThemeSeeder extends Seeder
                             "type" => "image",
                             "image" => [
                                 "image" => [
-                                    "en" => "catalog/demo/product/13.jpg",
-                                    "zh_cn" => "catalog/demo/product/13.jpg"
+                                    "en" => "Catalog/demo/product/13.jpg",
+                                    "zh_cn" => "Catalog/demo/product/13.jpg"
                                 ],
                                 "link" => [
                                     "type" => "product",
@@ -741,11 +741,11 @@ class ThemeSeeder extends Seeder
                             "2" => "",
                             "3" => ""
                         ],
-                        "images" => [
+                        "Images" => [
                             [
                                 "image" => [
-                                    "en" => "catalog/demo/banner/banner-4-en.jpg",
-                                    "zh_cn" => "catalog/demo/banner/banner-4.jpg"
+                                    "en" => "Catalog/demo/banner/banner-4-en.jpg",
+                                    "zh_cn" => "Catalog/demo/banner/banner-4.jpg"
                                 ],
                                 "show" => true,
                                 "link" => [
@@ -756,8 +756,8 @@ class ThemeSeeder extends Seeder
                             ],
                             [
                                 "image" => [
-                                    "en" => "catalog/demo/banner/banner-3-en.jpg",
-                                    "zh_cn" => "catalog/demo/banner/banner-3.jpg"
+                                    "en" => "Catalog/demo/banner/banner-3-en.jpg",
+                                    "zh_cn" => "Catalog/demo/banner/banner-3.jpg"
                                 ],
                                 "show" => false,
                                 "link" => [
@@ -782,11 +782,11 @@ class ThemeSeeder extends Seeder
                             "zh_cn" => "",
                             "en" => ""
                         ],
-                        "images" => [
+                        "Images" => [
                             [
                                 "image" => [
-                                    "en" => "catalog/demo/image_plus_1-en.png",
-                                    "zh_cn" => "catalog/demo/image_plus_1.png"
+                                    "en" => "Catalog/demo/image_plus_1-en.png",
+                                    "zh_cn" => "Catalog/demo/image_plus_1.png"
                                 ],
                                 "show" => false,
                                 "link" => [
@@ -797,8 +797,8 @@ class ThemeSeeder extends Seeder
                             ],
                             [
                                 "image" => [
-                                    "en" => "catalog/demo/image_plus_2-en.png",
-                                    "zh_cn" => "catalog/demo/image_plus_2.png"
+                                    "en" => "Catalog/demo/image_plus_2-en.png",
+                                    "zh_cn" => "Catalog/demo/image_plus_2.png"
                                 ],
                                 "show" => false,
                                 "link" => [
@@ -809,8 +809,8 @@ class ThemeSeeder extends Seeder
                             ],
                             [
                                 "image" => [
-                                    "en" => "catalog/demo/image_plus_3-en.png",
-                                    "zh_cn" => "catalog/demo/image_plus_3.png"
+                                    "en" => "Catalog/demo/image_plus_3-en.png",
+                                    "zh_cn" => "Catalog/demo/image_plus_3.png"
                                 ],
                                 "show" => false,
                                 "link" => [
@@ -821,8 +821,8 @@ class ThemeSeeder extends Seeder
                             ],
                             [
                                 "image" => [
-                                    "en" => "catalog/demo/image_plus_4-en.png",
-                                    "zh_cn" => "catalog/demo/image_plus_4.png"
+                                    "en" => "Catalog/demo/image_plus_4-en.png",
+                                    "zh_cn" => "Catalog/demo/image_plus_4.png"
                                 ],
                                 "show" => true,
                                 "link" => [
@@ -901,11 +901,11 @@ class ThemeSeeder extends Seeder
                             "en" => ""
                         ],
                         "full" => true,
-                        "images" => [
+                        "Images" => [
                             [
                                 "image" => [
-                                    "en" => "catalog/demo/banner/banner-2-en.png",
-                                    "zh_cn" => "catalog/demo/banner/banner-2.png"
+                                    "en" => "Catalog/demo/banner/banner-2-en.png",
+                                    "zh_cn" => "Catalog/demo/banner/banner-2.png"
                                 ],
                                 "show" => true,
                                 "link" => [
@@ -967,7 +967,7 @@ class ThemeSeeder extends Seeder
                 "enable" => true,
                 "items" => [
                     [
-                        "image" => "catalog/demo/services-icon/4.png",
+                        "image" => "Catalog/demo/services-icon/4.png",
                         "title" => [
                             "en" => "Material world",
                             "zh_cn" => "物行天下"
@@ -979,7 +979,7 @@ class ThemeSeeder extends Seeder
                         "show" => false
                     ],
                     [
-                        "image" => "catalog/demo/services-icon/3.png",
+                        "image" => "Catalog/demo/services-icon/3.png",
                         "title" => [
                             "en" => "Return all",
                             "zh_cn" => "退换无忧"
@@ -991,7 +991,7 @@ class ThemeSeeder extends Seeder
                         "show" => false
                     ],
                     [
-                        "image" => "catalog/demo/services-icon/1.png",
+                        "image" => "Catalog/demo/services-icon/1.png",
                         "title" => [
                             "en" => "Delicate service",
                             "zh_cn" => "精致服务"
@@ -1003,7 +1003,7 @@ class ThemeSeeder extends Seeder
                         "show" => false
                     ],
                     [
-                        "image" => "catalog/demo/services-icon/2.png",
+                        "image" => "Catalog/demo/services-icon/2.png",
                         "title" => [
                             "en" => "With reduced activity",
                             "zh_cn" => "满减活动"
@@ -1018,7 +1018,7 @@ class ThemeSeeder extends Seeder
             ],
             "content" => [
                 "intro" => [
-                    "logo" => "catalog/logo.png",
+                    "logo" => "Catalog/logo.png",
                     "text" => [
                         "en" => "<p>Chengdu Guangda Network Technology Co., Ltd. is a high-tech enterprise mainly engaged in Internet development. The company was established in August 2014.</p>",
                         "zh_cn" => "<p style=\"line-height: 1.4;\"><strong>成都光大网络科技有限公司</strong></p>\n<p style=\"line-height: 1.4;\">是一家专业互联网开发的高科技企业，公司成立于2014年8月。</p>\n<p style=\"line-height: 1.4;\">公司以为客户创造价值为核心价值观，帮助中小企业利用互联网工具提升产品销售。</p>"
@@ -1033,7 +1033,7 @@ class ThemeSeeder extends Seeder
                     "links" => [
                         [
                             "link" => "",
-                            "type" => "page",
+                            "type" => "Page",
                             "value" => 21,
                             "text" => [
                                 "en" => "about us",
@@ -1041,13 +1041,13 @@ class ThemeSeeder extends Seeder
                             ]
                         ],
                         [
-                            "type" => "page",
+                            "type" => "Page",
                             "value" => 18,
                             "text" => [],
                             "link" => ""
                         ],
                         [
-                            "type" => "page",
+                            "type" => "Page",
                             "value" => 12,
                             "text" => [],
                             "link" => ""
@@ -1120,7 +1120,7 @@ class ThemeSeeder extends Seeder
                             "link" => ""
                         ],
                         [
-                            "type" => "page",
+                            "type" => "Page",
                             "value" => 20,
                             "text" => [
                                 "en" => "",
@@ -1129,7 +1129,7 @@ class ThemeSeeder extends Seeder
                             "link" => ""
                         ],
                         [
-                            "type" => "page",
+                            "type" => "Page",
                             "value" => 21,
                             "text" => [
                                 "en" => "",
@@ -1153,7 +1153,7 @@ class ThemeSeeder extends Seeder
                     "en" => "<div>&nbsp; - Chengdu Guangda Network Technology &copy; 2023</div>",
                     "zh_cn" => "<div class=\"\">&nbsp; - 成都光大网络科技 &copy; 2023</div>"
                 ],
-                "image" => "catalog/demo/banner/pay_icons.png"
+                "image" => "Catalog/demo/banner/pay_icons.png"
             ]
         ];
     }

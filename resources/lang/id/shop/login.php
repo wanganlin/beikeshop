@@ -11,8 +11,8 @@
  */
 
 return [
-    'index'                   => 'Login dan Pendaftaran Pengguna',
-    'login_and_sign'          => 'Login/Registrasi',
+    'index'                   => 'LoginData dan Pendaftaran Pengguna',
+    'login_and_sign'          => 'LoginData/Registrasi',
     'home'                    => 'Rumah',
     'library'                 => 'Pusat Pribadi',
     'login'                   => 'Masuk',
@@ -34,7 +34,7 @@ return [
     'check_form'              => 'Harap periksa apakah formulir diisi dengan benar',
     'email_or_password_error' => 'Email atau kata sandi salah!',
     'customer_inactive'       => 'Pengguna telah dinonaktifkan',
-    'login_successfully'      => 'Login berhasil',
+    'login_successfully'      => 'LoginData berhasil',
     'register_success'        => 'Pendaftaran berhasil',
-    'third_party_logins'      => 'Login Pihak Ketiga',
+    'third_party_logins'      => 'LoginData Pihak Ketiga',
 ];

@@ -14,7 +14,7 @@ return [
 
     /*
      *
-     * Home page translations.
+     * Home Page translations.
      *
      */
     'welcome'      => [
@@ -32,7 +32,7 @@ return [
 
     /*
      *
-     * Requirements page translations.
+     * Requirements Page translations.
      *
      */
     'requirements' => [
@@ -44,7 +44,7 @@ return [
 
     /*
      *
-     * Permissions page translations.
+     * Permissions Page translations.
      *
      */
     'permissions'  => [
@@ -56,7 +56,7 @@ return [
 
     /*
     *
-    * Environment page translations.
+    * Environment Page translations.
     *
     */
     'environment'  => [
@@ -96,7 +96,7 @@ return [
 
     /*
      *
-     * Final page translations.
+     * Final Page translations.
      *
      */
     'final'        => [

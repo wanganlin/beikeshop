@@ -6,15 +6,15 @@
   <base href="{{ $admin_base_url }}">
   <meta name="asset" content="{{ asset('/') }}">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link href="{{ mix('/build/beike/admin/css/bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ mix('/build/beike/Admin/css/bootstrap.css') }}" rel="stylesheet">
   <script src="{{ asset('vendor/jquery/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('vendor/layer/3.5.1/layer.js') }}"></script>
   <script src="{{ asset('vendor/vue/2.7/vue' . (!config('app.debug') ? '.min' : '') . '.js') }}"></script>
   <script src="{{ asset('vendor/element-ui/2.15.6/js.js') }}"></script>
   <link rel="stylesheet" href="{{ asset('vendor/element-ui/2.15.6/css.css') }}">
-  {{-- <link href="{{ mix('build/css/admin/login.css') }}" rel="stylesheet"> --}}
-  <script src="{{ mix('build/beike/admin/js/app.js') }}"></script>
-  <link href="{{ mix('build/beike/admin/css/app.css') }}" rel="stylesheet">
+  {{-- <link href="{{ mix('build/css/Admin/login.css') }}" rel="stylesheet"> --}}
+  <script src="{{ mix('build/beike/Admin/js/app.js') }}"></script>
+  <link href="{{ mix('build/beike/Admin/css/app.css') }}" rel="stylesheet">
   <title>forgotten</title>
 </head>
 <body class="page-login">

@@ -105,7 +105,7 @@ class CategoryController
     public function destroy(Request $request, Category $category): array
     {
         CategoryRepo::delete($category);
-        hook_action('admin.category.destroy.after', $category);
+        hook_action('Admin.category.destroy.after', $category);
 
         return json_success(trans('common.deleted_success'));
     }

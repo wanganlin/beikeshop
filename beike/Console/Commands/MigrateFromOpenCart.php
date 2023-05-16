@@ -197,7 +197,7 @@ class MigrateFromOpenCart extends Command
             'variables'    => json_encode($variables),
         ];
         $bkProduct['descriptions'] = $this->generateDescriptions($ocProduct);
-        $bkProduct['images']       = [$ocProduct->image];
+        $bkProduct['Images']       = [$ocProduct->image];
         $bkProduct['skus']         = $this->generateSkus($ocProduct, $productVariants, $childProducts, $variables);
         $bkProduct['categories']   = $this->generateCategories($ocProduct);
 

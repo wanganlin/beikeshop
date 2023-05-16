@@ -25,9 +25,9 @@ class DesignController extends Controller
             'design_settings' => system_setting('base.design_setting'),
         ];
 
-        $data = hook_filter('admin.design.index.data', $data);
+        $data = hook_filter('Admin.design.index.data', $data);
 
-        return view('admin::pages.design.builder.index', $data);
+        return view('Admin::pages.design.builder.index', $data);
     }
 
     /**
@@ -57,7 +57,7 @@ class DesignController extends Controller
             'design'    => (bool) $request->get('design'),
         ];
 
-        $viewData = hook_filter('admin.design.preview.data', $viewData);
+        $viewData = hook_filter('Admin.design.preview.data', $viewData);
 
         return view($viewPath, $viewData);
     }
@@ -75,7 +75,7 @@ class DesignController extends Controller
         $moduleData = DesignService::handleRequestModules($content);
         SettingRepo::storeValue('design_setting', $moduleData);
 
-        hook_action('admin.design.update.after', $moduleData);
+        hook_action('Admin.design.update.after', $moduleData);
 
         return json_success(trans('common.updated_success'));
     }

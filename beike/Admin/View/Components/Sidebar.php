@@ -50,7 +50,7 @@ class Sidebar extends Component
         $this->handleMenus();
         $this->currentLink = $this->getCurrentLink();
 
-        return view('admin::components.sidebar');
+        return view('Admin::components.sidebar');
     }
 
     /**
@@ -64,62 +64,62 @@ class Sidebar extends Component
         $menus = [
             [
                 'route'    => 'home.index',
-                'title'    => trans('admin/common.home'),
+                'title'    => trans('Admin/common.home'),
                 'icon'     => 'bi bi-house',
                 'prefixes' => $this->getHomeSubPrefix(),
             ],
             [
                 'route'    => 'orders.index',
-                'title'    => trans('admin/common.order'),
+                'title'    => trans('Admin/common.order'),
                 'icon'     => 'bi bi-clipboard-check',
                 'prefixes' => $this->getOrderSubPrefix(),
                 'children' => $this->getOrderSubRoutes(),
             ],
             [
                 'route'    => 'products.index',
-                'title'    => trans('admin/common.product'),
+                'title'    => trans('Admin/common.product'),
                 'icon'     => 'bi bi-box-seam',
                 'prefixes' => $this->getProductSubPrefix(),
                 'children' => $this->getProductSubRoutes(),
             ],
             [
                 'route'    => 'customers.index',
-                'title'    => trans('admin/common.customer'),
+                'title'    => trans('Admin/common.customer'),
                 'icon'     => 'bi bi-person-circle',
                 'prefixes' => $this->getCustomerSubPrefix(),
                 'children' => $this->getCustomerSubRoutes(),
             ],
             [
                 'route'    => 'pages.index',
-                'title'    => trans('admin/common.page'),
+                'title'    => trans('Admin/common.Page'),
                 'icon'     => 'bi bi-file-earmark-text',
                 'prefixes' => $this->getPageSubPrefix(),
                 'children' => $this->getPageSubRoutes(),
             ],
             [
                 'route'    => 'theme.index',
-                'title'    => trans('admin/common.design'),
+                'title'    => trans('Admin/common.design'),
                 'icon'     => 'bi bi-palette',
                 'prefixes' => $this->getDesignSubPrefix(),
                 'children' => $this->getDesignSubRoutes(),
             ],
             [
                 'route'    => 'plugins.index',
-                'title'    => trans('admin/common.plugin'),
+                'title'    => trans('Admin/common.plugin'),
                 'icon'     => 'bi bi-shop',
                 'prefixes' => $this->getPluginSubPrefix(),
                 'children' => $this->getPluginSubRoutes(),
             ],
             [
                 'route'    => 'settings.index',
-                'title'    => trans('admin/common.setting'),
+                'title'    => trans('Admin/common.setting'),
                 'icon'     => 'bi bi-gear',
                 'prefixes' => $this->getSettingSubPrefix(),
                 'children' => $this->getSettingSubRoutes(),
             ],
         ];
 
-        return hook_filter('admin.components.sidebar.menus', $menus);
+        return hook_filter('Admin.components.sidebar.menus', $menus);
     }
 
     /**
@@ -160,7 +160,7 @@ class Sidebar extends Component
             $title = $link['title'] ?? '';
             if (empty($title)) {
                 $permissionRoute              = str_replace('.', '_', $this->currentRouteName);
-                $this->links[$index]['title'] = trans("admin/common.{$permissionRoute}");
+                $this->links[$index]['title'] = trans("Admin/common.{$permissionRoute}");
             }
 
             if (! isset($link['blank'])) {
@@ -192,7 +192,7 @@ class Sidebar extends Component
                     $title = $item['title'] ?? '';
                     if (empty($title)) {
                         $permissionRoute                                = str_replace('.', '_', $item['route']);
-                        $this->links[$index]['children'][$key]['title'] = trans("admin/common.{$permissionRoute}");
+                        $this->links[$index]['children'][$key]['title'] = trans("Admin/common.{$permissionRoute}");
                     }
 
                     if (! isset($item['blank'])) {
@@ -210,7 +210,7 @@ class Sidebar extends Component
     {
         $prefix = ['home'];
 
-        return hook_filter('admin.sidebar.home.prefix', $prefix);
+        return hook_filter('Admin.sidebar.home.prefix', $prefix);
     }
 
     /**
@@ -220,7 +220,7 @@ class Sidebar extends Component
     {
         $prefix = ['products', 'multi_filter', 'categories', 'brands', 'attribute_groups', 'attributes'];
 
-        return hook_filter('admin.sidebar.product.prefix', $prefix);
+        return hook_filter('Admin.sidebar.product.prefix', $prefix);
     }
 
     /**
@@ -230,7 +230,7 @@ class Sidebar extends Component
     {
         $prefix = ['customers', 'customer_groups'];
 
-        return hook_filter('admin.sidebar.customer.prefix', $prefix);
+        return hook_filter('Admin.sidebar.customer.prefix', $prefix);
     }
 
     /**
@@ -240,7 +240,7 @@ class Sidebar extends Component
     {
         $prefix = ['orders', 'rmas', 'rma_reasons'];
 
-        return hook_filter('admin.sidebar.order.prefix', $prefix);
+        return hook_filter('Admin.sidebar.order.prefix', $prefix);
     }
 
     /**
@@ -250,7 +250,7 @@ class Sidebar extends Component
     {
         $prefix = ['pages', 'page_categories'];
 
-        return hook_filter('admin.sidebar.page.prefix', $prefix);
+        return hook_filter('Admin.sidebar.Page.prefix', $prefix);
     }
 
     /**
@@ -260,7 +260,7 @@ class Sidebar extends Component
     {
         $prefix = ['theme', 'design_menu'];
 
-        return hook_filter('admin.sidebar.design.prefix', $prefix);
+        return hook_filter('Admin.sidebar.design.prefix', $prefix);
     }
 
     /**
@@ -270,7 +270,7 @@ class Sidebar extends Component
     {
         $prefix = ['plugins', 'marketing'];
 
-        return hook_filter('admin.sidebar.plugin.prefix', $prefix);
+        return hook_filter('Admin.sidebar.plugin.prefix', $prefix);
     }
 
     /**
@@ -283,7 +283,7 @@ class Sidebar extends Component
             'regions', 'currencies', 'languages', 'countries', 'zones', 'account',
         ];
 
-        return hook_filter('admin.sidebar.setting.prefix', $prefix);
+        return hook_filter('Admin.sidebar.setting.prefix', $prefix);
     }
 
     /**
@@ -293,7 +293,7 @@ class Sidebar extends Component
     {
         $routes = [];
 
-        return hook_filter('admin.sidebar.home_routes', $routes);
+        return hook_filter('Admin.sidebar.home_routes', $routes);
     }
 
     /**
@@ -311,7 +311,7 @@ class Sidebar extends Component
             ['route' => 'products.trashed', 'prefixes' => ['products'], 'excludes' => ['products.index', 'products.edit']],
         ];
 
-        return hook_filter('admin.sidebar.product_routes', $routes);
+        return hook_filter('Admin.sidebar.product_routes', $routes);
     }
 
     /**
@@ -325,7 +325,7 @@ class Sidebar extends Component
             ['route' => 'customers.trashed', 'prefixes' => ['customers'], 'excludes' => ['customers.index', 'customers.edit']],
         ];
 
-        return hook_filter('admin.sidebar.customer_routes', $routes);
+        return hook_filter('Admin.sidebar.customer_routes', $routes);
     }
 
     /**
@@ -339,7 +339,7 @@ class Sidebar extends Component
             ['route' => 'rma_reasons.index', 'prefixes' => ['rma_reasons']],
         ];
 
-        return hook_filter('admin.sidebar.order_routes', $routes);
+        return hook_filter('Admin.sidebar.order_routes', $routes);
     }
 
     /**
@@ -353,7 +353,7 @@ class Sidebar extends Component
             ['route' => 'page_categories.index', 'prefixes' => ['page_categories']],
         ];
 
-        return hook_filter('admin.sidebar.pages_routes', $routes);
+        return hook_filter('Admin.sidebar.pages_routes', $routes);
     }
 
     /**
@@ -369,7 +369,7 @@ class Sidebar extends Component
             ['route' => 'design_footer.index', 'prefixes' => ['design_footer'], 'blank' => true, 'hide_mobile' => true],
         ];
 
-        return hook_filter('admin.sidebar.design_routes', $routes);
+        return hook_filter('Admin.sidebar.design_routes', $routes);
     }
 
     /**
@@ -388,12 +388,12 @@ class Sidebar extends Component
         $originTypes = $types->push('plugins.index', 'plugins.edit')->push();
         foreach (Plugin::TYPES as $type) {
             $types    = $originTypes->reject("plugins.{$type}");
-            $routes[] = ['route' => "plugins.{$type}", 'prefixes' => ['plugins'], 'title' => trans("admin/plugin.{$type}"), 'excludes' => $types->toArray()];
+            $routes[] = ['route' => "plugins.{$type}", 'prefixes' => ['plugins'], 'title' => trans("Admin/plugin.{$type}"), 'excludes' => $types->toArray()];
         }
 
         $routes[] = ['route' => 'marketing.index', 'prefixes' => ['marketing']];
 
-        return hook_filter('admin.sidebar.plugins_routes', $routes);
+        return hook_filter('Admin.sidebar.plugins_routes', $routes);
     }
 
     /**
@@ -415,6 +415,6 @@ class Sidebar extends Component
             ['route' => 'zones.index', 'prefixes' => ['zones']],
         ];
 
-        return hook_filter('admin.sidebar.setting_routes', $routes);
+        return hook_filter('Admin.sidebar.setting_routes', $routes);
     }
 }

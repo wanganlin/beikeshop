@@ -30,7 +30,7 @@ class ThemeController extends Controller
         $themes       = PluginRepo::getEnabledThemes();
 
         $data['themes'][] = [
-            'name'   => trans('admin/theme.theme_name'),
+            'name'   => trans('Admin/theme.theme_name'),
             'code'   => 'default',
             'demo'   => true,
             'image'  => image_origin('image/default-theme.jpg'),
@@ -50,7 +50,7 @@ class ThemeController extends Controller
             ];
         }
 
-        return view('admin::pages.theme.index', $data);
+        return view('Admin::pages.theme.index', $data);
     }
 
     /**

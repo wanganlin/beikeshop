@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('body-class', 'page-account-order-info')
+@section('body-class', 'Page-account-order-info')
 
 @section('content')
   <x-shop-breadcrumb type="order" value="{{ $order->number }}" />

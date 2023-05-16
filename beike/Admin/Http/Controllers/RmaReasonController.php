@@ -28,13 +28,13 @@ class RmaReasonController extends Controller
             'rmaReasons' => RmaReasonDetail::collection($rmaReasons)->jsonSerialize(),
         ];
 
-        $data = hook_filter('admin.rma_reason.index.data', $data);
+        $data = hook_filter('Admin.rma_reason.index.data', $data);
 
         if ($request->expectsJson()) {
             return json_success(trans('common.success'), $data);
         }
 
-        return view('admin::pages.rma_reasons.index', $data);
+        return view('Admin::pages.rma_reasons.index', $data);
     }
 
     public function store(Request $request): array

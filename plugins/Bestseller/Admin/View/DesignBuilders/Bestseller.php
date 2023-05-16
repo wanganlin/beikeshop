@@ -40,6 +40,6 @@ class Bestseller extends Component
             'view_path' => 'Bestseller::shop/design_module_bestseller',
         ];
 
-        return view('Bestseller::admin/design_module_bestseller', $data);
+        return view('Bestseller::Admin/design_module_bestseller', $data);
     }
 }

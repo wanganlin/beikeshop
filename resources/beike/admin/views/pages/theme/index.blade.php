@@ -1,13 +1,13 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.theme_index'))
+@section('title', __('Admin/common.theme_index'))
 
-@section('body-class', 'page-theme')
+@section('body-class', 'Page-theme')
 
 @section('content')
   <div id="customer-app" class="card h-min-600">
     <div class="card-header d-flex justify-content-between align-items-start">
-      <h5 class="card-title">{{ __('admin/theme.page_title') }}</h5>
+      <h5 class="card-title">{{ __('Admin/theme.page_title') }}</h5>
       <a href="{{ admin_route('marketing.index') }}?type=theme" class="btn btn-outline-info">{{ __('common.get_more') }}</a>
     </div>
     <div class="card-body">
@@ -21,7 +21,7 @@
                 <div class="name fs-5">{{ $item['name'] }}</div>
                 <div class="theme-tool">
                   @if ($item['status'])
-                    <div class="enabled-text">{{ __('admin/theme.enabled_text') }}</div>
+                    <div class="enabled-text">{{ __('Admin/theme.enabled_text') }}</div>
                   @else
                     <button class="btn btn-outline-success enabled-theme" data-code="{{ $item['code'] }}">{{ __('common.enabled') }}</button>
                   @endif
@@ -37,9 +37,9 @@
   <div id="theme-config" class="p-3" style="display: none">
     <div class="form-check form-check-inline mb-3">
       <input class="form-check-input" type="checkbox" id="theme-demo-data" value="">
-      <label class="form-check-label" for="theme-demo-data">{{ __('admin/theme.theme_pop_checkbox') }}</label>
+      <label class="form-check-label" for="theme-demo-data">{{ __('Admin/theme.theme_pop_checkbox') }}</label>
     </div>
-    <div class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i> {{ __('admin/theme.theme_pop_text') }}</div>
+    <div class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i> {{ __('Admin/theme.theme_pop_text') }}</div>
     <div class="d-flex justify-content-end mt-3">
       <button class="btn btn-primary theme-config-btn">{{ __('common.confirm') }}</button>
     </div>

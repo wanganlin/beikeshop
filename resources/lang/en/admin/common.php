@@ -34,7 +34,7 @@ return [
     'category'                         => 'Categories',
     'customer_group'                   => 'Customer Groups',
     'customer'                         => 'Customers',
-    'page'                             => 'Content',
+    'Page'                             => 'Content',
     'page_category'                    => 'Page Category',
     'setting'                          => 'Settings',
     'plugin'                           => 'Plugin',

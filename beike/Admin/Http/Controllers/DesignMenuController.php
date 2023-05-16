@@ -19,9 +19,9 @@ class DesignMenuController extends Controller
         $data = [
             'design_settings' => system_setting('base.menu_setting', []),
         ];
-        $data = hook_filter('admin.design_menu.index.data', $data);
+        $data = hook_filter('Admin.design_menu.index.data', $data);
 
-        return view('admin::pages.design.builder.menu', $data);
+        return view('Admin::pages.design.builder.menu', $data);
     }
 
     /**

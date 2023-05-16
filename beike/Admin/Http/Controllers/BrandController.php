@@ -29,12 +29,12 @@ class BrandController extends Controller
         $data   = [
             'brands' => $brands,
         ];
-        $data = hook_filter('admin.brand.index.data', $data);
+        $data = hook_filter('Admin.brand.index.data', $data);
         if ($request->expectsJson()) {
             return json_success(trans('common.success'), $data);
         }
 
-        return view('admin::pages.brands.index', $data);
+        return view('Admin::pages.brands.index', $data);
     }
 
     /**
@@ -50,9 +50,9 @@ class BrandController extends Controller
             'request_data' => $requestData,
         ];
 
-        hook_action('admin.brand.store.before', $data);
+        hook_action('Admin.brand.store.before', $data);
         $brand = BrandRepo::create($requestData);
-        hook_action('admin.brand.store.after', ['brand' => $brand, 'request_data' => $requestData]);
+        hook_action('Admin.brand.store.after', ['brand' => $brand, 'request_data' => $requestData]);
 
         return json_success(trans('common.created_success'), $brand);
     }
@@ -70,9 +70,9 @@ class BrandController extends Controller
             'brand_id'     => $brand,
             'request_data' => $requestData,
         ];
-        hook_action('admin.brand.update.before', $data);
+        hook_action('Admin.brand.update.before', $data);
         $brand = BrandRepo::update($brand, $requestData);
-        hook_action('admin.brand.update.after', $data);
+        hook_action('Admin.brand.update.after', $data);
 
         return json_success(trans('common.updated_success'), $brand);
     }
@@ -84,9 +84,9 @@ class BrandController extends Controller
      */
     public function destroy(Request $request, Brand $brand): array
     {
-        hook_action('admin.brand.destroy.before', $brand);
+        hook_action('Admin.brand.destroy.before', $brand);
         BrandRepo::delete($brand);
-        hook_action('admin.brand.destroy.after', $brand);
+        hook_action('Admin.brand.destroy.after', $brand);
 
         return json_success(trans('common.deleted_success'));
     }

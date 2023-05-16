@@ -10,6 +10,6 @@
  */
 
 return [
-    'plugins_index' => 'Login to Admin Panel',
+    'plugins_index' => 'LoginData to Admin Panel',
     'log_in'        => 'Log In',
 ];

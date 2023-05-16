@@ -1,14 +1,14 @@
 <template id="module-editor-slideshow-template">
   <div>
-    <div class="module-editor-row">{{ __('admin/builder.text_set_up') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.text_set_up') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.modules_full_screen') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.modules_full_screen') }}</div>
       <el-switch v-model="module.full"></el-switch>
     </div>
 
-    <div class="module-editor-row">{{ __('admin/builder.modules_content') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.modules_content') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.modules_select_image') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.modules_select_image') }}</div>
       <draggable
         ghost-class="dragabble-ghost"
         :list="module.images"
@@ -17,7 +17,7 @@
         <div class="pb-images-selector" v-for="(item, index) in module.images" :key="index">
           <div class="selector-head" @click="itemShow(index)">
             <div class="left">
-              <el-tooltip class="icon-rank" effect="dark" content="{{ __('admin/builder.text_drag_sort') }}" placement="left">
+              <el-tooltip class="icon-rank" effect="dark" content="{{ __('Admin/builder.text_drag_sort') }}" placement="left">
                 <i class="el-icon-rank"></i>
               </el-tooltip>
 
@@ -25,7 +25,7 @@
             </div>
 
             <div class="right">
-              <el-tooltip class="" effect="dark" content="{{ __('admin/builder.text_delete') }}" placement="left">
+              <el-tooltip class="" effect="dark" content="{{ __('Admin/builder.text_delete') }}" placement="left">
                 <div class="remove-item" @click.stop="removeImage(index)"><i class="el-icon-delete"></i></div>
               </el-tooltip>
               <i :class="'el-icon-arrow-'+(item.show ? 'up' : 'down')"></i>
@@ -34,7 +34,7 @@
           <div :class="'pb-images-list ' + (item.show ? 'active' : '')">
             <div class="pb-images-top">
               <pb-image-selector v-model="item.image"></pb-image-selector>
-              <div class="tag">{{ __('admin/builder.text_suggested_size') }} 1920 x 600</div>
+              <div class="tag">{{ __('Admin/builder.text_suggested_size') }} 1920 x 600</div>
             </div>
             <link-selector v-model="item.link"></link-selector>
           </div>
@@ -42,7 +42,7 @@
       </draggable>
 
       <div class="add-item">
-        <el-button type="primary" size="small" @click="addImage" icon="el-icon-circle-plus-outline">{{ __('admin/builder.text_add_pictures') }}</el-button>
+        <el-button type="primary" size="small" @click="addImage" icon="el-icon-circle-plus-outline">{{ __('Admin/builder.text_add_pictures') }}</el-button>
       </div>
     </div>
   </div>
@@ -88,7 +88,7 @@ Vue.component('module-editor-slideshow', {
 
     addImage() {
       this.module.images.find(e => e.show = false);
-      this.module.images.push({image: languagesFill('catalog/demo/banner/banner-4-en.jpg'), show: true, link: {type: 'product', value:''}});
+      this.module.images.push({image: languagesFill('Catalog/demo/banner/banner-4-en.jpg'), show: true, link: {type: 'product', value:''}});
     }
   }
 });
@@ -108,7 +108,7 @@ Vue.component('module-editor-slideshow', {
       floor: languagesFill(''),
       images: [
         {
-          image: languagesFill('catalog/demo/banner/banner-4-en.jpg'),
+          image: languagesFill('Catalog/demo/banner/banner-4-en.jpg'),
           show: true,
           link: {
             type: 'product',
@@ -116,7 +116,7 @@ Vue.component('module-editor-slideshow', {
           }
         },
         {
-          image: languagesFill('catalog/demo/banner/banner-3-en.jpg'),
+          image: languagesFill('Catalog/demo/banner/banner-3-en.jpg'),
           show: false,
           link: {
             type: 'product',

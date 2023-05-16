@@ -4,7 +4,7 @@
   <div class="module-image-banner banner-magnify-hover module-info mb-3 mb-md-5">
     <div class="container">
       <div class="row">
-        @foreach ($content['images'] as $item)
+        @foreach ($content['Images'] as $item)
         <div class="col-12 col-md-6 mb-2 mb-xl-0"><a class="image-wrap" href="{{ $item['link']['link'] ?: 'javascript:void(0)' }}"><img src="{{ $item['image'] }}" class="img-fluid"></a></div>
         @endforeach
       </div>

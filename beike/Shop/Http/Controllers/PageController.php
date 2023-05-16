@@ -24,13 +24,13 @@ class PageController extends Controller
         $page->increment('views');
 
         $data = [
-            'page'                   => $page,
+            'Page'                   => $page,
             'active_page_categories' => PageCategoryRepo::getActiveList(),
             'page_format'            => (new PageDetail($page))->jsonSerialize(),
             'products'               => ProductSimple::collection($page->products)->jsonSerialize(),
         ];
 
-        $data = hook_filter('page.show.data', $data);
+        $data = hook_filter('Page.show.data', $data);
 
         if ($page->category) {
             return view('pages/article', $data);

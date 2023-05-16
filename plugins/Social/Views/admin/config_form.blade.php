@@ -1,4 +1,4 @@
-@section('page-title-right')
+@section('Page-title-right')
   <button type="button" class="btn btn-primary save-btn" onclick="app.submit('form')">{{ __('common.save') }}</button>
 @endsection
 

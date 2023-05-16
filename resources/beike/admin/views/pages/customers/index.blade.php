@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.customer'))
+@section('title', __('Admin/common.customer'))
 
 @section('content')
   <div id="customer-app" class="card h-min-600" v-cloak>
@@ -44,9 +44,9 @@
 
       <div class="d-flex justify-content-between mb-4">
         @if ($type != 'trashed')
-          <button type="button" class="btn btn-primary" @click="checkedCustomersCreate">{{ __('admin/customer.customers_create') }}</button>
+          <button type="button" class="btn btn-primary" @click="checkedCustomersCreate">{{ __('Admin/customer.customers_create') }}</button>
         @else
-          <button type="button" class="btn btn-primary" @click="checkedCustomerSclearRestore">{{ __('admin/product.clear_restore') }}</button>
+          <button type="button" class="btn btn-primary" @click="checkedCustomerSclearRestore">{{ __('Admin/product.clear_restore') }}</button>
         @endif
       </div>
 
@@ -102,17 +102,17 @@
             </tbody>
           </table>
         </div>
-        {{ $customers->withQueryString()->links('admin::vendor/pagination/bootstrap-4') }}
+        {{ $customers->withQueryString()->links('Admin::vendor/pagination/bootstrap-4') }}
       @else
         <x-admin-no-data />
       @endif
     </div>
 
-    <el-dialog title="{{ __('admin/customer.customers_create') }}" :visible.sync="dialogCustomers.show" width="670px"
+    <el-dialog title="{{ __('Admin/customer.customers_create') }}" :visible.sync="dialogCustomers.show" width="670px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
       <el-form ref="form" :rules="rules" :model="dialogCustomers.form" label-width="120px">
-        <el-form-item label="{{ __('admin/customer.user_name') }}" prop="name">
-          <el-input v-model="dialogCustomers.form.name" placeholder="{{ __('admin/customer.user_name') }}"></el-input>
+        <el-form-item label="{{ __('Admin/customer.user_name') }}" prop="name">
+          <el-input v-model="dialogCustomers.form.name" placeholder="{{ __('Admin/customer.user_name') }}"></el-input>
         </el-form-item>
         <el-form-item label="{{ __('customer.email') }}" prop="email">
           <el-input v-model="dialogCustomers.form.email" placeholder="{{ __('customer.email') }}"></el-input>
@@ -164,10 +164,10 @@
         },
 
         rules: {
-          name: [{required: true,message: '{{ __('common.error_required', ['name' => __('admin/customer.user_name')] ) }}', trigger: 'blur'}, ],
+          name: [{required: true,message: '{{ __('common.error_required', ['name' => __('Admin/customer.user_name')] ) }}', trigger: 'blur'}, ],
           email: [
             {required: true, message: '{{ __('common.error_required', ['name' => __('common.email')] ) }}', trigger: 'blur'},
-            {type: 'email', message: '{{ __('admin/customer.error_email') }}' ,trigger: 'blur'},
+            {type: 'email', message: '{{ __('Admin/customer.error_email') }}' ,trigger: 'blur'},
           ],
           password: [{required: true,message: '{{ __('common.error_required', ['name' => __('shop/login.password')] ) }}',trigger: 'blur'}, ],
         },
@@ -209,7 +209,7 @@
 
         // 清空回收站
         checkedCustomerSclearRestore() {
-          this.$confirm('{{ __('admin/product.confirm_delete_restore') }}', '{{ __('common.text_hint') }}', {
+          this.$confirm('{{ __('Admin/product.confirm_delete_restore') }}', '{{ __('common.text_hint') }}', {
             confirmButtonText: '{{ __('common.confirm') }}',
             cancelButtonText: '{{ __('common.cancel') }}',
             type: 'warning'

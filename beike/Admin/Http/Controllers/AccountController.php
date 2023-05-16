@@ -25,7 +25,7 @@ class AccountController extends Controller
             'tokens'       => AdminUserTokenRepo::getTokenByAdminUser($user)->pluck('token')->toArray(),
         ];
 
-        return view('admin::pages.account.index', $data);
+        return view('Admin::pages.account.index', $data);
     }
 
     public function update(Request $request)
@@ -35,6 +35,6 @@ class AccountController extends Controller
         $adminUserData = $request->all();
         AdminUserRepo::updateAdminUser($user->id, $adminUserData);
 
-        return response()->redirectTo('admin/account')->with('success', trans('common.updated_success'));
+        return response()->redirectTo('Admin/account')->with('success', trans('common.updated_success'));
     }
 }

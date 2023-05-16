@@ -33,9 +33,9 @@ class PageCategoryController extends Controller
             'page_categories_format' => PageCategoryResource::collection($pageCategoryList)->jsonSerialize(),
         ];
 
-        $data = hook_filter('admin.page_category.index.data', $data);
+        $data = hook_filter('Admin.page_category.index.data', $data);
 
-        return view('admin::pages.page_categories.index', $data);
+        return view('Admin::pages.page_categories.index', $data);
     }
 
     /**
@@ -45,7 +45,7 @@ class PageCategoryController extends Controller
      */
     public function create(): mixed
     {
-        return view('admin::pages.page_categories.form', ['page_category' => new PageCategory()]);
+        return view('Admin::pages.page_categories.form', ['page_category' => new PageCategory()]);
     }
 
     /**
@@ -59,10 +59,10 @@ class PageCategoryController extends Controller
     {
         try {
             $requestData = $request->all();
-            hook_action('admin.page_category.store.before', $requestData);
+            hook_action('Admin.page_category.store.before', $requestData);
             $pageCategory = PageCategoryRepo::createOrUpdate($requestData);
 
-            hook_action('admin.page_category.store.after', ['page_category' => $pageCategory, 'request_data' => $requestData]);
+            hook_action('Admin.page_category.store.after', ['page_category' => $pageCategory, 'request_data' => $requestData]);
 
             return redirect(admin_route('page_categories.index'));
         } catch (\Exception $e) {
@@ -84,9 +84,9 @@ class PageCategoryController extends Controller
             'descriptions'  => $descriptions,
         ];
 
-        $data = hook_filter('admin.page_category.edit.data', $data);
+        $data = hook_filter('Admin.page_category.edit.data', $data);
 
-        return view('admin::pages.page_categories.form', $data);
+        return view('Admin::pages.page_categories.form', $data);
     }
 
     /**
@@ -102,9 +102,9 @@ class PageCategoryController extends Controller
         try {
             $requestData       = $request->all();
             $requestData['id'] = $pageCategory->id;
-            hook_action('admin.page_category.update.before', $requestData);
+            hook_action('Admin.page_category.update.before', $requestData);
             $pageCategory = PageCategoryRepo::createOrUpdate($requestData);
-            hook_action('admin.page_category.update.after', ['page_category' => $pageCategory, 'request_data' => $requestData]);
+            hook_action('Admin.page_category.update.after', ['page_category' => $pageCategory, 'request_data' => $requestData]);
 
             return redirect()->to(admin_route('page_categories.index'));
         } catch (\Exception $e) {
@@ -122,7 +122,7 @@ class PageCategoryController extends Controller
     public function destroy(Request $request, int $pageId): array
     {
         PageCategoryRepo::deleteById($pageId);
-        hook_action('admin.page_category.store.after', $pageId);
+        hook_action('Admin.page_category.store.after', $pageId);
 
         return json_success(trans('common.deleted_success'));
     }

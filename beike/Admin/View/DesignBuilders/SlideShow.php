@@ -35,11 +35,11 @@ class SlideShow extends Component
         $data['register'] = [
             'code'  => 'slideshow',
             'sort'  => 0,
-            'name'  => trans('admin/design_builder.module_slideshow'),
+            'name'  => trans('Admin/design_builder.module_slideshow'),
             'icon'  => '&#xe61b;',
             'style' => 'font-size: 40px;',
         ];
 
-        return view('admin::pages.design.module.slideshow', $data);
+        return view('Admin::pages.design.module.slideshow', $data);
     }
 }

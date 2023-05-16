@@ -63,7 +63,7 @@ class CustomerGroupRepo
     {
         $defaultCustomerGroupId = system_setting('base.default_customer_group_id');
         if ($id == $defaultCustomerGroupId) {
-            throw new NotAcceptableHttpException(trans('admin/customer_group.default_cannot_delete'));
+            throw new NotAcceptableHttpException(trans('Admin/customer_group.default_cannot_delete'));
         }
         $group = CustomerGroup::query()->find($id);
         if ($group) {

@@ -46,7 +46,7 @@ class SitemapService
 
         $pages = Page::query()->where('active', 1)->orderBy('updated_at', 'desc')->get();
         foreach ($pages as $item) {
-            $sitemap->add(shop_route('pages.show', ['page' => $item->id]), $item->updated_at->format('c'));
+            $sitemap->add(shop_route('pages.show', ['Page' => $item->id]), $item->updated_at->format('c'));
         }
 
         $sitemap->store('xml', 'sitemap');

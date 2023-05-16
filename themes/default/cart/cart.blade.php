@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('body-class', 'page-cart')
+@section('body-class', 'Page-cart')
 
 @push('header')
   <script src="{{ asset('vendor/vue/2.7/vue' . (!config('app.debug') ? '.min' : '') . '.js') }}"></script>

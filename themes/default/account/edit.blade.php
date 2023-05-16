@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('body-class', 'page-account-edit')
+@section('body-class', 'Page-account-edit')
 
 @push('header')
   <script src="{{ asset('vendor/cropper/cropper.min.js') }}"></script>

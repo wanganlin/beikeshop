@@ -11,12 +11,12 @@ class Product extends Base
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['images', 'video', 'position', 'brand_id', 'tax_class_id', 'weight', 'weight_class', 'active', 'variables'];
+    protected $fillable = ['Images', 'video', 'position', 'brand_id', 'tax_class_id', 'weight', 'weight_class', 'active', 'variables'];
 
     protected $casts = [
         'active'    => 'boolean',
         'variables' => 'array',
-        'images'    => 'array',
+        'Images'    => 'array',
     ];
 
     protected $appends = ['image'];

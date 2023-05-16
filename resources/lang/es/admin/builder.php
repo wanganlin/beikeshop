@@ -142,7 +142,7 @@ return [
     'text_bgi'                         => 'imagen de fondo',
     'text_btn'                         => 'botón',
 
-    // page
+    // Page
     'page_product_title_size'          => 'Tamaño de fuente del título del producto',
     'page_product_title_color'         => 'Color del título del producto',
     'page_product_price_color'         => 'Color del precio del producto',

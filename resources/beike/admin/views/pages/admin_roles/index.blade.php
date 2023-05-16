@@ -1,14 +1,14 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.admin_user'))
+@section('title', __('Admin/common.admin_user'))
 
 @section('content')
   <ul class="nav-bordered nav nav-tabs mb-3">
     <li class="nav-item">
-      <a class="nav-link" href="{{ admin_route('admin_users.index') }}">{{ __('admin/common.admin_user') }}</a>
+      <a class="nav-link" href="{{ admin_route('admin_users.index') }}">{{ __('Admin/common.admin_user') }}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="{{ admin_route('admin_roles.index') }}">{{ __('admin/common.admin_role') }}</a>
+      <a class="nav-link active" href="{{ admin_route('admin_roles.index') }}">{{ __('Admin/common.admin_role') }}</a>
     </li>
   </ul>
 
@@ -16,7 +16,7 @@
     <div class="card-body h-min-600">
       <div class="d-flex justify-content-between mb-4">
         <a href="{{ admin_route('admin_roles.create') }}"
-          class="btn btn-primary">{{ __('admin/role.admin_roles_create') }}</a>
+          class="btn btn-primary">{{ __('Admin/role.admin_roles_create') }}</a>
       </div>
       <div class="table-push">
         <table class="table">

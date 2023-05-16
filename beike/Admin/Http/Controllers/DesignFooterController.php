@@ -20,9 +20,9 @@ class DesignFooterController extends Controller
         $data = [
             'design_settings' => system_setting('base.footer_setting'),
         ];
-        $data = hook_filter('admin.design_footer.index.data', $data);
+        $data = hook_filter('Admin.design_footer.index.data', $data);
 
-        return view('admin::pages.design.builder.footer', $data);
+        return view('Admin::pages.design.builder.footer', $data);
     }
 
     /**
@@ -42,7 +42,7 @@ class DesignFooterController extends Controller
             'footer_content' => FooterRepo::handleFooterData($content),
             'design'         => (bool) $request->get('design'),
         ];
-        $viewData = hook_filter('admin.design_footer.index.data', $viewData);
+        $viewData = hook_filter('Admin.design_footer.index.data', $viewData);
 
         return view($viewPath, $viewData);
     }

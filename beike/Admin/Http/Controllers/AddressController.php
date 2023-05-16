@@ -25,7 +25,7 @@ class AddressController extends Controller
             'addresses' => AddressResource::collection($addresses),
         ];
 
-        return hook_filter('admin.address.index.data', $data);
+        return hook_filter('Admin.address.index.data', $data);
     }
 
     public function store(Request $request, int $customerId)
@@ -36,9 +36,9 @@ class AddressController extends Controller
             'customer_id' => $customerId,
             'data'        => $requestData,
         ];
-        hook_action('admin.address.store.before', $beforeData);
+        hook_action('Admin.address.store.before', $beforeData);
         $address = AddressService::addForCustomer($customerId, $requestData);
-        hook_action('admin.address.store.after', $address);
+        hook_action('Admin.address.store.after', $address);
 
         return json_success(trans('common.created_success'), $address);
     }
@@ -51,9 +51,9 @@ class AddressController extends Controller
             'address_id'  => $addressId,
             'data'        => $requestData,
         ];
-        hook_action('admin.address.update.before', $beforeData);
+        hook_action('Admin.address.update.before', $beforeData);
         $address = AddressService::update($addressId, $request->all());
-        hook_action('admin.address.update.after', $address);
+        hook_action('Admin.address.update.after', $address);
 
         return json_success(trans('common.updated_success'), $address);
     }
@@ -61,7 +61,7 @@ class AddressController extends Controller
     public function destroy(Request $request, int $customerId, int $addressId)
     {
         AddressRepo::delete($addressId);
-        hook_action('admin.address.destroy.after', $addressId);
+        hook_action('Admin.address.destroy.after', $addressId);
 
         return json_success(trans('common.deleted_success'));
     }

@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('body-class', 'page-pages')
+@section('body-class', 'Page-pages')
 @section('title', $page['meta_title'] ?: $page['title'])
 @section('keywords', $page['meta_keywords'])
 @section('description', $page['meta_description'])

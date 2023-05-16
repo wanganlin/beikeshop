@@ -1,21 +1,21 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.admin_user'))
+@section('title', __('Admin/common.admin_user'))
 
 @section('content')
   <ul class="nav-bordered nav nav-tabs mb-3">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="{{ admin_route('admin_users.index') }}">{{ __('admin/common.admin_user') }}</a>
+      <a class="nav-link active" aria-current="page" href="{{ admin_route('admin_users.index') }}">{{ __('Admin/common.admin_user') }}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ admin_route('admin_roles.index') }}">{{ __('admin/common.admin_role') }}</a>
+      <a class="nav-link" href="{{ admin_route('admin_roles.index') }}">{{ __('Admin/common.admin_role') }}</a>
     </li>
   </ul>
 
   <div id="tax-classes-app" class="card" v-cloak>
     <div class="card-body h-min-600">
       <div class="d-flex justify-content-between mb-4">
-        <button type="button" class="btn btn-primary" @click="checkedCreate('add', null)">{{ __('admin/user.admin_users_create') }}</button>
+        <button type="button" class="btn btn-primary" @click="checkedCreate('add', null)">{{ __('Admin/user.admin_users_create') }}</button>
       </div>
       <div class="table-push">
         <table class="table">
@@ -24,7 +24,7 @@
               <th>ID</th>
               <th>{{ __('common.name') }}</th>
               <th>{{ __('common.email') }}</th>
-              <th>{{ __('admin/common.admin_role') }}</th>
+              <th>{{ __('Admin/common.admin_role') }}</th>
               <th>{{ __('common.created_at') }}</th>
               <th>{{ __('common.updated_at') }}</th>
               <th class="text-end">{{ __('common.action') }}</th>
@@ -51,10 +51,10 @@
         </table>
       </div>
 
-      {{-- {{ $admin_users->links('admin::vendor/pagination/bootstrap-4') }} --}}
+      {{-- {{ $admin_users->links('Admin::vendor/pagination/bootstrap-4') }} --}}
     </div>
 
-    <el-dialog title="{{ __('admin/common.admin_user') }}" :visible.sync="dialog.show" width="600px"
+    <el-dialog title="{{ __('Admin/common.admin_user') }}" :visible.sync="dialog.show" width="600px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="100px">
@@ -81,7 +81,7 @@
           </el-select>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/admin_roles.role') }}" prop="roles">
+        <el-form-item label="{{ __('Admin/admin_roles.role') }}" prop="roles">
           <el-checkbox-group v-model="dialog.form.roles">
             <el-checkbox v-for="roles, index in source.roles" :label="roles.id">@{{roles.name}}</el-checkbox>
           </el-checkbox-group>
@@ -129,7 +129,7 @@
           name: [{required: true,message: '{{ __('common.error_required', ['name' => __('common.name')]) }}', trigger: 'blur'}, ],
           email: [{required: true,message: '{{ __('common.error_required', ['name' => __('common.email')]) }}', trigger: 'blur'}, ],
           password: [{required: true,message: '{{ __('common.error_required', ['name' => __('shop/login.password')]) }}', trigger: 'blur'}, ],
-          roles: [{type: 'array', required: true, message: '{{ __('admin/admin_roles.error_roles') }}', trigger: 'blur'}],
+          roles: [{type: 'array', required: true, message: '{{ __('Admin/admin_roles.error_roles') }}', trigger: 'blur'}],
         }
       },
 

@@ -26,7 +26,7 @@ class MarketingController
         $filters = [
             'type'    => $request->get('type'),
             'keyword' => $request->get('keyword'),
-            'page'    => $request->get('page'),
+            'Page'    => $request->get('Page'),
         ];
         $plugins = MarketingService::getInstance()->getList($filters);
         $data    = [
@@ -34,12 +34,12 @@ class MarketingController
             'domain'  => str_replace(['http://', 'https://'], '', config('app.url')),
             'types'   => PluginRepo::getTypes(),
         ];
-        $data = hook_filter('admin.marketing.index.data', $data);
+        $data = hook_filter('Admin.marketing.index.data', $data);
         if ($request->expectsJson()) {
             return json_success(trans('common.success'), $data);
         }
 
-        return view('admin::pages.marketing.index', $data);
+        return view('Admin::pages.marketing.index', $data);
     }
 
     /**
@@ -55,13 +55,13 @@ class MarketingController
                 'plugin' => $plugin,
             ];
 
-            $data = hook_filter('admin.marketing.show.data', $data);
+            $data = hook_filter('Admin.marketing.show.data', $data);
 
             if ($request->expectsJson()) {
                 return $data;
             }
 
-            return view('admin::pages.marketing.show', $data);
+            return view('Admin::pages.marketing.show', $data);
         } catch (\Exception $e) {
             return redirect(admin_route('marketing.index'))->withErrors(['error' => $e->getMessage()]);
         }

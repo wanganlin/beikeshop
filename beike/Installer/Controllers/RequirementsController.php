@@ -20,7 +20,7 @@ class RequirementsController extends BaseController
     }
 
     /**
-     * Display the requirements page.
+     * Display the requirements Page.
      *
      * @return \Illuminate\View\View
      */

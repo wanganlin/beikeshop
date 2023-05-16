@@ -33,7 +33,7 @@ return [
     'category'              => 'カテゴリ',
     'customer_group'        => '顧客グループ',
     'customer'              => '顧客',
-    'page'                  => 'コンテンツ',
+    'Page'                  => 'コンテンツ',
     'page_category'         => '記事の分類',
     'setting'               => 'システム設定',
     'plugin'                => 'プラグイン',

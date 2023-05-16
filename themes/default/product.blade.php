@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('body-class', 'page-product')
+@section('body-class', 'Page-product')
 @section('title', $product['meta_title'] ?: $product['name'])
 @section('keywords', $product['meta_keywords'] ?: system_setting('base.meta_keyword'))
 @section('description', $product['meta_description'] ?: system_setting('base.meta_description'))
@@ -162,7 +162,7 @@
         </a>
         @if ($product['attributes'])
         <a class="nav-link fw-bold fs-5" data-bs-toggle="tab" href="#product-attributes">
-          {{ __('admin/attribute.index') }}
+          {{ __('Admin/attribute.index') }}
         </a>
         @endif
       </div>
@@ -194,7 +194,7 @@
   @if ($relations)
     <div class="relations-wrap mt-5">
       <div class="container position-relative">
-        <div class="title text-center fs-1 mb-4">{{ __('admin/product.product_relations') }}</div>
+        <div class="title text-center fs-1 mb-4">{{ __('Admin/product.product_relations') }}</div>
         <div class="product swiper-style-plus">
           <div class="swiper relations-swiper">
             <div class="swiper-wrapper">
@@ -266,7 +266,7 @@
         } else {
           // 如果没有默认的sku，则取第一个sku的第一个变量的第一个值
           this.product = skus[0];
-          this.images = @json($product['images'] ?? []);
+          this.images = @json($product['Images'] ?? []);
         }
       },
 
@@ -292,7 +292,7 @@
         getSelectedSku() {
           // 通过 selectedVariantsIndex 的值比对 skus 的 variables
           const sku = this.source.skus.find(sku => sku.variants.toString() == this.selectedVariantsIndex.toString())
-          const spuImages = @json($product['images'] ?? []);
+          const spuImages = @json($product['Images'] ?? []);
           this.images = [...sku.images, ...spuImages]
           this.product = sku;
           if (swiperMobile) {

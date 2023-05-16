@@ -29,7 +29,7 @@ return [
     'disable'              => 'désactivé',
     'enabled'              => 'activer',
     'disabled'             => 'désactivé',
-    'home'                 => 'page de garde',
+    'home'                 => 'Page de garde',
     'submit'               => 'nous faire parvenir',
     'title'                => 'Titre',
     'save'                 => 'enregistrer',
@@ -83,7 +83,7 @@ return [
     'updated_at'           => 'Changer l\'heure',
     'sort_order'           => 'trier',
     'error_page'           => 'Les données auxquelles vous avez accédé n\'existent pas ou ont été supprimées~',
-    'error_page_btn'       => 'Retour à la page précédente',
+    'error_page_btn'       => 'Retour à la Page précédente',
 
     'order'                => [
         'unpaid'    => 'Être payé',

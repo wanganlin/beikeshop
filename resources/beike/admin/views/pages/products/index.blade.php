@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.product'))
+@section('title', __('Admin/common.product'))
 
 @section('content')
   @if ($errors->has('error'))
@@ -64,21 +64,21 @@
         <div class="d-flex justify-content-between my-4">
           @if ($type != 'trashed')
           <a href="{{ admin_route('products.create') }}" class="me-1 nowrap">
-            <button class="btn btn-primary">{{ __('admin/product.products_create') }}</button>
+            <button class="btn btn-primary">{{ __('Admin/product.products_create') }}</button>
           </a>
           @else
             @if ($products->total())
-              <button class="btn btn-primary" @click="clearRestore">{{ __('admin/product.clear_restore') }}</button>
+              <button class="btn btn-primary" @click="clearRestore">{{ __('Admin/product.clear_restore') }}</button>
             @endif
           @endif
 
           @if ($type != 'trashed' && $products->total())
             <div class="right nowrap">
-              <button class="btn btn-outline-secondary" :disabled="!selectedIds.length" @click="batchDelete">{{ __('admin/product.batch_delete')  }}</button>
+              <button class="btn btn-outline-secondary" :disabled="!selectedIds.length" @click="batchDelete">{{ __('Admin/product.batch_delete')  }}</button>
               <button class="btn btn-outline-secondary" :disabled="!selectedIds.length"
-              @click="batchActive(true)">{{ __('admin/product.batch_active') }}</button>
+              @click="batchActive(true)">{{ __('Admin/product.batch_active') }}</button>
               <button class="btn btn-outline-secondary" :disabled="!selectedIds.length"
-              @click="batchActive(false)">{{ __('admin/product.batch_inactive') }}</button>
+              @click="batchActive(false)">{{ __('Admin/product.batch_inactive') }}</button>
             </div>
           @endif
         </div>
@@ -125,7 +125,7 @@
                   <td><input type="checkbox" :value="{{ $product['id'] }}" v-model="selectedIds" /></td>
                   <td>{{ $product['id'] }}</td>
                   <td>
-                    <div class="wh-60 border d-flex rounded-2 justify-content-between align-items-center"><img src="{{ $product['images'][0] ?? 'image/placeholder.png' }}" class="img-fluid rounded-2"></div>
+                    <div class="wh-60 border d-flex rounded-2 justify-content-between align-items-center"><img src="{{ $product['Images'][0] ?? 'image/placeholder.png' }}" class="img-fluid rounded-2"></div>
                   </td>
                   <td>
                     <a href="{{ $product['url'] }}" target="_blank" title="{{ $product['name'] }}" class="text-dark">{{ $product['name'] }}</a>
@@ -157,7 +157,7 @@
             </table>
           </div>
 
-          {{ $products->withQueryString()->links('admin::vendor/pagination/bootstrap-4') }}
+          {{ $products->withQueryString()->links('Admin::vendor/pagination/bootstrap-4') }}
         @else
           <x-admin-no-data />
         @endif
@@ -204,7 +204,7 @@
 
       methods: {
         batchDelete() {
-          this.$confirm('{{ __('admin/product.confirm_batch_product') }}', '{{ __('common.text_hint') }}', {
+          this.$confirm('{{ __('Admin/product.confirm_batch_product') }}', '{{ __('common.text_hint') }}', {
             confirmButtonText: '{{ __('common.confirm') }}',
             cancelButtonText: '{{ __('common.cancel') }}',
             type: 'warning'
@@ -217,7 +217,7 @@
         },
 
         batchActive(type) {
-          this.$confirm('{{ __('admin/product.confirm_batch_status') }}', '{{ __('common.text_hint') }}', {
+          this.$confirm('{{ __('Admin/product.confirm_batch_status') }}', '{{ __('common.text_hint') }}', {
             confirmButtonText: '{{ __('common.confirm') }}',
             cancelButtonText: '{{ __('common.cancel') }}',
             type: 'warning'
@@ -260,7 +260,7 @@
         restoreProduct(index) {
           const id = this.productIds[index];
 
-          this.$confirm('{{ __('admin/product.confirm_batch_restore') }}', '{{ __('common.text_hint') }}', {
+          this.$confirm('{{ __('Admin/product.confirm_batch_restore') }}', '{{ __('common.text_hint') }}', {
             type: 'warning'
           }).then(() => {
             $http.put('products/restore', {id: id}).then((res) => {
@@ -270,7 +270,7 @@
         },
 
         clearRestore() {
-          this.$confirm('{{ __('admin/product.confirm_delete_restore') }}', '{{ __('common.text_hint') }}', {
+          this.$confirm('{{ __('Admin/product.confirm_delete_restore') }}', '{{ __('common.text_hint') }}', {
             type: 'warning'
           }).then(() => {
             $http.post('products/trashed/clear').then((res) => {

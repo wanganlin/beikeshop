@@ -50,7 +50,7 @@ class ProductSimple extends JsonResource
             'category_id'         => $this->category_id           ?? null,
             'in_wishlist'         => $this->inCurrentWishlist->id ?? 0,
 
-            'images'              => array_map(function ($item) {
+            'Images'              => array_map(function ($item) {
                 return image_resize($item, 400, 400);
             }, $images),
         ];

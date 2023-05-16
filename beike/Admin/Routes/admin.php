@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 $adminName = admin_name();
 Route::prefix($adminName)
-    ->middleware(['admin'])
+    ->middleware(['Admin'])
     ->name("{$adminName}.")
     ->group(function () {
         Route::get('login', [Controllers\LoginController::class, 'show'])->name('login.show');
@@ -181,11 +181,11 @@ Route::prefix($adminName)
                 Route::middleware('can:pages_index')->get('pages', [Controllers\PagesController::class, 'index'])->name('pages.index');
                 Route::middleware('can:pages_index')->get('pages/autocomplete', [Controllers\PagesController::class, 'autocomplete'])->name('pages.autocomplete');
                 Route::middleware('can:pages_create')->get('pages/create', [Controllers\PagesController::class, 'create'])->name('pages.create');
-                Route::middleware('can:pages_show')->get('pages/{page}/edit', [Controllers\PagesController::class, 'edit'])->name('pages.edit');
-                Route::middleware('can:pages_show')->get('pages/{page}/name', [Controllers\PagesController::class, 'name'])->name('pages.name');
+                Route::middleware('can:pages_show')->get('pages/{Page}/edit', [Controllers\PagesController::class, 'edit'])->name('pages.edit');
+                Route::middleware('can:pages_show')->get('pages/{Page}/name', [Controllers\PagesController::class, 'name'])->name('pages.name');
                 Route::middleware('can:pages_create')->post('pages', [Controllers\PagesController::class, 'store'])->name('pages.store');
-                Route::middleware('can:pages_update')->put('pages/{page}', [Controllers\PagesController::class, 'update'])->name('pages.update');
-                Route::middleware('can:pages_delete')->delete('pages/{page}', [Controllers\PagesController::class, 'destroy'])->name('pages.destroy');
+                Route::middleware('can:pages_update')->put('pages/{Page}', [Controllers\PagesController::class, 'update'])->name('pages.update');
+                Route::middleware('can:pages_delete')->delete('pages/{Page}', [Controllers\PagesController::class, 'destroy'])->name('pages.destroy');
 
                 // 文章分类
                 Route::middleware('can:page_categories_index')->get('page_categories', [Controllers\PageCategoryController::class, 'index'])->name('page_categories.index');

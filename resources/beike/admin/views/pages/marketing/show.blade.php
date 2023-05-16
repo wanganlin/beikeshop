@@ -1,8 +1,8 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/marketing.marketing_show'))
+@section('title', __('Admin/marketing.marketing_show'))
 
-@section('body-class', 'page-marketing-info')
+@section('body-class', 'Page-marketing-info')
 
 @push('header')
 <script src="{{ asset('vendor/qrcode/qrcode.min.js') }}"></script>
@@ -16,7 +16,7 @@ $data = $plugin['data'];
 @endphp
 <div class="card mb-4" id="app">
   <div class="card-header">
-    <h5 class="card-title">{{ __('admin/marketing.marketing_show') }}</h5>
+    <h5 class="card-title">{{ __('Admin/marketing.marketing_show') }}</h5>
   </div>
   <div class="card-body">
     <div class="d-lg-flex plugin-info">
@@ -27,11 +27,11 @@ $data = $plugin['data'];
       <div class="ms-lg-5">
         <h2 class="card-title mb-4">{{ $data['name'] }}</h2>
         <div class="plugin-item d-lg-flex align-items-center mb-4 lh-1 text-secondary">
-          <div class="mx-3 ms-0">{{ __('admin/marketing.download_count') }}：{{ $data['downloaded'] }}</div><span
+          <div class="mx-3 ms-0">{{ __('Admin/marketing.download_count') }}：{{ $data['downloaded'] }}</div><span
             class="vr lh-1 bg-secondary"></span>
           <div class="mx-3">{{ __('page_category.views') }}：{{ $data['viewed'] }}</div><span
             class="vr lh-1 bg-secondary"></span>
-          <div class="mx-3">{{ __('admin/marketing.last_update') }}：{{ $data['updated_at'] }}</div><span
+          <div class="mx-3">{{ __('Admin/marketing.last_update') }}：{{ $data['updated_at'] }}</div><span
             class="lh-1 bg-secondary"></span>
         </div>
 
@@ -41,17 +41,17 @@ $data = $plugin['data'];
         </div>
 
         <div class="mb-3">
-          <div class="mb-1 fw-bold">{{ __('admin/marketing.text_version') }}：</div>
+          <div class="mb-1 fw-bold">{{ __('Admin/marketing.text_version') }}：</div>
           <div>{{ $data['version'] }}</div>
         </div>
 
         <div class="mb-3">
-          <div class="mb-1 fw-bold">{{ __('admin/marketing.text_compatibility') }}：</div>
+          <div class="mb-1 fw-bold">{{ __('Admin/marketing.text_compatibility') }}：</div>
           <div>{{ $data['version_name_format'] }}</div>
         </div>
 
         <div class="mb-3">
-          <div class="mb-1 fw-bold">{{ __('admin/marketing.text_author') }}：</div>
+          <div class="mb-1 fw-bold">{{ __('Admin/marketing.text_author') }}：</div>
           <div class="d-inline-block">
             <a href="{{ config('app.url') }}/account/{{ $data['developer']['id'] }}" target="_blank"
               class="d-flex align-items-center text-dark">
@@ -69,11 +69,11 @@ $data = $plugin['data'];
           @if ($data['available'])
           @if ($data['downloadable'])
           <button class="btn btn-primary btn-lg" @click="downloadPlugin"><i class="bi bi-cloud-arrow-down-fill"></i> {{
-            __('admin/marketing.download_plugin') }}</button>
+            __('Admin/marketing.download_plugin') }}</button>
           <div class="mt-3 d-none download-help"><a href="{{ admin_route('plugins.index') }}" class=""><i
                 class="bi bi-cursor-fill"></i> <span></span></a></div>
           @else
-          <div class="mb-2 fw-bold">{{ __('admin/marketing.select_pay') }}</div>
+          <div class="mb-2 fw-bold">{{ __('Admin/marketing.select_pay') }}</div>
           <div class="mb-4">
             <el-radio-group v-model="payCode" size="small" class="radio-group">
               <el-radio class="me-1" label="wechatpay" border><img src="{{ asset('image/wechat.png') }}"
@@ -83,11 +83,11 @@ $data = $plugin['data'];
             </el-radio-group>
           </div>
           <button class="btn btn-primary btn-lg w-min-100 fw-bold" @click="marketingBuy">{{
-            __('admin/marketing.btn_buy') }}</button>
+            __('Admin/marketing.btn_buy') }}</button>
           @endif
           @else
           <div class="alert alert-warning" role="alert">
-            {!! __('admin/marketing.version_compatible_text') !!}
+            {!! __('Admin/marketing.version_compatible_text') !!}
           </div>
           @endif
         </div>
@@ -96,12 +96,12 @@ $data = $plugin['data'];
   </div>
 
   <div class="code-pop" style="display: none;">
-    <div class="text-center py-3 fs-5">{{ __('admin/marketing.text_pay') }}：<span class="fs-3 text-danger fw-bold">@{{
+    <div class="text-center py-3 fs-5">{{ __('Admin/marketing.text_pay') }}：<span class="fs-3 text-danger fw-bold">@{{
         wechatpay_price }}</span></div>
     <div class="d-flex justify-content-center align-items-center" id="code-info"></div>
   </div>
 
-  <el-dialog title="{{ __('admin/marketing.bind_bk_token') }}" :close-on-click-modal="false"
+  <el-dialog title="{{ __('Admin/marketing.bind_bk_token') }}" :close-on-click-modal="false"
     :visible.sync="setTokenDialog.show" width="520px" @close="dialogOnClose">
 
     <div class="login-wrap mb-4 px-2" style="margin-top: -20px">
@@ -117,7 +117,7 @@ $data = $plugin['data'];
       <div class="tab-content">
         <div class="tab-pane fade show active" id="tab-login">
           <div class="alert alert-info" role="alert">
-            <i class="bi bi-question-circle"></i> {!! __('admin/marketing.bk_login_hint') !!}
+            <i class="bi bi-question-circle"></i> {!! __('Admin/marketing.bk_login_hint') !!}
           </div>
 
           <el-form ref="loginForm" :model="loginForm" :rules="loginRules">
@@ -140,13 +140,13 @@ $data = $plugin['data'];
 
         <div class="tab-pane fade" id="tab-register">
           <div class="alert alert-info" role="alert">
-            <i class="bi bi-question-circle"></i> {!! __('admin/marketing.bk_register_hint') !!}
+            <i class="bi bi-question-circle"></i> {!! __('Admin/marketing.bk_register_hint') !!}
           </div>
 
           <el-form ref="registerForm" :model="registerForm" :rules="registeRules">
-            <el-form-item label="{{ __('admin/customer.user_name') }}" prop="name">
+            <el-form-item label="{{ __('Admin/customer.user_name') }}" prop="name">
               <el-input @keyup.enter.native="checkedBtnLogin('registerForm')" v-model="registerForm.name"
-                placeholder="{{ __('admin/customer.user_name') }}"></el-input>
+                placeholder="{{ __('Admin/customer.user_name') }}"></el-input>
             </el-form-item>
 
             <el-form-item label="{{ __('address.phone') }}" prop="telephone">
@@ -179,7 +179,7 @@ $data = $plugin['data'];
 @if ($data['description'])
 <div class="card h-min-200">
   <div class="card-header">
-    <h5 class="card-title">{{ __('admin/marketing.download_description') }}</h5>
+    <h5 class="card-title">{{ __('Admin/marketing.download_description') }}</h5>
   </div>
   <div class="card-body">
     {!! $data['description'] !!}
@@ -227,7 +227,7 @@ $data = $plugin['data'];
 
       registeRules: {
         name: [
-          {required: true, message: '{{ __('common.error_required', ['name' => __('admin/customer.user_name')]) }}', trigger: 'change'},
+          {required: true, message: '{{ __('common.error_required', ['name' => __('Admin/customer.user_name')]) }}', trigger: 'change'},
         ],
         telephone: [
           {required: true, message: '{{ __('common.error_required', ['name' => __('address.phone')]) }}', trigger: 'change'},
@@ -317,8 +317,8 @@ $data = $plugin['data'];
             window.open(res.data.pay_url, '_blank');
 
             Swal.fire({
-              title: '{{ __('admin/marketing.ali_pay_success') }}',
-              text: '{{ __('admin/marketing.ali_pay_text') }}',
+              title: '{{ __('Admin/marketing.ali_pay_success') }}',
+              text: '{{ __('Admin/marketing.ali_pay_text') }}',
               icon: 'question',
               confirmButtonColor: '#fd560f',
               confirmButtonText: '{{ __('common.confirm') }}',
@@ -341,7 +341,7 @@ $data = $plugin['data'];
 
         setTimeout(() => {
           Swal.fire({
-            title: '{{ __('admin/marketing.wxpay') }}',
+            title: '{{ __('Admin/marketing.wxpay') }}',
             width: 400,
             height: 470,
             heightAuto: false,
@@ -370,8 +370,8 @@ $data = $plugin['data'];
           if (res.plugin.data.downloadable) {
             window.clearInterval(this.timer)
             Swal.fire({
-              title: '{{ __('admin/marketing.pay_success_title') }}',
-              text: '{{ __('admin/marketing.pay_success_text') }}',
+              title: '{{ __('Admin/marketing.pay_success_title') }}',
+              text: '{{ __('Admin/marketing.pay_success_text') }}',
               icon: 'success',
               focusConfirm: false,
               confirmButtonColor: '#75bc4d',

@@ -35,10 +35,10 @@ class Product extends Component
         $data['register'] = [
             'code' => 'product',
             'sort' => 0,
-            'name' => trans('admin/design_builder.module_product'),
+            'name' => trans('Admin/design_builder.module_product'),
             'icon' => '&#xe606;',
         ];
 
-        return view('admin::pages.design.module.product', $data);
+        return view('Admin::pages.design.module.product', $data);
     }
 }

@@ -1,20 +1,20 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/admin_roles.role_management'))
+@section('title', __('Admin/admin_roles.role_management'))
 
 @section('content')
   <div id="app" class="card" v-cloak>
     <div class="card-body h-min-600">
       <el-form ref="form" :rules="rules" :model="form" label-width="100px">
-        <el-form-item label="{{ __('admin/admin_roles.role_name') }}" prop="name">
-          <el-input v-model="form.name" placeholder="{{ __('admin/admin_roles.role_name') }}" class="w-auto"></el-input>
+        <el-form-item label="{{ __('Admin/admin_roles.role_name') }}" prop="name">
+          <el-input v-model="form.name" placeholder="{{ __('Admin/admin_roles.role_name') }}" class="w-auto"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/admin_roles.permission') }}" prop="roles">
+        <el-form-item label="{{ __('Admin/admin_roles.permission') }}" prop="roles">
           <div class="roles-wrap border w-max-900">
             <div class="bg-dark p-2 text-dark bg-opacity-10 px-2">
-              <el-button size="small" @click="updateAllState('core_permissions', true)">@lang('admin/admin_roles.select_all')</el-button>
-              <el-button size="small" @click="updateAllState('core_permissions', false)">@lang('admin/admin_roles.unselect_all')</el-button>
+              <el-button size="small" @click="updateAllState('core_permissions', true)">@lang('Admin/admin_roles.select_all')</el-button>
+              <el-button size="small" @click="updateAllState('core_permissions', false)">@lang('Admin/admin_roles.unselect_all')</el-button>
             </div>
             <div v-for="role, index in form.core_permissions" :key="index">
               <div class="bg-light px-2 d-flex">
@@ -32,11 +32,11 @@
           </div>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/admin_roles.plugin_permission') }}" prop="roles" v-if="form.plugin_permissions.length">
+        <el-form-item label="{{ __('Admin/admin_roles.plugin_permission') }}" prop="roles" v-if="form.plugin_permissions.length">
           <div class="roles-wrap border w-max-900">
             <div class="bg-dark p-2 text-dark bg-opacity-10 px-2">
-              <el-button size="small" @click="updateAllState('plugin_permissions', true)">@lang('admin/admin_roles.select_all')</el-button>
-              <el-button size="small" @click="updateAllState('plugin_permissions', false)">@lang('admin/admin_roles.unselect_all')</el-button>
+              <el-button size="small" @click="updateAllState('plugin_permissions', true)">@lang('Admin/admin_roles.select_all')</el-button>
+              <el-button size="small" @click="updateAllState('plugin_permissions', false)">@lang('Admin/admin_roles.unselect_all')</el-button>
             </div>
             <div v-for="role, index in form.plugin_permissions" :key="index">
               <div class="bg-light px-2 d-flex">
@@ -81,7 +81,7 @@
         },
 
         rules: {
-          name: [{required: true,message: '{{ __('common.error_required', ['name' => __('admin/admin_roles.role_name')]) }}',trigger: 'blur'}, ],
+          name: [{required: true,message: '{{ __('common.error_required', ['name' => __('Admin/admin_roles.role_name')]) }}',trigger: 'blur'}, ],
         }
       },
 

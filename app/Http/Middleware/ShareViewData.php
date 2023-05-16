@@ -59,7 +59,7 @@ class ShareViewData
         $items     = [];
         $languages = admin_languages();
         foreach ($languages as $language) {
-            $path = lang_path("{$language}/admin/base.php");
+            $path = lang_path("{$language}/Admin/base.php");
             if (file_exists($path)) {
                 $baseData = require_once $path;
             }

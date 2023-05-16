@@ -9,12 +9,12 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="asset" content="{{ asset('/') }}">
   <base href="{{$admin_base_url}}">
-  <title>{{ __('admin/builder.text_edit_home') }}</title>
+  <title>{{ __('Admin/builder.text_edit_home') }}</title>
   <script src="{{ asset('vendor/jquery/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('vendor/layer/3.5.1/layer.js') }}"></script>
   <script src="{{ asset('vendor/cookie/js.cookie.min.js') }}"></script>
   <script src="{{ asset('vendor/vue/2.7/vue' . (!config('app.debug') ? '.min' : '') . '.js') }}"></script>
-  <script src="{{ mix('build/beike/admin/js/app.js') }}"></script>
+  <script src="{{ mix('build/beike/Admin/js/app.js') }}"></script>
   <script src="{{ asset('vendor/vue/Sortable.min.js') }}"></script>
   <script src="{{ asset('vendor/vue/vuedraggable.js') }}"></script>
   <script src="{{ asset('vendor/tinymce/5.9.1/tinymce.min.js') }}"></script>
@@ -23,14 +23,14 @@
   @if (locale() != 'zh_cn')
     <script src="{{ asset('vendor/element-ui/language/' . locale() . '.js') }}"></script>
   @endif
-  <link rel="stylesheet" type="text/css" href="{{ asset('/build/beike/admin/css/design.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('/build/beike/Admin/css/design.css') }}">
   @stack('header')
   <script>
     @if (locale() != 'zh_cn')
       ELEMENT.locale(ELEMENT.lang['{{ locale() }}'])
     @endif
     const lang = {
-      file_manager: '{{ __('admin/file_manager.file_manager') }}',
+      file_manager: '{{ __('Admin/file_manager.file_manager') }}',
     }
 
     const config = {
@@ -59,7 +59,7 @@
       </div>
 
       <div class="modules-list">
-        <div style="padding: 5px; color: #666;"><i class="el-icon-microphone"></i> {{ __('admin/builder.modules_instructions') }}</div>
+        <div style="padding: 5px; color: #666;"><i class="el-icon-microphone"></i> {{ __('Admin/builder.modules_instructions') }}</div>
 
         <el-row v-if="design.editType == 'add'">
           <el-col :span="12" v-for="(item, index) in source.modules" :key="index">
@@ -154,10 +154,10 @@
   <x-dynamic-component :component="$editor" />
   @endforeach
 
-  @include('admin::pages.design.builder.component.image_selector')
-  @include('admin::pages.design.builder.component.link_selector')
-  @include('admin::pages.design.builder.component.text_i18n')
-  @include('admin::pages.design.builder.component.rich_text_i18n')
+  @include('Admin::pages.design.builder.component.image_selector')
+  @include('Admin::pages.design.builder.component.link_selector')
+  @include('Admin::pages.design.builder.component.text_i18n')
+  @include('Admin::pages.design.builder.component.rich_text_i18n')
 
   <script>
     let register = null;

@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('body-class', 'page-checkout-success')
+@section('body-class', 'Page-checkout-success')
 @section('title',  __('shop/checkout.checkout_success_title'))
 
 @section('content')

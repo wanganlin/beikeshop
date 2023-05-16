@@ -36,9 +36,9 @@ class OrderController extends Controller
             'orders'   => OrderList::collection($orders),
             'statuses' => StateMachineService::getAllStatuses(),
         ];
-        $data = hook_filter('admin.order.index.data', $data);
+        $data = hook_filter('Admin.order.index.data', $data);
 
-        return view('admin::pages.orders.index', $data);
+        return view('Admin::pages.orders.index', $data);
     }
 
     /**
@@ -53,7 +53,7 @@ class OrderController extends Controller
         try {
             $orders = OrderRepo::filterAll($request->all());
             $items  = OrderSimple::collection($orders)->jsonSerialize();
-            $items  = hook_filter('admin.order.export.data', $items);
+            $items  = hook_filter('Admin.order.export.data', $items);
 
             return $this->downloadCsv('orders', $items, 'order');
         } catch (\Exception $e) {
@@ -72,11 +72,11 @@ class OrderController extends Controller
     public function show(Request $request, Order $order)
     {
         $order->load(['orderTotals', 'orderHistories', 'orderShipments']);
-        $data             = hook_filter('admin.order.show.data', ['order' => $order, 'html_items' => []]);
+        $data             = hook_filter('Admin.order.show.data', ['order' => $order, 'html_items' => []]);
         $data['statuses'] = StateMachineService::getInstance($order)->nextBackendStatuses();
-        $data             = hook_filter('admin.order.show.data', $data);
+        $data             = hook_filter('Admin.order.show.data', $data);
 
-        return view('admin::pages.orders.form', $data);
+        return view('Admin::pages.orders.form', $data);
     }
 
     /**
@@ -100,7 +100,7 @@ class OrderController extends Controller
 
         $orderStatusData = $request->all();
 
-        hook_action('admin.order.update_status.after', $orderStatusData);
+        hook_action('Admin.order.update_status.after', $orderStatusData);
 
         return json_success(trans('common.updated_success'));
     }
@@ -113,7 +113,7 @@ class OrderController extends Controller
         $data          = $request->all();
         $orderShipment = OrderShipment::query()->where('order_id', $order->id)->findOrFail($orderShipmentId);
         ShipmentService::updateShipment($orderShipment, $data);
-        hook_action('admin.order.update_shipment.after', [
+        hook_action('Admin.order.update_shipment.after', [
             'request_data' => $data,
             'shipment'     => $orderShipment,
         ]);

@@ -34,7 +34,7 @@ return [
     'category'                         => '分類管理',
     'customer_group'                   => '客戶組管理',
     'customer'                         => '客戶',
-    'page'                             => '文章',
+    'Page'                             => '文章',
     'page_category'                    => '文章分類',
     'setting'                          => '系統',
     'plugin'                           => '插件',

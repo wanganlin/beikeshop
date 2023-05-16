@@ -14,14 +14,14 @@
   <script src="{{ asset('vendor/layer/3.5.1/layer.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/cookie/js.cookie.min.js') }}"></script>
-  <link href="{{ mix('/build/beike/admin/css/bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ mix('/build/beike/Admin/css/bootstrap.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('vendor/element-ui/2.15.6/css.css') }}">
   @if (locale() != 'zh_cn')
     <script src="{{ asset('vendor/element-ui/language/' . locale() . '.js') }}"></script>
   @endif
   <link rel="shortcut icon" href="{{ image_origin(system_setting('base.favicon')) }}">
-  <link href="{{ mix('build/beike/admin/css/app.css') }}" rel="stylesheet">
-  <script src="{{ mix('build/beike/admin/js/app.js') }}"></script>
+  <link href="{{ mix('build/beike/Admin/css/app.css') }}" rel="stylesheet">
+  <script src="{{ mix('build/beike/Admin/js/app.js') }}"></script>
   <title>BeikeShop - @yield('title')</title>
   @stack('header')
   {{-- <x-analytics /> --}}
@@ -35,7 +35,7 @@
     <div id="content">
       <div class="page-title-box py-1 d-flex align-items-center justify-content-between">
         <h5 class="page-title">@yield('title')</h5>
-        <div>@yield('page-title-right')</div>
+        <div>@yield('Page-title-right')</div>
       </div>
       <div class="container-fluid p-0">
         @yield('content')
@@ -53,7 +53,7 @@
       ELEMENT.locale(ELEMENT.lang['{{ locale() }}'])
     @endif
     const lang = {
-      file_manager: '{{ __('admin/file_manager.file_manager') }}',
+      file_manager: '{{ __('Admin/file_manager.file_manager') }}',
       error_form: '{{ __('common.error_form') }}',
       text_hint: '{{ __('common.text_hint') }}',
     }

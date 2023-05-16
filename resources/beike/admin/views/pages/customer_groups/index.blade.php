@@ -1,12 +1,12 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.customer_groups_index'))
+@section('title', __('Admin/common.customer_groups_index'))
 
 @section('content')
   <div id="customer-app" class="card h-min-600" v-cloak>
     <div class="card-body">
       <div class="d-flex justify-content-between mb-4">
-        <button type="button" class="btn btn-primary" @click="checkedCustomersCreate('add', null)">{{ __('admin/customer_group.customer_groups_create') }}</button>
+        <button type="button" class="btn btn-primary" @click="checkedCustomersCreate('add', null)">{{ __('Admin/customer_group.customer_groups_create') }}</button>
       </div>
       <div class="table-push">
         <table class="table">
@@ -14,7 +14,7 @@
             <tr>
               <th>ID</th>
               <th>{{ __('common.name') }}</th>
-              <th>{{ __('admin/region.describe') }}</th>
+              <th>{{ __('Admin/region.describe') }}</th>
               {{-- <th>{{ __('customer_group.level') }}</th> --}}
               <th>{{ __('common.created_at') }}</th>
               <th width="130px">{{ __('common.action') }}</th>
@@ -39,10 +39,10 @@
         </table>
       </div>
 
-      {{-- {{ $customer_groups->links('admin::vendor/pagination/bootstrap-4') }} --}}
+      {{-- {{ $customer_groups->links('Admin::vendor/pagination/bootstrap-4') }} --}}
     </div>
 
-    <el-dialog title="{{ __('admin/common.customer_groups_index') }}" :visible.sync="dialog.show" width="670px"
+    <el-dialog title="{{ __('Admin/common.customer_groups_index') }}" :visible.sync="dialog.show" width="670px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="155px">
@@ -56,14 +56,14 @@
           </el-form-item>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/region.describe') }}" class="language-inputs">
+        <el-form-item label="{{ __('Admin/region.describe') }}" class="language-inputs">
           <el-form-item v-for="lang, lang_i in source.languages" :key="lang_i">
-            <el-input size="mini" v-model="dialog.form.description[lang.code]" placeholder="{{ __('admin/region.describe') }}"><template slot="prepend">@{{lang.name}}</template></el-input>
+            <el-input size="mini" v-model="dialog.form.description[lang.code]" placeholder="{{ __('Admin/region.describe') }}"><template slot="prepend">@{{lang.name}}</template></el-input>
           </el-form-item>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/customer_group.discount_rate') }}">
-          <el-input class="mb-0" type="number" v-model="dialog.form.discount_factor" placeholder="{{ __('admin/customer_group.discount_rate') }}">
+        <el-form-item label="{{ __('Admin/customer_group.discount_rate') }}">
+          <el-input class="mb-0" type="number" v-model="dialog.form.discount_factor" placeholder="{{ __('Admin/customer_group.discount_rate') }}">
             <template slot="append">%</template>
           </el-input>
         </el-form-item>
@@ -73,20 +73,20 @@
           <el-input class="mb-0" v-model="dialog.form.level" placeholder="{{ __('customer_group.level') }}"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/customer_group.consumption_limit') }}">
-          <el-input class="mb-0" type="number" v-model="dialog.form.total" placeholder="{{ __('admin/customer_group.consumption_limit') }}"></el-input>
+        <el-form-item label="{{ __('Admin/customer_group.consumption_limit') }}">
+          <el-input class="mb-0" type="number" v-model="dialog.form.total" placeholder="{{ __('Admin/customer_group.consumption_limit') }}"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/customer_group.discount_rate') }}">
-          <el-input class="mb-0" type="number" v-model="dialog.form.discount_factor" placeholder="{{ __('admin/customer_group.discount_rate') }}"></el-input>
+        <el-form-item label="{{ __('Admin/customer_group.discount_rate') }}">
+          <el-input class="mb-0" type="number" v-model="dialog.form.discount_factor" placeholder="{{ __('Admin/customer_group.discount_rate') }}"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/customer_group.reward_points_factor') }}">
-          <el-input class="mb-0" type="number" v-model="dialog.form.reward_point_factor" placeholder="{{ __('admin/customer_group.reward_points_factor') }}"></el-input>
+        <el-form-item label="{{ __('Admin/customer_group.reward_points_factor') }}">
+          <el-input class="mb-0" type="number" v-model="dialog.form.reward_point_factor" placeholder="{{ __('Admin/customer_group.reward_points_factor') }}"></el-input>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/customer_group.integral_factor') }}">
-          <el-input class="mb-0" type="number" v-model="dialog.form.use_point_factor" placeholder="{{ __('admin/customer_group.integral_factor') }}"></el-input>
+        <el-form-item label="{{ __('Admin/customer_group.integral_factor') }}">
+          <el-input class="mb-0" type="number" v-model="dialog.form.use_point_factor" placeholder="{{ __('Admin/customer_group.integral_factor') }}"></el-input>
         </el-form-item>
         @endif
 

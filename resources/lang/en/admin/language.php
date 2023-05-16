@@ -16,5 +16,5 @@ return [
     'languages_update'                     => 'Update',
     'languages_delete'                     => 'Delete',
     'error_default_language_cannot_delete' => 'The default language cannot be deleted! ',
-    'help_install'                         => 'Note: To install a new language, you need to configure the products, categories, navigation, homepage modules, page footers, etc. of the corresponding language, otherwise there will be abnormal page display',
+    'help_install'                         => 'Note: To install a new language, you need to configure the products, categories, navigation, homepage modules, Page footers, etc. of the corresponding language, otherwise there will be abnormal Page display',
 ];

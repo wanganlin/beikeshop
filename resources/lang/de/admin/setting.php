@@ -57,7 +57,7 @@ return [
     'default_currency'       => 'Standardwährung',
     'default_customer_group' => 'Standardkundengruppe',
     'admin_name'             => 'Hintergrundverzeichnis',
-    'admin_name_info'        => 'Verwaltungshintergrundverzeichnis, der Standardwert ist admin',
+    'admin_name_info'        => 'Verwaltungshintergrundverzeichnis, der Standardwert ist Admin',
     'enable_tax'             => 'Steuer aktivieren',
     'enable_tax_info'        => 'ob die Steuerberechnung aktiviert werden soll',
     'tax_address'            => 'Steueradresse',

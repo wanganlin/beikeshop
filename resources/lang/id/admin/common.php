@@ -33,7 +33,7 @@ return [
     'category'               => 'Kategori',
     'customer_group'         => 'Grup pelanggan',
     'customer'               => 'Pelanggan',
-    'page'                   => 'Artikel',
+    'Page'                   => 'Artikel',
     'page_category'          => 'klasifikasi artikel',
     'setting'                => 'Pengaturan sistem',
     'plugin'                 => 'Plugin',

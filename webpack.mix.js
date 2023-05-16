@@ -1,18 +1,18 @@
 const mix = require('laravel-mix');
 
 // 后台 scss/js
-mix.sass('resources/beike/admin/css/bootstrap/bootstrap.scss', 'public/build/beike/admin/css/bootstrap.css');
-mix.sass('resources/beike/admin/css/app.scss', 'public/build/beike/admin/css/app.css');
-mix.js('resources/beike/admin/js/app.js', 'public/build/beike/admin/js/app.js');
+mix.sass('resources/beike/Admin/css/bootstrap/bootstrap.scss', 'public/build/beike/Admin/css/bootstrap.css');
+mix.sass('resources/beike/Admin/css/app.scss', 'public/build/beike/Admin/css/app.css');
+mix.js('resources/beike/Admin/js/app.js', 'public/build/beike/Admin/js/app.js');
 
 // 安装引导
 mix.sass('beike/Installer/assets/scss/app.scss', 'public/install/css/app.css');
 
 // design
-mix.sass('resources/beike/admin/css/design/app.scss', 'public/build/beike/admin/css/design.css');
+mix.sass('resources/beike/Admin/css/design/app.scss', 'public/build/beike/Admin/css/design.css');
 
 // filemanager
-mix.sass('resources/beike/admin/css/filemanager/app.scss', 'public/build/beike/admin/css/filemanager.css');
+mix.sass('resources/beike/Admin/css/filemanager/app.scss', 'public/build/beike/Admin/css/filemanager.css');
 
 // 前端 default 模板
 mix.sass('resources/beike/shop/default/css/bootstrap/bootstrap.scss', 'public/build/beike/shop/default/css/bootstrap.css');

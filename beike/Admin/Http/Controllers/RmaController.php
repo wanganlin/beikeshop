@@ -26,9 +26,9 @@ class RmaController extends Controller
             'rmas_format' => RmaDetail::collection($rmas)->jsonSerialize(),
         ];
 
-        $data = hook_filter('admin.rma.index.data', $data);
+        $data = hook_filter('Admin.rma.index.data', $data);
 
-        return view('admin::pages.rmas.index', $data);
+        return view('Admin::pages.rmas.index', $data);
     }
 
     /**
@@ -45,9 +45,9 @@ class RmaController extends Controller
             'types'     => RmaRepo::getTypes(),
         ];
 
-        $data = hook_filter('admin.rma.show.data', $data);
+        $data = hook_filter('Admin.rma.show.data', $data);
 
-        return view('admin::pages.rmas.info', $data);
+        return view('Admin::pages.rmas.info', $data);
     }
 
     public function addHistory(Request $request, int $id)
@@ -58,7 +58,7 @@ class RmaController extends Controller
             'statuses' => RmaRepo::getStatuses(),
         ];
 
-        hook_filter('admin.rma.add_history.data', $data);
+        hook_filter('Admin.rma.add_history.data', $data);
 
         return json_success(trans('common.updated_success'), $data);
     }
@@ -67,7 +67,7 @@ class RmaController extends Controller
     {
         RmaRepo::delete($id);
 
-        hook_action('admin.rma.destroy.after', $id);
+        hook_action('Admin.rma.destroy.after', $id);
 
         return json_success(trans('common.deleted_success'));
     }

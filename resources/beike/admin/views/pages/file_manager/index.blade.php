@@ -14,10 +14,10 @@
   <script src="{{ asset('vendor/jquery/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('vendor/layer/3.5.1/layer.js') }}"></script>
   <script src="{{ asset('vendor/vue/batch_select.js') }}"></script>
-  <link href="{{ mix('/build/beike/admin/css/bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ mix('/build/beike/Admin/css/bootstrap.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('vendor/element-ui/2.15.9/index.css') }}">
-  <link href="{{ mix('build/beike/admin/css/filemanager.css') }}" rel="stylesheet">
-  <script src="{{ mix('build/beike/admin/js/app.js') }}"></script>
+  <link href="{{ mix('build/beike/Admin/css/filemanager.css') }}" rel="stylesheet">
+  <script src="{{ mix('build/beike/Admin/js/app.js') }}"></script>
   @if (locale() != 'zh_cn')
     <script src="{{ asset('vendor/element-ui/language/' . locale() . '.js') }}"></script>
   @endif
@@ -27,7 +27,7 @@
       ELEMENT.locale(ELEMENT.lang['{{ locale() }}'])
     @endif
     const lang = {
-      file_manager: '{{ __('admin/file_manager.file_manager') }}',
+      file_manager: '{{ __('Admin/file_manager.file_manager') }}',
     }
 
     const config = {
@@ -50,12 +50,12 @@
             <div>@{{ node.label }}</div>
             {{-- v-if="node.isCurrent" --}}
             <div class="right">
-              <el-tooltip class="item" effect="dark" content="{{ __('admin/file_manager.create_folder') }}" placement="top">
+              <el-tooltip class="item" effect="dark" content="{{ __('Admin/file_manager.create_folder') }}" placement="top">
                 <span @click.stop="() => {openInputBox('addFolder', node, data)}"><i
                     class="el-icon-circle-plus-outline"></i></span>
               </el-tooltip>
 
-              <el-tooltip class="item" effect="dark" content="{{ __('admin/file_manager.rename') }}" placement="top">
+              <el-tooltip class="item" effect="dark" content="{{ __('Admin/file_manager.rename') }}" placement="top">
                 <span v-if="node.level != 1" @click.stop="() => {openInputBox('renameFolder', node, data)}"><i
                     class="el-icon-edit"></i></span>
               </el-tooltip>
@@ -73,13 +73,13 @@
       <div class="filemanager-content" v-loading="loading" element-loading-background="rgba(255, 255, 255, 0.5)">
         <div class="content-head">
           <div class="left d-lg-flex">
-            <el-button class="me-5 mb-1 mb-lg-0" size="small" icon="el-icon-check" type="primary" @click="fileChecked" :disabled="!!!selectImageIndex.length">{{ __('admin/builder.modules_choose') }}</el-button>
+            <el-button class="me-5 mb-1 mb-lg-0" size="small" icon="el-icon-check" type="primary" @click="fileChecked" :disabled="!!!selectImageIndex.length">{{ __('Admin/builder.modules_choose') }}</el-button>
             <el-link :underline="false" :disabled="!!!selectImageIndex.length" icon="el-icon-download"
-              @click="downloadImages">{{ __('admin/file_manager.download') }}</el-link>
+              @click="downloadImages">{{ __('Admin/file_manager.download') }}</el-link>
             <el-link :underline="false" :disabled="!!!selectImageIndex.length" @click="deleteFile"
               icon="el-icon-delete">{{ __('common.delete') }}</el-link>
             <el-link :underline="false" :disabled="selectImageIndex.length == 1 ? false : true"
-              @click="openInputBox('image')" icon="el-icon-edit">{{ __('admin/file_manager.rename') }}</el-link>
+              @click="openInputBox('image')" icon="el-icon-edit">{{ __('Admin/file_manager.rename') }}</el-link>
             <el-link :underline="false" :disabled="!!!images.length && !!!selectImageIndex.length"
               @click="selectAll()" icon="el-icon-finished">{{ __('common.select_all') }}</el-link>
              @hook('admin.file_manager.content.head.btns.after')
@@ -90,25 +90,25 @@
               width="260"
               class="me-2"
               trigger="click">
-              <div class="text-center mb-3 fw-bold">{{ __('admin/file_manager.file_sorting') }}</div>
+              <div class="text-center mb-3 fw-bold">{{ __('Admin/file_manager.file_sorting') }}</div>
               <div class="mb-3">
-                <div class="mb-2">{{ __('admin/file_manager.text_type') }}</div>
+                <div class="mb-2">{{ __('Admin/file_manager.text_type') }}</div>
                 <el-radio-group v-model="filter.sort" size="small">
-                  <el-radio-button label="created">{{ __('admin/file_manager.text_created') }}</el-radio-button>
-                  <el-radio-button label="name">{{ __('admin/file_manager.file_name') }}</el-radio-button>
+                  <el-radio-button label="created">{{ __('Admin/file_manager.text_created') }}</el-radio-button>
+                  <el-radio-button label="name">{{ __('Admin/file_manager.file_name') }}</el-radio-button>
                 </el-radio-group>
               </div>
 
               <div class="mb-3">
-                <div class="mb-2">{{ __('admin/file_manager.to_sort') }}</div>
+                <div class="mb-2">{{ __('Admin/file_manager.to_sort') }}</div>
                 <el-radio-group v-model="filter.order" size="small">
-                  <el-radio-button label="desc">{{ __('admin/file_manager.text_desc') }}</el-radio-button>
-                  <el-radio-button label="asc">{{ __('admin/file_manager.text_asc') }}</el-radio-button>
+                  <el-radio-button label="desc">{{ __('Admin/file_manager.text_desc') }}</el-radio-button>
+                  <el-radio-button label="asc">{{ __('Admin/file_manager.text_asc') }}</el-radio-button>
                 </el-radio-group>
               </div>
               <el-button slot="reference" size="small" plain type="primary" icon="el-icon-s-operation"></el-button>
             </el-popover>
-            <el-button size="small" plain type="primary" @click="openUploadFile" icon="el-icon-upload2">{{ __('admin/file_manager.upload_files') }}</el-button>
+            <el-button size="small" plain type="primary" @click="openUploadFile" icon="el-icon-upload2">{{ __('Admin/file_manager.upload_files') }}</el-button>
           </div>
         </div>
         <div v-if="images.length" class="content-center"
@@ -122,7 +122,7 @@
             </div>
           </div>
         </div>
-        <el-empty v-else description="{{ __('admin/file_manager.no_file') }}"></el-empty>
+        <el-empty v-else description="{{ __('Admin/file_manager.no_file') }}"></el-empty>
         <div class="content-footer">
           <div class="right"></div>
           <div class="pagination-wrap">
@@ -143,27 +143,27 @@
         </div>
       </div>
     @else
-    <div class="text-center mt-5 w-100 fs-4">{{ __('admin/file_manager.show_pc') }}</div>
+    <div class="text-center mt-5 w-100 fs-4">{{ __('Admin/file_manager.show_pc') }}</div>
 
     @endif
 
-    <el-dialog title="{{ __('admin/file_manager.upload_files') }}" top="12vh" :visible.sync="uploadFileDialog.show" width="500px"
+    <el-dialog title="{{ __('Admin/file_manager.upload_files') }}" top="12vh" :visible.sync="uploadFileDialog.show" width="500px"
       @close="uploadFileDialogClose" custom-class="upload-wrap">
-      <el-upload class="photos-upload" target="photos-upload" id="photos-upload" element-loading-text="{{ __('admin/file_manager.image_uploading') }}..."
+      <el-upload class="photos-upload" target="photos-upload" id="photos-upload" element-loading-text="{{ __('Admin/file_manager.image_uploading') }}..."
         element-loading-background="rgba(0, 0, 0, 0.6)" drag action="" :show-file-list="false"
         accept=".jpg,.jpeg,.png,.JPG,.JPEG,.PNG,.mp4,.MP4" :before-upload="beforePhotoUpload"
         :on-success="handlePhotoSuccess" :on-change="handleUploadChange" :http-request="uploadFile"
         :multiple="true">
         <i class="el-icon-upload"></i>
-        <div class="el-upload__text">{{ __('admin/file_manager.click_upload') }}</div>
+        <div class="el-upload__text">{{ __('Admin/file_manager.click_upload') }}</div>
       </el-upload>
       <div class="upload-image">
         <div v-for="image, index in uploadFileDialog.images" :key="index" class="list">
           <div class="info">
             <div class="name">@{{ index + 1 }}. @{{ image.name }}</div>
             <div class="status">
-              <span v-if="image.status == 'complete'">{{ __('admin/file_manager.finish') }}</span>
-              <span v-else>{{ __('admin/file_manager.uploading') }}</span>
+              <span v-if="image.status == 'complete'">{{ __('Admin/file_manager.finish') }}</span>
+              <span v-else>{{ __('Admin/file_manager.uploading') }}</span>
             </div>
           </div>
           <el-progress :percentage="image.progre" :show-text="false" :stroke-width="4"></el-progress>
@@ -200,7 +200,7 @@
         },
 
         treeData: [{
-          name: '{{ __('admin/file_manager.picture_space') }}',
+          name: '{{ __('Admin/file_manager.picture_space') }}',
           path: '/',
           children: @json($directories)
         }],
@@ -227,7 +227,7 @@
         image_total: 0,
         image_page: 1,
         per_page: 20,
-        @stack('admin.file_manager.vue.data')
+        @stack('Admin.file_manager.vue.data')
       },
       // 计算属性
       computed: {
@@ -310,8 +310,8 @@
         handlePhotoSuccess(data) {
           // this.editing.photoLoading = false;
 
-          // if (data.images) {
-          //   this.images.push(data.images);
+          // if (data.Images) {
+          //   this.Images.push(data.Images);
           // }
         },
 
@@ -328,7 +328,7 @@
           formData.append("path", this.folderCurrent);
 
           newFile = {
-            // index: this.images.length,
+            // index: this.Images.length,
             name: file.file.name,
             progre: 0,
             status: 'padding'
@@ -460,13 +460,13 @@
         },
 
         deleteFile() {
-          this.$confirm('{{ __('admin/file_manager.confirm_delete_file') }}', '{{ __('common.text_hint') }}', {
+          this.$confirm('{{ __('Admin/file_manager.confirm_delete_file') }}', '{{ __('common.text_hint') }}', {
             type: 'warning'
           }).then(() => {
             const selectImageIndex = this.selectImageIndex;
             // 获取images中下标与selectImageIndex相同的图片
             const images = this.images.filter(e => selectImageIndex.includes(this.images.indexOf(e)));
-            // images 取 path 组成数组 然后用 | 分割成字符串
+            // Images 取 path 组成数组 然后用 | 分割成字符串
             const files = images.map(e => e.name);
 
             this.loading = true;
@@ -485,7 +485,7 @@
 
         deleteFolder(node, data) {
           if (data.path) {
-            this.$confirm('{{ __('admin/file_manager.confirm_delete_folder') }}', '{{ __('common.text_hint') }}', {
+            this.$confirm('{{ __('Admin/file_manager.confirm_delete_folder') }}', '{{ __('common.text_hint') }}', {
               type: 'warning'
             }).then(() => {
               $http.delete(`file_manager/directories`, {
@@ -501,7 +501,7 @@
         },
 
         selectAll() {
-          // 获取 this.images 中的 selected 是否全部为 true
+          // 获取 this.Images 中的 selected 是否全部为 true
           const isAllSelected = this.images.every(e => e.selected);
           this.images.map(e => e.selected = !isAllSelected)
         },
@@ -532,13 +532,13 @@
             fileName = image.substring(0, image.lastIndexOf('.'));
           }
 
-          this.$prompt('', type == 'addFolder' ? '{{ __('admin/file_manager.new_folder') }}' : '{{ __('admin/file_manager.rename') }}', {
+          this.$prompt('', type == 'addFolder' ? '{{ __('Admin/file_manager.new_folder') }}' : '{{ __('Admin/file_manager.rename') }}', {
             confirmButtonText: '{{ __('common.confirm') }}',
             cancelButtonText: '{{ __('common.cancel') }}',
             inputPattern: /^.+$/,
             closeOnClickModal: false,
-            inputValue: type == 'image' ? fileName : (type == 'renameFolder' ? data.name : '{{ __('admin/file_manager.new_folder') }}'),
-            inputErrorMessage: '{{ __('admin/file_manager.can_empty') }}'
+            inputValue: type == 'image' ? fileName : (type == 'renameFolder' ? data.name : '{{ __('Admin/file_manager.new_folder') }}'),
+            inputErrorMessage: '{{ __('Admin/file_manager.can_empty') }}'
           }).then(({
             value
           }) => {
@@ -611,7 +611,7 @@
             })
           }
         }
-        @stack('admin.file_manager.vue.method')
+        @stack('Admin.file_manager.vue.method')
       },
 
       created() {

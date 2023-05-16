@@ -65,7 +65,7 @@ function plugin_asset($code, $filePath): string
 }
 
 /**
- * 获取后台管理前缀名称, 默认为 admin
+ * 获取后台管理前缀名称, 默认为 Admin
  */
 function admin_name(): string
 {
@@ -75,7 +75,7 @@ function admin_name(): string
         return Str::snake($settingAdminName);
     }
 
-    return 'admin';
+    return 'Admin';
 }
 
 /**
@@ -117,7 +117,7 @@ function shop_route($route, $params = []): string
 }
 
 /**
- * 获取 category, product, brand, page, static, custom 路由链接
+ * 获取 category, product, brand, Page, static, custom 路由链接
  *
  * @param $type
  * @param $value
@@ -130,7 +130,7 @@ function type_route($type, $value): string
 }
 
 /**
- * 获取 category, product, brand, page, static, custom 链接名称
+ * 获取 category, product, brand, Page, static, custom 链接名称
  *
  * @param $type
  * @param $value
@@ -447,7 +447,7 @@ function admin_languages(): array
 {
     $packages       = language_packages();
     $adminLanguages = collect($packages)->filter(function ($package) {
-        return file_exists(resource_path("lang/{$package}/admin"));
+        return file_exists(resource_path("lang/{$package}/Admin"));
     })->toArray();
 
     return array_values($adminLanguages);

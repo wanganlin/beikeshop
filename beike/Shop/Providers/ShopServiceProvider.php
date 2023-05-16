@@ -43,7 +43,7 @@ class ShopServiceProvider extends ServiceProvider
         $this->registerGuard();
         $this->loadMailConfig();
 
-        if (Str::startsWith($uri, '/admin')) {
+        if (Str::startsWith($uri, '/Admin')) {
             return;
         }
 

@@ -1,14 +1,14 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/builder.text_to_menu'))
+@section('title', __('Admin/builder.text_to_menu'))
 
 @push('header')
   <script src="{{ asset('vendor/vue/Sortable.min.js') }}"></script>
   <script src="{{ asset('vendor/vue/vuedraggable.js') }}"></script>
-  <link rel="stylesheet" type="text/css" href="{{ asset('/build/beike/admin/css/design.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('/build/beike/Admin/css/design.css') }}">
 @endpush
 
-@section('page-title-right')
+@section('Page-title-right')
   <button type="button" class="btn btn-primary save-btn">{{ __('common.save') }}</button>
 @endsection
 
@@ -16,7 +16,7 @@
   <div class="card" id="app" v-cloak>
     <div class="card-body h-min-600 position-relative">
       <div class="design-wrap">
-        <p class="fw-bold mb-2">{{ __('admin/builder.main_menu') }}</p>
+        <p class="fw-bold mb-2">{{ __('Admin/builder.main_menu') }}</p>
         <div class="left d-block d-lg-flex">
           {{-- <div class="menus-wrap" v-if="form.menus.length"> --}}
           <draggable class="menus-wrap d-block d-lg-flex mb-2 mb-lg-0" v-if="form.menus.length" :list="form.menus"
@@ -26,12 +26,12 @@
               @click="currentMenuIndex = index" v-for="menu, index in form.menus" :key="index">
               <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center flex-grow-1">
-                  <el-tooltip class="icon-rank cursor-scroll" effect="dark" content="{{ __('admin/builder.text_drag_sort') }}" placement="top">
+                  <el-tooltip class="icon-rank cursor-scroll" effect="dark" content="{{ __('Admin/builder.text_drag_sort') }}" placement="top">
                     <i class="el-icon-rank"></i>
                   </el-tooltip>
                   <div class="name mx-2">
                     <template v-if="menu.name[source.locale]">@{{ menu.name[source.locale] }}</template>
-                    <template v-else>{{ __('admin/builder.please_add_data') }}</template>
+                    <template v-else>{{ __('Admin/builder.please_add_data') }}</template>
                   </div>
                   {{-- <link-selector :is-custom-name="true" :is-title="false" v-model="menu.link"></link-selector> --}}
                 </div>
@@ -42,12 +42,12 @@
             </div>
           </draggable>
           {{-- </div> --}}
-          <button @click="addLinkClicked" class="btn btn-outline-primary ms-lg-3">{{ __('admin/builder.add_main_menu') }}</button>
+          <button @click="addLinkClicked" class="btn btn-outline-primary ms-lg-3">{{ __('Admin/builder.add_main_menu') }}</button>
         </div>
         <div class="flex-1 right" v-if="currentMenu" :key="currentMenuIndex">
           <div class="d-lg-flex">
             <div class="wp-200 ">
-              <div class="mb-2">{{ __('admin/builder.main_menu_name_link') }}</div>
+              <div class="mb-2">{{ __('Admin/builder.main_menu_name_link') }}</div>
               <text-i18n v-model="currentMenu.name" class="mb-2"></text-i18n>
               {{-- <input type="text" v-model="currentMenu.name['zh_cn']"> --}}
               <link-selector :is-title="false" style="border-color: #c0c4cc" v-model="currentMenu.link">
@@ -55,17 +55,17 @@
             </div>
 
             <div class="wp-200 ms-lg-5">
-              <div class="mb-2 mt-3 mt-lg-0">{{ __('admin/builder.main_menu_label') }}</div>
+              <div class="mb-2 mt-3 mt-lg-0">{{ __('Admin/builder.main_menu_label') }}</div>
               <text-i18n v-model="currentMenu.badge.name" class=""></text-i18n>
             </div>
 
             <div class="wp-200 ms-lg-5">
-              <div class="mb-2 mt-3 mt-lg-0">{{ __('admin/builder.label_background_color') }}</div>
+              <div class="mb-2 mt-3 mt-lg-0">{{ __('Admin/builder.label_background_color') }}</div>
               <el-color-picker v-model="currentMenu.badge.bg_color" size="small"></el-color-picker>
             </div>
 
             <div class="wp-200">
-              <div class="mb-2 mt-3 mt-lg-0">{{ __('admin/builder.label_text_color') }}</div>
+              <div class="mb-2 mt-3 mt-lg-0">{{ __('Admin/builder.label_text_color') }}</div>
               <el-color-picker v-model="currentMenu.badge.text_color" size="small"></el-color-picker>
             </div>
           </div>
@@ -74,13 +74,13 @@
 
           <div class="children-group-wrap">
             <div class="d-flex align-items-center mb-3">
-              <span class="fw-bold">{{ __('admin/builder.submenu_group') }}</span>
+              <span class="fw-bold">{{ __('Admin/builder.submenu_group') }}</span>
               <div class="vr lh-1 mx-3 bg-secondary " style="height: 18px;"></div>
               <button class="btn btn-sm btn-link p-0" @click="addChildrenGroup"
-                :disabled="currentMenu.childrenGroup.length >= 5">{{ __('admin/builder.add_menu_group') }}</button>
+                :disabled="currentMenu.childrenGroup.length >= 5">{{ __('Admin/builder.add_menu_group') }}</button>
               <div class="vr mx-3 lh-1 bg-secondary " style="height: 18px;"></div>
               <div>
-                <span class="me-2">{{ __('admin/builder.full_screen') }}</span>
+                <span class="me-2">{{ __('Admin/builder.full_screen') }}</span>
                 <el-switch v-model="currentMenu.isFull"></el-switch>
               </div>
             </div>
@@ -90,7 +90,7 @@
                 :key="group_index">
                 <div class="card-header d-flex align-items-center justify-content-between mb-2">
                   <div class="" style="font-weight: 400">
-                    <i class="el-icon-rank cursor-scroll"></i> {{ __('admin/builder.menu') }} - @{{ group_index + 1 }}
+                    <i class="el-icon-rank cursor-scroll"></i> {{ __('Admin/builder.menu') }} - @{{ group_index + 1 }}
                     (@{{ groupTypeName(group.type) }})
                   </div>
                   <div class="d-flex">
@@ -120,7 +120,7 @@
                           </div>
                         </div>
                       </draggable>
-                      <button @click="addChildrenLink(group_index)" class="btn btn-link btn-sm mt-2">{{ __('admin/builder.add_submenu_link') }}</button>
+                      <button @click="addChildrenLink(group_index)" class="btn btn-link btn-sm mt-2">{{ __('Admin/builder.add_submenu_link') }}</button>
                     </template>
                   </div>
                 </div>
@@ -131,8 +131,8 @@
       </div>
     </div>
 
-    <el-dialog title="{{ __('admin/builder.text_set_up') }}" :visible.sync="childrenGroupPop.show" width="500px" v-if="currentMenu && currentMenu.childrenGroup.length">
-      <p class="fw-bold mb-2">{{ __('admin/builder.type') }}</p>
+    <el-dialog title="{{ __('Admin/builder.text_set_up') }}" :visible.sync="childrenGroupPop.show" width="500px" v-if="currentMenu && currentMenu.childrenGroup.length">
+      <p class="fw-bold mb-2">{{ __('Admin/builder.type') }}</p>
       <el-select v-model="currentMenu.childrenGroup[childrenGroupPop.groupIndex].type" placeholder="">
         <el-option
           v-for="type in source.types"
@@ -154,10 +154,10 @@
     var $languages = @json(locales());
   </script>
 
-  @include('admin::pages.design.builder.component.image_selector')
-  @include('admin::pages.design.builder.component.link_selector')
-  @include('admin::pages.design.builder.component.text_i18n')
-  @include('admin::pages.design.builder.component.rich_text_i18n')
+  @include('Admin::pages.design.builder.component.image_selector')
+  @include('Admin::pages.design.builder.component.link_selector')
+  @include('Admin::pages.design.builder.component.text_i18n')
+  @include('Admin::pages.design.builder.component.rich_text_i18n')
 
   <script>
     let app = new Vue({
@@ -172,10 +172,10 @@
         source: {
           locale: '{{ locale() }}',
           types: [{
-            name: '{{ __('admin/builder.modules_link') }}',
+            name: '{{ __('Admin/builder.modules_link') }}',
             value: 'link'
           },{
-            name: '{{ __('admin/builder.text_image') }}',
+            name: '{{ __('Admin/builder.text_image') }}',
             value: 'image'
           }],
         },

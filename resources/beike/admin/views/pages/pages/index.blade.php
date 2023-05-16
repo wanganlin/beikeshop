@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/page.index'))
+@section('title', __('Admin/Page.index'))
 
 @section('content')
 
@@ -58,7 +58,7 @@
       @endif
     </div>
 
-    {{ $pages->links('admin::vendor/pagination/bootstrap-4') }}
+    {{ $pages->links('Admin::vendor/pagination/bootstrap-4') }}
   </div>
 </div>
 

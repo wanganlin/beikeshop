@@ -19,7 +19,7 @@ class LanguageService
 
         $result = [];
         foreach (admin_languages() as $languageCode) {
-            $langFile = resource_path("lang/$languageCode/admin/base.php");
+            $langFile = resource_path("lang/$languageCode/Admin/base.php");
             if (! is_file($langFile)) {
                 throw new \Exception("File ($langFile) not exist!");
             }
@@ -73,7 +73,7 @@ class LanguageService
             return;
         }
         if ($language->code == system_setting('base.locale')) {
-            throw new NotAcceptableHttpException(trans('admin/language.error_default_language_cannot_delete'));
+            throw new NotAcceptableHttpException(trans('Admin/language.error_default_language_cannot_delete'));
         }
         LanguageRepo::delete($id);
 

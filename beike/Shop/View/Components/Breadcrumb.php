@@ -44,7 +44,7 @@ class Breadcrumb extends Component
             $breadcrumbs = array_merge($breadcrumbs, $this->handleOrderLinks($value));
         } elseif ($type == 'rma') {
             $breadcrumbs = array_merge($breadcrumbs, $this->handleRmaLinks($value));
-        } elseif ($type == 'page') {
+        } elseif ($type == 'Page') {
             $breadcrumbs = array_merge($breadcrumbs, $this->handlePageLinks($value));
         } elseif ($type == 'page_category') {
             $breadcrumbs = array_merge($breadcrumbs, $this->handlePageCategoryLinks($value));
@@ -207,7 +207,7 @@ class Breadcrumb extends Component
             $links[]      = ['title' => $categoryLink['text'], 'url' => $categoryLink['link']];
         }
 
-        $productLink = handle_link(['type' => 'page', 'value' => $value]);
+        $productLink = handle_link(['type' => 'Page', 'value' => $value]);
         $links[]     = ['title' => $productLink['text'], 'url' => $productLink['link']];
 
         return $links;

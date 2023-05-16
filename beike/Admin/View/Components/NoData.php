@@ -15,6 +15,6 @@ class NoData extends Component
 
     public function render()
     {
-        return view('admin::components.no-data');
+        return view('Admin::components.no-data');
     }
 }

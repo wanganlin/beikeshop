@@ -57,7 +57,7 @@ return [
     'default_currency'       => 'валюта по умолчанию',
     'default_customer_group' => 'Группа клиентов по умолчанию',
     'admin_name'             => 'внутренний каталог',
-    'admin_name_info'        => 'Фоновый каталог управления, по умолчанию admin',
+    'admin_name_info'        => 'Фоновый каталог управления, по умолчанию Admin',
     'enable_tax'             => 'Включить налоги',
     'enable_tax_info'        => 'Включить ли расчет налога',
     'tax_address'            => 'налоговый адрес',

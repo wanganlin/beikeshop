@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/plugin.plugins_show'))
+@section('title', __('Admin/plugin.plugins_show'))
 
 @section('content')
   <div class="card h-min-600">

@@ -73,7 +73,7 @@ class AdminRoleRepo
             }
         }
         if (empty($items)) {
-            throw new \Exception(trans('admin/role.select_one_at_least'));
+            throw new \Exception(trans('Admin/role.select_one_at_least'));
         }
         $adminRole->syncPermissions($items);
     }

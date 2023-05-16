@@ -1,9 +1,9 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.currency'))
+@section('title', __('Admin/common.currency'))
 
-@section('page-title-right')
-  <a href="{{ admin_route('settings.index') }}?tab=tab-checkout&line=rate_api_key" class="btn btn-outline-info" target="_blank">{{ __('admin/setting.rate_api_key') }}</a>
+@section('Page-title-right')
+  <a href="{{ admin_route('settings.index') }}?tab=tab-checkout&line=rate_api_key" class="btn btn-outline-info" target="_blank">{{ __('Admin/setting.rate_api_key') }}</a>
 @endsection
 
 @section('content')
@@ -54,7 +54,7 @@
 
     </div>
 
-    <el-dialog title="{{ __('admin/common.currency') }}" :visible.sync="dialog.show" width="670px"
+    <el-dialog title="{{ __('Admin/common.currency') }}" :visible.sync="dialog.show" width="670px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="130px">
@@ -96,7 +96,7 @@
 @endsection
 
 @push('footer')
-  @include('admin::shared.vue-image')
+  @include('Admin::shared.vue-image')
 
   <script>
     new Vue({

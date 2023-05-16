@@ -1,8 +1,8 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/page_category.index'))
+@section('title', __('Admin/page_category.index'))
 
-@section('page-title-right')
+@section('Page-title-right')
 <x-admin::form.row title="">
   <button type="button" class="mt-3 btn btn-primary submit-form btn-lg" form="form-page-categories">{{ __('common.save') }}</button>
 </x-admin::form.row>
@@ -15,7 +15,7 @@
 
   <ul class="nav nav-tabs nav-bordered mb-3" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-content" type="button" >{{ __('admin/product.basic_information') }}</button>
+      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-content" type="button" >{{ __('Admin/product.basic_information') }}</button>
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-data" type="button">{{ __('common.data') }}</button>
@@ -49,7 +49,7 @@
                   <x-admin-form-input
                     error="{{ $error_title }}"
                     name="descriptions[{{ $language['code'] }}][title]"
-                    title="{{ __('admin/page.info_title') }}"
+                    title="{{ __('Admin/Page.info_title') }}"
                     :required="true"
                     value="{{ old('descriptions.' . $language['code'] . '.title', $descriptions[$language['code']]['title'] ?? '') }}"
                   />
@@ -60,9 +60,9 @@
                   </x-admin::form.row>
 
                   <input type="hidden" name="descriptions[{{ $language['code'] }}][locale]" value="{{ $language['code'] }}">
-                  <x-admin-form-input name="descriptions[{{ $language['code'] }}][meta_title]" title="{{ __('admin/setting.meta_title') }}" value="{{ old('descriptions.' . $language['code'] . '.meta_title', $descriptions[$language['code']]['meta_title'] ?? '') }}" />
-                  <x-admin-form-input name="descriptions[{{ $language['code'] }}][meta_description]" title="{{ __('admin/setting.meta_description') }}" value="{{ old('descriptions.' . $language['code'] . '.meta_description', $descriptions[$language['code']]['meta_description'] ?? '') }}" />
-                  <x-admin-form-input name="descriptions[{{ $language['code'] }}][meta_keywords]" title="{{ __('admin/setting.meta_keywords') }}" value="{{ old('descriptions.' . $language['code'] . '.meta_keywords', $descriptions[$language['code']]['meta_keywords'] ?? '') }}" />
+                  <x-admin-form-input name="descriptions[{{ $language['code'] }}][meta_title]" title="{{ __('Admin/setting.meta_title') }}" value="{{ old('descriptions.' . $language['code'] . '.meta_title', $descriptions[$language['code']]['meta_title'] ?? '') }}" />
+                  <x-admin-form-input name="descriptions[{{ $language['code'] }}][meta_description]" title="{{ __('Admin/setting.meta_description') }}" value="{{ old('descriptions.' . $language['code'] . '.meta_description', $descriptions[$language['code']]['meta_description'] ?? '') }}" />
+                  <x-admin-form-input name="descriptions[{{ $language['code'] }}][meta_keywords]" title="{{ __('Admin/setting.meta_keywords') }}" value="{{ old('descriptions.' . $language['code'] . '.meta_keywords', $descriptions[$language['code']]['meta_keywords'] ?? '') }}" />
                 </div>
               @endforeach
             </div>
@@ -70,7 +70,7 @@
           <div class="tab-pane fade" id="tab-data">
             @hook('admin.page_category.data.before')
 
-            <x-admin::form.row title="{{ __('admin/category.parent_category') }}">
+            <x-admin::form.row title="{{ __('Admin/category.parent_category') }}">
               <div class="wp-400" id="app">
                 <el-autocomplete
                 v-model="category_name"

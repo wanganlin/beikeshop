@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('body-class', 'page-account-rmas')
+@section('body-class', 'Page-account-rmas')
 
 @push('header')
   {{-- <script src="{{ asset('vendor/vue/2.7/vue' . (!config('app.debug') ? '.min' : '') . '.js') }}"></script> --}}

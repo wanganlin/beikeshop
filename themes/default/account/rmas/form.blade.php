@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('body-class', 'page-account-rmas')
+@section('body-class', 'Page-account-rmas')
 
 
 @section('content')

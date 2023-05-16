@@ -1,8 +1,8 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/product.products_show'))
+@section('title', __('Admin/product.products_show'))
 
-@section('body-class', 'page-product-form')
+@section('body-class', 'Page-product-form')
 
 @push('header')
   <script src="{{ asset('vendor/vue/Sortable.min.js') }}"></script>
@@ -10,7 +10,7 @@
   <script src="{{ asset('vendor/tinymce/5.9.1/tinymce.min.js') }}"></script>
 @endpush
 
-@section('page-title-right')
+@section('Page-title-right')
   <button type="button" class="btn btn-lg btn-primary submit-form">{{ __('common.save') }}</button>
 @endsection
 
@@ -28,19 +28,19 @@
 
   <ul class="nav nav-tabs nav-bordered mb-3" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-basic" type="button" >{{ __('admin/product.basic_information') }}</button>
+      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-basic" type="button" >{{ __('Admin/product.basic_information') }}</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-descriptions" type="button">{{ __('admin/product.product_details') }}</button>
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-descriptions" type="button">{{ __('Admin/product.product_details') }}</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-attribute" type="button">{{ __('admin/attribute.index') }}</button>
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-attribute" type="button">{{ __('Admin/attribute.index') }}</button>
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-seo" type="button" >SEO</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-relations" type="button">{{ __('admin/product.product_relations') }}</button>
+      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-relations" type="button">{{ __('Admin/product.product_relations') }}</button>
     </li>
   </ul>
 
@@ -77,14 +77,14 @@
                 <div v-if="!form.images.length" class="d-none"><input type="hidden" name="images[]" value=""></div>
                 <div class="set-product-img wh-80 rounded-2" @click="addProductImages"><i class="bi bi-plus fs-1 text-muted"></i></div>
               </draggable>
-              <div class="help-text mb-1 mt-1">{{ __('admin/product.image_help') }}</div>
+              <div class="help-text mb-1 mt-1">{{ __('Admin/product.image_help') }}</div>
             </x-admin::form.row>
-            {{-- <x-admin-form-input name="video" title="视频" :value="old('video', $product->video ?? '')" /> --}}
+            {{-- <x-Admin-form-input name="video" title="视频" :value="old('video', $product->video ?? '')" /> --}}
             <x-admin-form-input name="position" :title="__('common.sort_order')" :value="old('position', $product->position ?? '0')" />
 
-            <x-admin::form.row :title="__('admin/product.weight_text')">
+            <x-admin::form.row :title="__('Admin/product.weight_text')">
               <div class="d-flex wp-400">
-                <input type="text" name="weight" placeholder="{{ __('admin/product.weight_text') }}" value="{{ old('weight', $product->weight ?? '') }}" class="form-control" style="flex: 0 0 260px" />
+                <input type="text" name="weight" placeholder="{{ __('Admin/product.weight_text') }}" value="{{ old('weight', $product->weight ?? '') }}" class="form-control" style="flex: 0 0 260px" />
                 <select class="form-select ms-4 bg-white" name="weight_class">
                   @foreach ($weight_classes as $item)
                     <option value="{{ $item }}" {{ $product->weight_class == $item ? 'selected' : '' }}>{{ __('product.' . $item) }}</option>
@@ -94,15 +94,15 @@
             </x-admin::form.row>
 
             @hookwrapper('admin.product.edit.brand')
-            <x-admin::form.row :title="__('admin/brand.index')">
+            <x-admin::form.row :title="__('Admin/brand.index')">
               <input type="text" value="{{ $product->brand->name ?? '' }}" id="brand-autocomplete" class="form-control wp-400 " />
               <input type="hidden" name="brand_id" value="{{ old('brand_id', $product->brand_id ?? '') }}" />
             </x-admin::form.row>
             @endhookwrapper
 
-            <x-admin-form-select :title="__('admin/tax_class.index')" name="tax_class_id" :value="old('tax_class_id', $product->tax_class_id ?? '')" :options="$tax_classes" key="id" label="title" />
+            <x-admin-form-select :title="__('Admin/tax_class.index')" name="tax_class_id" :value="old('tax_class_id', $product->tax_class_id ?? '')" :options="$tax_classes" key="id" label="title" />
 
-            <x-admin::form.row :title="__('admin/category.index')">
+            <x-admin::form.row :title="__('Admin/category.index')">
               <div class="wp-400 form-control" style="max-height: 240px;overflow-y: auto">
                 @foreach ($source['categories'] as $_category)
                 <div class="form-check">
@@ -121,10 +121,10 @@
             @hook('admin.product.edit.extra')
 
             <div>
-              <h5 class="border-bottom pb-3 mb-4">{{ __('admin/product.stocks') }}</h5>
+              <h5 class="border-bottom pb-3 mb-4">{{ __('Admin/product.stocks') }}</h5>
 
               @hookwrapper('admin.product.edit.switch')
-              <x-admin::form.row :title="__('admin/product.enable_multi_spec')">
+              <x-admin::form.row :title="__('Admin/product.enable_multi_spec')">
                 <el-switch v-model="editing.isVariable" @change="isVariableChange" class="mt-2"></el-switch>
               </x-admin::form.row>
               @endhookwrapper
@@ -145,8 +145,8 @@
                               <el-link type="danger" class="ms-2" @click="removeSourceVariant(variantIndex)">{{ __('common.delete') }}</el-link>
                             </div>
                             <div>
-                              <el-checkbox v-model="variant.isImage" @change="(e) => {variantIsImage(e, variantIndex)}" border size="mini" class="me-2 bg-white">{{ __('admin/product.add_variable_image') }}</el-checkbox>
-                              <el-button type="primary" plain size="mini" @click="modalVariantOpenButtonClicked(variantIndex, -1)">{{ __('admin/product.add_variable_value') }}</el-button>
+                              <el-checkbox v-model="variant.isImage" @change="(e) => {variantIsImage(e, variantIndex)}" border size="mini" class="me-2 bg-white">{{ __('Admin/product.add_variable_image') }}</el-checkbox>
+                              <el-button type="primary" plain size="mini" @click="modalVariantOpenButtonClicked(variantIndex, -1)">{{ __('Admin/product.add_variable_value') }}</el-button>
                             </div>
                           </div>
                           <template v-if="variant.values.length">
@@ -174,16 +174,16 @@
                                  </div>
                                </div>
                             </draggable>
-                            <div class="ps-2 mt-2 mb-3 opacity-50"><i class="bi bi-exclamation-circle"></i> {{ __('admin/product.modify_order') }}</div>
+                            <div class="ps-2 mt-2 mb-3 opacity-50"><i class="bi bi-exclamation-circle"></i> {{ __('Admin/product.modify_order') }}</div>
                           </template>
                           <div v-else class="d-flex justify-content-center align-items-center">
-                            <div class="p-4 fs-5 btn" @click="modalVariantOpenButtonClicked(variantIndex, -1)"><i class="bi bi-plus-square-dotted"></i> {{ __('admin/product.add_variable_value') }}</div>
+                            <div class="p-4 fs-5 btn" @click="modalVariantOpenButtonClicked(variantIndex, -1)"><i class="bi bi-plus-square-dotted"></i> {{ __('Admin/product.add_variable_value') }}</div>
                           </div>
 
                         </div>
                       </draggable>
 
-                      <el-button type="primary" plain size="small" @click="modalVariantOpenButtonClicked(-1, null)" class="btn btn-xs mr-1 mb-1">{{ __('admin/product.add_variable') }}</el-button>
+                      <el-button type="primary" plain size="small" @click="modalVariantOpenButtonClicked(-1, null)" class="btn btn-xs mr-1 mb-1">{{ __('Admin/product.add_variable') }}</el-button>
                     </div>
 
                     <div v-if="form.skus.length && form.variables.length" class="mt-3 table-push table-responsive">
@@ -200,12 +200,12 @@
                           <img :src="thumbnail(variablesBatch.image)" class="img-fluid" v-if="variablesBatch.image" style="max-height: 40px;">
                           <i class="bi bi-plus fs-3 text-muted" v-else></i>
                         </div>
-                        <input type="text" class="form-control me-2 bg-white" v-model="variablesBatch.model" placeholder="{{ __('admin/product.model') }}">
+                        <input type="text" class="form-control me-2 bg-white" v-model="variablesBatch.model" placeholder="{{ __('Admin/product.model') }}">
                         <input type="text" class="form-control me-2 bg-white" v-model="variablesBatch.sku" placeholder="sku">
-                        <input type="number" class="form-control me-2 bg-white" v-model="variablesBatch.price" placeholder="{{ __('admin/product.price') }}">
-                        <input type="number" class="form-control me-2 bg-white" v-model="variablesBatch.origin_price" placeholder="{{ __('admin/product.origin_price') }}">
-                        <input type="number" class="form-control me-2 bg-white" v-model="variablesBatch.cost_price" placeholder="{{ __('admin/product.cost_price') }}">
-                        <input type="number" class="form-control me-2 bg-white" v-model="variablesBatch.quantity" placeholder="{{ __('admin/product.quantity') }}">
+                        <input type="number" class="form-control me-2 bg-white" v-model="variablesBatch.price" placeholder="{{ __('Admin/product.price') }}">
+                        <input type="number" class="form-control me-2 bg-white" v-model="variablesBatch.origin_price" placeholder="{{ __('Admin/product.origin_price') }}">
+                        <input type="number" class="form-control me-2 bg-white" v-model="variablesBatch.cost_price" placeholder="{{ __('Admin/product.cost_price') }}">
+                        <input type="number" class="form-control me-2 bg-white" v-model="variablesBatch.quantity" placeholder="{{ __('Admin/product.quantity') }}">
                         <button type="button" class="btn btn-primary text-nowrap" @click="batchSettingVariant">{{ __('common.batch_setting') }}</button>
                       </div>
 
@@ -215,12 +215,12 @@
                             @{{ variant.name[current_language_code] || 'No name' }}
                           </th>
                           <th width="106px">{{ __('common.image') }}</th>
-                          <th class="w-min-100">{{ __('admin/product.model') }}</th>
+                          <th class="w-min-100">{{ __('Admin/product.model') }}</th>
                           <th class="w-min-100">sku</th>
-                          <th class="w-min-100">{{ __('admin/product.price') }}</th>
-                          <th class="w-min-100">{{ __('admin/product.origin_price') }}</th>
-                          <th class="w-min-100">{{ __('admin/product.cost_price') }}</th>
-                          <th class="w-min-100">{{ __('admin/product.quantity') }}</th>
+                          <th class="w-min-100">{{ __('Admin/product.price') }}</th>
+                          <th class="w-min-100">{{ __('Admin/product.origin_price') }}</th>
+                          <th class="w-min-100">{{ __('Admin/product.cost_price') }}</th>
+                          <th class="w-min-100">{{ __('Admin/product.quantity') }}</th>
                         </thead>
                         <tbody>
                           <tr v-for="(sku, skuIndex) in form.skus" :key="skuIndex">
@@ -247,45 +247,45 @@
                                 :name="'skus[' + skuIndex + '][variants][' + j + ']'" :value="variantValueIndex">
                             </td>
                             <td><input type="text" class="form-control" v-model="sku.model" :name="'skus[' + skuIndex + '][model]'"
-                                placeholder="{{ __('admin/product.model') }}"></td>
+                                placeholder="{{ __('Admin/product.model') }}"></td>
                             <td>
                               <input type="text" class="form-control" v-model="sku.sku" :name="'skus[' + skuIndex + '][sku]'" placeholder="sku" :style="sku.is_default ? 'margin-top: 19px;' : ''" required>
                               <span role="alert" class="invalid-feedback">{{ __('common.error_required', ['name' => 'sku']) }}</span>
-                              <span v-if="sku.is_default" class="text-success">{{ __('admin/product.default_main_product') }}</span>
+                              <span v-if="sku.is_default" class="text-success">{{ __('Admin/product.default_main_product') }}</span>
                             </td>
                             <td>
                               <input type="number" class="form-control" v-model="sku.price" :name="'skus[' + skuIndex + '][price]'" step="any"
-                                placeholder="{{ __('admin/product.price') }}" required>
-                              <span role="alert" class="invalid-feedback">{{ __('common.error_required', ['name' => __('admin/product.price')]) }}</span>
+                                placeholder="{{ __('Admin/product.price') }}" required>
+                              <span role="alert" class="invalid-feedback">{{ __('common.error_required', ['name' => __('Admin/product.price')]) }}</span>
                             </td>
                             <td><input type="number" class="form-control" v-model="sku.origin_price" :name="'skus[' + skuIndex + '][origin_price]'" step="any"
-                              placeholder="{{ __('admin/product.origin_price') }}" required>
-                              <span role="alert" class="invalid-feedback">{{ __('common.error_required', ['name' => __('admin/product.origin_price')]) }}</span>
+                              placeholder="{{ __('Admin/product.origin_price') }}" required>
+                              <span role="alert" class="invalid-feedback">{{ __('common.error_required', ['name' => __('Admin/product.origin_price')]) }}</span>
                             </td>
                             <td><input type="number" class="form-control" v-model="sku.cost_price" :name="'skus[' + skuIndex + '][cost_price]'"
-                                placeholder="{{ __('admin/product.cost_price') }}">
+                                placeholder="{{ __('Admin/product.cost_price') }}">
                             </td>
                             <td><input type="number" class="form-control" v-model="sku.quantity" :name="'skus[' + skuIndex + '][quantity]'"
-                                placeholder="{{ __('admin/product.quantity') }}"></td>
+                                placeholder="{{ __('Admin/product.quantity') }}"></td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
                   <input class="form-control d-none" :value="skuIsEmpty" required>
-                  <div class="invalid-feedback" style="font-size: 16px"><i class="bi bi-exclamation-circle-fill"></i> {{ __('admin/product.add_variable') }}</div>
+                  <div class="invalid-feedback" style="font-size: 16px"><i class="bi bi-exclamation-circle-fill"></i> {{ __('Admin/product.add_variable') }}</div>
                 </div>
               </div>
 
               @hookwrapper('admin.product.edit.variable')
               <template v-if="!editing.isVariable">
                 <input type="hidden" value="{{ old('skus.0.image', $product->skus[0]->image ?? '') }}" name="skus[0][image]">
-                <x-admin-form-input name="skus[0][model]" :title="__('admin/product.model')" :value="old('skus.0.model', $product->skus[0]->model ?? '')" />
+                <x-admin-form-input name="skus[0][model]" :title="__('Admin/product.model')" :value="old('skus.0.model', $product->skus[0]->model ?? '')" />
                 <x-admin-form-input name="skus[0][sku]" title="sku" :value="old('skus.0.sku', $product->skus[0]->sku ?? '')" required />
-                <x-admin-form-input name="skus[0][price]" type="number" :title="__('admin/product.price')" :value="old('skus.0.price', $product->skus[0]->price ?? '')" step="any" required />
-                <x-admin-form-input name="skus[0][origin_price]" type="number" :title="__('admin/product.origin_price')" :value="old('skus.0.origin_price', $product->skus[0]->origin_price ?? '')" step="any" required />
-                <x-admin-form-input name="skus[0][cost_price]" type="number" :title="__('admin/product.cost_price')" :value="old('skus.0.cost_price', $product->skus[0]->cost_price ?? '')" />
-                <x-admin-form-input name="skus[0][quantity]" type="number" :title="__('admin/product.quantity')" :value="old('skus.0.quantity', $product->skus[0]->quantity ?? '')" />
+                <x-admin-form-input name="skus[0][price]" type="number" :title="__('Admin/product.price')" :value="old('skus.0.price', $product->skus[0]->price ?? '')" step="any" required />
+                <x-admin-form-input name="skus[0][origin_price]" type="number" :title="__('Admin/product.origin_price')" :value="old('skus.0.origin_price', $product->skus[0]->origin_price ?? '')" step="any" required />
+                <x-admin-form-input name="skus[0][cost_price]" type="number" :title="__('Admin/product.cost_price')" :value="old('skus.0.cost_price', $product->skus[0]->cost_price ?? '')" />
+                <x-admin-form-input name="skus[0][quantity]" type="number" :title="__('Admin/product.quantity')" :value="old('skus.0.quantity', $product->skus[0]->quantity ?? '')" />
                 <input type="hidden" name="skus[0][variants]" placeholder="variants" value="">
                 <input type="hidden" name="skus[0][position]" placeholder="position" value="0">
                 <input type="hidden" name="skus[0][is_default]" placeholder="is_default" value="1">
@@ -294,8 +294,8 @@
             </div>
           </div>
           <div class="tab-pane fade" id="tab-descriptions">
-            <h6 class="border-bottom pb-3 mb-4">{{ __('admin/product.product_details') }}</h6>
-            <x-admin::form.row :title="__('admin/product.product_details')">
+            <h6 class="border-bottom pb-3 mb-4">{{ __('Admin/product.product_details') }}</h6>
+            <x-admin::form.row :title="__('Admin/product.product_details')">
 
               <ul class="nav nav-tabs mb-3" role="tablist">
                 @foreach ($languages as $language)
@@ -318,25 +318,25 @@
             </x-admin::form.row>
           </div>
           <div class="tab-pane fade" id="tab-attribute">
-            <h6 class="border-bottom pb-3 mb-4">{{ __('admin/attribute.index') }}</h6>
-            <x-admin::form.row title="{{ __('admin/attribute.set_attribute') }}">
+            <h6 class="border-bottom pb-3 mb-4">{{ __('Admin/attribute.index') }}</h6>
+            <x-admin::form.row title="{{ __('Admin/attribute.set_attribute') }}">
               <div class="pdf-table">
                 <table class="table table-bordered w-max-600">
-                  <thead><th>{{ __('admin/attribute.index') }}</th><th>{{ __('admin/attribute.attribute_value') }}</th><th width="50px"></th></thead>
+                  <thead><th>{{ __('Admin/attribute.index') }}</th><th>{{ __('Admin/attribute.attribute_value') }}</th><th width="50px"></th></thead>
                   <tbody>
                     <tr v-for="item, index in form.attributes" :key="index">
                       <td>
                         <el-autocomplete
                           v-model="item.attribute.name"
                           :fetch-suggestions="attributeQuerySearch"
-                          placeholder="{{ __('admin/builder.modules_keywords_search') }}"
+                          placeholder="{{ __('Admin/builder.modules_keywords_search') }}"
                           value-key="name"
                           class="w-100"
                           size="small"
                           @select="(e) => {attributeHandleSelect(e, index, 'attribute')}"
                         ></el-autocomplete>
                         <input type="text" required :name="'attributes['+ index +'][attribute_id]'" v-model="item.attribute.id" class="form-control d-none">
-                        <div class="invalid-feedback">{{ __('common.error_required', ['name' => __('admin/attribute.index')]) }}</div>
+                        <div class="invalid-feedback">{{ __('common.error_required', ['name' => __('Admin/attribute.index')]) }}</div>
                       </td>
                       <td>
                         <el-autocomplete
@@ -346,11 +346,11 @@
                           :disabled="item.attribute.id == ''"
                           value-key="name"
                           class="w-100"
-                          :placeholder="item.attribute.id == '' ? '{{ __('admin/attribute.before_attribute') }}' : '{{ __('admin/builder.modules_keywords_search') }}'"
+                          :placeholder="item.attribute.id == '' ? '{{ __('Admin/attribute.before_attribute') }}' : '{{ __('Admin/builder.modules_keywords_search') }}'"
                           @select="(e) => {attributeHandleSelect(e, index, 'attribute_value')}"
                         ></el-autocomplete>
                         <input type="text" required :name="'attributes['+ index +'][attribute_value_id]'" v-model="item.attribute_value.id" class="form-control d-none">
-                        <div class="invalid-feedback">{{ __('common.error_required', ['name' => __('admin/attribute.attribute_value')]) }}</div>
+                        <div class="invalid-feedback">{{ __('common.error_required', ['name' => __('Admin/attribute.attribute_value')]) }}</div>
                       </td>
                       <td class="text-end">
                         <i @click="form.attributes.splice(index, 1)" class="bi bi-x-circle fs-4 text-danger cursor-pointer"></i>
@@ -397,9 +397,9 @@
           </div>
 
           <div class="tab-pane fade" id="tab-relations">
-            <h6 class="border-bottom pb-3 mb-4">{{ __('admin/product.product_relations') }}</h6>
+            <h6 class="border-bottom pb-3 mb-4">{{ __('Admin/product.product_relations') }}</h6>
 
-            <x-admin::form.row title="{{ __('admin/product.product_relations') }}">
+            <x-admin::form.row title="{{ __('Admin/product.product_relations') }}">
               <div class="module-edit-group wp-600">
                 <div class="autocomplete-group-wrapper">
                   <el-autocomplete
@@ -408,7 +408,7 @@
                     value-key="name"
                     size="small"
                     :fetch-suggestions="relationsQuerySearch"
-                    placeholder="{{ __('admin/builder.modules_keywords_search') }}"
+                    placeholder="{{ __('Admin/builder.modules_keywords_search') }}"
                     @select="relationsHandleSelect"
                   ></el-autocomplete>
 
@@ -429,7 +429,7 @@
                         </div>
                       </draggable>
                     </template>
-                    <template v-else>{{ __('admin/builder.modules_please_products') }}</template>
+                    <template v-else>{{ __('Admin/builder.modules_please_products') }}</template>
                   </div>
                 </div>
               </div>
@@ -466,7 +466,7 @@
           </el-form>
         </el-dialog>
 
-        <el-dialog title="{{ __('admin/attribute.attribute_value') }}" :visible.sync="attributeDialog.show" width="670px"
+        <el-dialog title="{{ __('Admin/attribute.attribute_value') }}" :visible.sync="attributeDialog.show" width="670px"
           @close="attributeCloseDialog('attribute_form')" :close-on-click-modal="false">
 
           <el-form ref="attribute_form" :model="attributeDialog.form" label-width="155px">
@@ -515,7 +515,7 @@
         isMove: false,
         form: {
           attributes: @json(old('pickups', $product_attributes) ?? []),
-          images: @json(old('images', $product->images) ?? []),
+          images: @json(old('Images', $product->images) ?? []),
           model: @json($product->skus[0]['model'] ?? ''),
           price: @json($product->skus[0]['price'] ?? ''),
           quantity: @json($product->skus[0]['quantity'] ?? ''),
@@ -830,7 +830,7 @@
 
         attributeValueQuerySearch(keyword, cb, index) {
           $http.get(`attributes/${this.form.attributes[index].attribute.id}/values/autocomplete?name=${encodeURIComponent(keyword)}`, null, {hload:true}).then((res) => {
-            res.data.push({id: 'add', name: '{{ __('admin/attribute.add_attribute') }}'})
+            res.data.push({id: 'add', name: '{{ __('Admin/attribute.add_attribute') }}'})
             cb(res.data);
           })
         },

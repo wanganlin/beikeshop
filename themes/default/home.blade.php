@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('body-class', 'page-home')
+@section('body-class', 'Page-home')
 @section('content')
 
 <div class="modules-box">

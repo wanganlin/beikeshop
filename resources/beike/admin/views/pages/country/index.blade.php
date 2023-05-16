@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.country'))
+@section('title', __('Admin/common.country'))
 
 @section('content')
   <div id="tax-classes-app" class="card" v-cloak>
@@ -48,12 +48,12 @@
         :total="country.total"></el-pagination>
     </div>
 
-    <el-dialog title="{{ __('admin/common.country') }}" :visible.sync="dialog.show" width="600px"
+    <el-dialog title="{{ __('Admin/common.country') }}" :visible.sync="dialog.show" width="600px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="130px">
-        <el-form-item label="{{ __('admin/country.country_name') }}" prop="name">
-          <el-input v-model="dialog.form.name" placeholder="{{ __('admin/country.country_name') }}"></el-input>
+        <el-form-item label="{{ __('Admin/country.country_name') }}" prop="name">
+          <el-input v-model="dialog.form.name" placeholder="{{ __('Admin/country.country_name') }}"></el-input>
         </el-form-item>
 
         <el-form-item label="{{ __('common.sort_order') }}">
@@ -78,7 +78,7 @@
 @endsection
 
 @push('footer')
-  @include('admin::shared.vue-image')
+  @include('Admin::shared.vue-image')
 
   <script>
     new Vue({
@@ -102,7 +102,7 @@
         },
 
         rules: {
-          name: [{required: true,message: '{{ __('common.error_required', ['name' => __('admin/country.country_name')]) }}',trigger: 'blur'}, ],
+          name: [{required: true,message: '{{ __('common.error_required', ['name' => __('Admin/country.country_name')]) }}',trigger: 'blur'}, ],
         }
       },
 

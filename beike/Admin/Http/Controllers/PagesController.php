@@ -34,7 +34,7 @@ class PagesController extends Controller
             'pages_format' => PageDetail::collection($pageList)->jsonSerialize(),
         ];
 
-        return view('admin::pages.pages.index', $data);
+        return view('Admin::pages.pages.index', $data);
     }
 
     /**
@@ -44,7 +44,7 @@ class PagesController extends Controller
      */
     public function create()
     {
-        return view('admin::pages.pages.form', ['page' => new Page()]);
+        return view('Admin::pages.pages.form', ['Page' => new Page()]);
     }
 
     /**
@@ -58,7 +58,7 @@ class PagesController extends Controller
         try {
             $requestData = $request->all();
             $page        = PageRepo::createOrUpdate($requestData);
-            hook_action('admin.page.store.after', ['request_data' => $requestData, 'page' => $page]);
+            hook_action('Admin.Page.store.after', ['request_data' => $requestData, 'Page' => $page]);
 
             return redirect(admin_route('pages.index'));
         } catch (\Exception $e) {
@@ -76,12 +76,12 @@ class PagesController extends Controller
         $page->load(['products.description', 'category.description']);
 
         $data = [
-            'page'         => $page,
+            'Page'         => $page,
             'products'     => ProductSimple::collection($page->products)->jsonSerialize(),
             'descriptions' => PageRepo::getDescriptionsByLocale($page->id),
         ];
 
-        return view('admin::pages.pages.form', $data);
+        return view('Admin::pages.pages.form', $data);
     }
 
     /**
@@ -97,7 +97,7 @@ class PagesController extends Controller
             $requestData       = $request->all();
             $requestData['id'] = $pageId;
             $page              = PageRepo::createOrUpdate($requestData);
-            hook_action('admin.page.update.after', ['request_data' => $requestData, 'page' => $page]);
+            hook_action('Admin.Page.update.after', ['request_data' => $requestData, 'Page' => $page]);
 
             return redirect()->to(admin_route('pages.index'));
         } catch (\Exception $e) {

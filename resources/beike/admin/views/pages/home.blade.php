@@ -1,8 +1,8 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.admin_panel'))
+@section('title', __('Admin/common.admin_panel'))
 
-@section('body-class', 'admin-home')
+@section('body-class', 'Admin-home')
 
 @push('header')
   <script src="{{ asset('vendor/chart/chart.min.js') }}"></script>
@@ -13,8 +13,8 @@
     <div class="col-xl-3 col-6">
       <div class="card mb-4">
         <div class="card-header d-flex justify-content-between">
-          <span>{{ __('admin/dashboard.product_total') }}</span>
-          <span class="mt-n1 ms-2 badge bg-success-soft">{{ __('admin/dashboard.yesterday') }}</span>
+          <span>{{ __('Admin/dashboard.product_total') }}</span>
+          <span class="mt-n1 ms-2 badge bg-success-soft">{{ __('Admin/dashboard.yesterday') }}</span>
         </div>
         <div class="card-body">
           <div class="d-flex align-items-center justify-content-between">
@@ -23,15 +23,15 @@
             </div>
           </div>
           <div class="mt-3 d-flex align-items-center lh-1"><span class="text-success">{{ $products['percentage'] }}%</span>
-            <span class="vr mx-2"></span> <span class="text-muted">{{ __('admin/dashboard.day_before') }}</span></div>
+            <span class="vr mx-2"></span> <span class="text-muted">{{ __('Admin/dashboard.day_before') }}</span></div>
         </div>
       </div>
     </div>
     <div class="col-xl-3 col-6">
       <div class="card mb-4">
         <div class="card-header d-flex justify-content-between">
-          <span>{{ __('admin/dashboard.order_total') }}</span>
-          <span class="mt-n1 ms-2 badge bg-success-soft">{{ __('admin/dashboard.yesterday') }}</span>
+          <span>{{ __('Admin/dashboard.order_total') }}</span>
+          <span class="mt-n1 ms-2 badge bg-success-soft">{{ __('Admin/dashboard.yesterday') }}</span>
         </div>
         <div class="card-body">
           <div class="d-flex align-items-center justify-content-between">
@@ -40,15 +40,15 @@
             </div>
           </div>
           <div class="mt-3 d-flex align-items-center lh-1"><span class="text-success">{{ $orders['percentage'] }}%</span>
-            <span class="vr mx-2"></span> <span class="text-muted">{{ __('admin/dashboard.day_before') }}</span></div>
+            <span class="vr mx-2"></span> <span class="text-muted">{{ __('Admin/dashboard.day_before') }}</span></div>
         </div>
       </div>
     </div>
     <div class="col-xl-3 col-6">
       <div class="card mb-4">
         <div class="card-header d-flex justify-content-between">
-          <span>{{ __('admin/dashboard.customer_new') }}</span>
-          <span class="mt-n1 ms-2 badge bg-success-soft">{{ __('admin/dashboard.yesterday') }}</span>
+          <span>{{ __('Admin/dashboard.customer_new') }}</span>
+          <span class="mt-n1 ms-2 badge bg-success-soft">{{ __('Admin/dashboard.yesterday') }}</span>
         </div>
         <div class="card-body">
           <div class="d-flex align-items-center justify-content-between">
@@ -57,15 +57,15 @@
             </div>
           </div>
           <div class="mt-3 d-flex align-items-center lh-1"><span class="text-danger">{{ $customers['percentage'] }}%</span>
-            <span class="vr mx-2"></span> <span class="text-muted">{{ __('admin/dashboard.day_before') }}</span></div>
+            <span class="vr mx-2"></span> <span class="text-muted">{{ __('Admin/dashboard.day_before') }}</span></div>
         </div>
       </div>
     </div>
     <div class="col-xl-3 col-6">
       <div class="card mb-4">
         <div class="card-header d-flex justify-content-between">
-          <span>{{ __('admin/dashboard.order_amount') }}</span>
-          <span class="mt-n1 ms-2 badge bg-success-soft">{{ __('admin/dashboard.yesterday') }}</span>
+          <span>{{ __('Admin/dashboard.order_amount') }}</span>
+          <span class="mt-n1 ms-2 badge bg-success-soft">{{ __('Admin/dashboard.yesterday') }}</span>
         </div>
         <div class="card-body">
           <div class="d-flex align-items-center justify-content-between">
@@ -75,7 +75,7 @@
             </div>
           </div>
           <div class="mt-3 d-flex align-items-center lh-1"><span class="text-danger">{{ $order_totals['percentage'] }}%</span>
-            <span class="vr mx-2"></span> <span class="text-muted">{{ __('admin/dashboard.day_before') }}</span></div>
+            <span class="vr mx-2"></span> <span class="text-muted">{{ __('Admin/dashboard.day_before') }}</span></div>
         </div>
       </div>
     </div>
@@ -83,12 +83,12 @@
 
   <div class="card mb-4">
     <div class="card-header d-flex justify-content-between align-items-center">
-      <div>{{ __('admin/dashboard.order_report') }}</div>
+      <div>{{ __('Admin/dashboard.order_report') }}</div>
       <div class="orders-right">
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <button type="button" class="btn btn-sm btn-outline-info btn-info text-white" data-type="latest_month">{{ __('admin/dashboard.latest_month') }}</button>
-          <button type="button" class="btn btn-sm btn-outline-info" data-type="latest_week">{{ __('admin/dashboard.latest_week') }}</button>
-          <button type="button" class="btn btn-sm btn-outline-info" data-type="latest_year">{{ __('admin/dashboard.latest_year') }}</button>
+          <button type="button" class="btn btn-sm btn-outline-info btn-info text-white" data-type="latest_month">{{ __('Admin/dashboard.latest_month') }}</button>
+          <button type="button" class="btn btn-sm btn-outline-info" data-type="latest_week">{{ __('Admin/dashboard.latest_week') }}</button>
+          <button type="button" class="btn btn-sm btn-outline-info" data-type="latest_year">{{ __('Admin/dashboard.latest_year') }}</button>
         </div>
       </div>
     </div>
@@ -217,7 +217,7 @@
         labels: latest_month.period,
         datasets: [
           {
-            label: ["{{ __('admin/order.order_quantity') }}"],
+            label: ["{{ __('Admin/order.order_quantity') }}"],
             fill: true,
             backgroundColor : orderGradient, // Put the gradient here as a fill color
             borderColor : "#4da4f9",
@@ -240,7 +240,7 @@
             // pointRadius: 3,
           },
           {
-            label: ["{{ __('admin/order.order_amount') }}"],
+            label: ["{{ __('Admin/order.order_amount') }}"],
             fill: true,
             backgroundColor : amountGradient,
             borderColor : "#20c997",

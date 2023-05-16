@@ -44,7 +44,7 @@ class LanguagesSeeder extends Seeder
                 "name" => "中文",
                 "code" => "zh_cn",
                 "locale" => "",
-                "image" => "catalog/favicon.png",
+                "image" => "Catalog/favicon.png",
                 "sort_order" => 1,
                 "status" => 1,
             ],
@@ -53,7 +53,7 @@ class LanguagesSeeder extends Seeder
                 "name" => "English",
                 "code" => "en",
                 "locale" => "",
-                "image" => "catalog/demo/services-icon/3.png",
+                "image" => "Catalog/demo/services-icon/3.png",
                 "sort_order" => 1,
                 "status" => 1,
             ]

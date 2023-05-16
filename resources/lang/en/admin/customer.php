@@ -33,7 +33,7 @@ return [
     'address_1'              => 'address 1',
     'address_2'              => 'address 2',
 
-    'cannot_delete_root'     => 'Cannot delete root admin user',
+    'cannot_delete_root'     => 'Cannot delete root Admin user',
     'error_email'            => 'Please enter the correct email format',
     'confirm_delete_address' => 'Are you sure you want to delete the address?',
 ];

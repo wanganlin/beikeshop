@@ -42,6 +42,6 @@ class Input extends Component
 
     public function render()
     {
-        return view('admin::components.form.input');
+        return view('Admin::components.form.input');
     }
 }

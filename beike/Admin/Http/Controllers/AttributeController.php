@@ -31,15 +31,15 @@ class AttributeController extends Controller
                 'attribute_list_format' => AttributeResource::collection($attributes),
                 'attribute_group'       => AttributeGroupRepo::getList(),
             ];
-            $data = hook_filter('admin.attribute.index.data', $data);
+            $data = hook_filter('Admin.attribute.index.data', $data);
             if ($request->expectsJson()) {
                 return json_success(trans('success'), $data);
             }
         } catch (Exception $e) {
-            return view('admin::pages.attributes.index', $data)->withErrors(['error' => $e->getMessage()]);
+            return view('Admin::pages.attributes.index', $data)->withErrors(['error' => $e->getMessage()]);
         }
 
-        return view('admin::pages.attributes.index', $data);
+        return view('Admin::pages.attributes.index', $data);
     }
 
     public function show(Request $request, int $id)
@@ -49,12 +49,12 @@ class AttributeController extends Controller
                 'attribute'       => (new AttributeDetailResource(AttributeRepo::find($id)))->jsonSerialize(),
                 'attribute_group' => AttributeGroupRepo::getList(),
             ];
-            $data = hook_filter('admin.attribute.show.data', $data);
+            $data = hook_filter('Admin.attribute.show.data', $data);
         } catch (Exception $e) {
-            return view('admin::pages.attributes.form', $data)->withErrors(['error' => $e->getMessage()]);
+            return view('Admin::pages.attributes.form', $data)->withErrors(['error' => $e->getMessage()]);
         }
 
-        return view('admin::pages.attributes.form', $data);
+        return view('Admin::pages.attributes.form', $data);
     }
 
     public function store(Request $request)

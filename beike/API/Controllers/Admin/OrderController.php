@@ -45,7 +45,7 @@ class OrderController
     public function show(Request $request, Order $order)
     {
         $order->load(['orderTotals', 'orderHistories', 'orderShipments']);
-        $data             = hook_filter('admin.order.show.data', ['order' => $order, 'html_items' => []]);
+        $data             = hook_filter('Admin.order.show.data', ['order' => $order, 'html_items' => []]);
         $data['statuses'] = StateMachineService::getInstance($order)->nextBackendStatuses();
 
         return hook_filter('admin_api.order.show.data', $data);
@@ -72,7 +72,7 @@ class OrderController
 
         $orderStatusData = $request->all();
 
-        hook_action('admin.order.update_status.after', $orderStatusData);
+        hook_action('Admin.order.update_status.after', $orderStatusData);
 
         return json_success(trans('common.updated_success'));
     }
@@ -85,7 +85,7 @@ class OrderController
         $data          = $request->all();
         $orderShipment = OrderShipment::query()->where('order_id', $order->id)->findOrFail($orderShipmentId);
         ShipmentService::updateShipment($orderShipment, $data);
-        hook_action('admin.order.update_shipment.after', [
+        hook_action('Admin.order.update_shipment.after', [
             'request_data' => $data,
             'shipment'     => $orderShipment,
         ]);

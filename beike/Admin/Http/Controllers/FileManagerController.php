@@ -16,9 +16,9 @@ class FileManagerController extends Controller
     public function index()
     {
         $data = (new FileManagerService)->getDirectories();
-        $data = hook_filter('admin.file_manager.index.data', $data);
+        $data = hook_filter('Admin.file_manager.index.data', $data);
 
-        return view('admin::pages.file_manager.index', ['directories' => $data]);
+        return view('Admin::pages.file_manager.index', ['directories' => $data]);
     }
 
     /**
@@ -33,12 +33,12 @@ class FileManagerController extends Controller
         $baseFolder = $request->get('base_folder');
         $sort       = $request->get('sort', 'created');
         $order      = $request->get('order', 'desc');
-        $page       = (int) $request->get('page');
+        $page       = (int) $request->get('Page');
         $perPage    = (int) $request->get('per_page');
 
         $data = (new FileManagerService)->getFiles($baseFolder, $sort, $order, $page, $perPage);
 
-        return hook_filter('admin.file_manager.files.data', $data);
+        return hook_filter('Admin.file_manager.files.data', $data);
     }
 
     /**
@@ -53,12 +53,12 @@ class FileManagerController extends Controller
 
         $data = (new FileManagerService)->getDirectories($baseFolder);
 
-        return hook_filter('admin.file_manager.directories.data', $data);
+        return hook_filter('Admin.file_manager.directories.data', $data);
     }
 
     /**
      * 创建文件夹
-     * POST      /admin/file_manager
+     * POST      /Admin/file_manager
      * @throws \Exception
      */
     public function createDirectory(Request $request): array
@@ -71,7 +71,7 @@ class FileManagerController extends Controller
 
     /**
      * 文件或文件夹改名
-     * PUT       /admin/file_manager/rename
+     * PUT       /Admin/file_manager/rename
      * @throws \Exception
      */
     public function rename(Request $request): array
@@ -85,7 +85,7 @@ class FileManagerController extends Controller
 
     /**
      * 删除文件或文件夹
-     * DELETE    /admin/file_manager/files  {"path":"/xx/yy", "files":["1.jpg", "2.png"]}
+     * DELETE    /Admin/file_manager/files  {"path":"/xx/yy", "files":["1.jpg", "2.png"]}
      * @throws \Exception
      */
     public function destroyFiles(Request $request): array
@@ -115,7 +115,7 @@ class FileManagerController extends Controller
 
     /**
      * 上传文件
-     * POST      /admin/file_manager/upload
+     * POST      /Admin/file_manager/upload
      *
      * @param UploadRequest $request
      * @return array
@@ -126,11 +126,11 @@ class FileManagerController extends Controller
         $savePath = $request->get('path');
 
         $originName = $file->getClientOriginalName();
-        $filePath   = $file->storeAs($savePath, $originName, 'catalog');
+        $filePath   = $file->storeAs($savePath, $originName, 'Catalog');
 
         return [
             'name' => $originName,
-            'url'  => asset('catalog/' . $filePath),
+            'url'  => asset('Catalog/' . $filePath),
         ];
     }
 }

@@ -302,9 +302,9 @@ class Plugin implements Arrayable, \ArrayAccess
      */
     public function getColumnView(): string
     {
-        $viewFile = $this->getPath() . '/Views/admin/config.blade.php';
+        $viewFile = $this->getPath() . '/Views/Admin/config.blade.php';
         if (file_exists($viewFile)) {
-            return "{$this->dirName}::admin.config";
+            return "{$this->dirName}::Admin.config";
         }
 
         return '';

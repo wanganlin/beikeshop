@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('body-class', 'page-categories-home')
+@section('body-class', 'Page-categories-home')
 @section('title', $category->description->meta_title ?: system_setting('base.meta_title', 'BeikeShop开源好用的跨境电商系统 -
   BeikeShop官网') . ' - ' . $category->description->name)
 @section('keywords', $category->description->meta_keywords ?: system_setting('base.meta_keyword'))
@@ -25,13 +25,13 @@
               @foreach ($category_pages as $page)
                 <div>
                   <h5 class="card-title mb-2"><a class="text-black"
-                      href="{{ type_route('page', $page) }}">{{ $page->description->title }}</a></h5>
+                      href="{{ type_route('Page', $page) }}">{{ $page->description->title }}</a></h5>
                   <p class="fs-6 mb-3 text-secondary">{{ $page->created_at }}</p>
                   @if ($page->description->summary)
                     <p class="card-text mb-4">{{ $page->description->summary ?? '' }}</p>
                   @endif
                   <div class="text-danger"><a
-                      href="{{ type_route('page', $page) }}">{{ __('shop/account.check_details') }}<i
+                      href="{{ type_route('Page', $page) }}">{{ __('shop/account.check_details') }}<i
                         class="bi bi-arrow-right-short"></i></a></div>
                 </div>
 

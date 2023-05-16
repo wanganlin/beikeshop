@@ -24,7 +24,7 @@ class ForgottenController
      */
     public function index()
     {
-        return view('admin::pages.user.forgotten');
+        return view('Admin::pages.user.forgotten');
     }
 
     /**
@@ -36,7 +36,7 @@ class ForgottenController
     {
         UserService::sendVerifyCodeForForgotten($request->get('email'));
 
-        return json_success(trans('admin/forgotten.verify_code_sent'));
+        return json_success(trans('Admin/forgotten.verify_code_sent'));
     }
 
     /**

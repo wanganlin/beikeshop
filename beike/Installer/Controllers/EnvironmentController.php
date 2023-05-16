@@ -25,7 +25,7 @@ class EnvironmentController extends BaseController
     }
 
     /**
-     * Display the Environment page.
+     * Display the Environment Page.
      *
      * @return \Illuminate\View\View
      */

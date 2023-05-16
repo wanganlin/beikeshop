@@ -33,7 +33,7 @@ return [
     'category'              => 'категориями',
     'customer_group'        => 'группой клиентов',
     'customer'              => 'клиентами',
-    'page'                  => 'контентом',
+    'Page'                  => 'контентом',
     'page_category'         => 'Page Category',
     'setting'               => 'настраивать',
     'plugin'                => 'плагинами',

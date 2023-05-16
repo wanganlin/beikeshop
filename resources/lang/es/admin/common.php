@@ -33,7 +33,7 @@ return [
     'category'              => 'Clasificaciones',
     'customer_group'        => 'Grupos de clientes',
     'customer'              => 'gestión de clientes',
-    'page'                  => 'Contenido',
+    'Page'                  => 'Contenido',
     'page_category'         => 'Page Category',
     'setting'               => 'Configuración',
     'plugin'                => 'Enchufar',

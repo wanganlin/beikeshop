@@ -19,7 +19,7 @@ return [
 
     // errors
     'forbidden'             => 'Interdit',
-    'has_no_permission'     => 'Vous n\'êtes pas autorisé à accéder à cette page, veuillez contacter l\'administrateur système. ',
+    'has_no_permission'     => 'Vous n\'êtes pas autorisé à accéder à cette Page, veuillez contacter l\'administrateur système. ',
 
     // header
     'home'                  => 'Page Garde',
@@ -33,7 +33,7 @@ return [
     'category'              => 'Catégories',
     'customer_group'        => 'Groupes de clients',
     'customer'              => 'Clients',
-    'page'                  => 'Article',
+    'Page'                  => 'Article',
     'page_category'         => 'Page Category',
     'setting'               => 'Installation',
     'plugin'                => 'Plugins',
@@ -61,7 +61,7 @@ return [
     'design_index'          => 'Décoration de la maison',
     'pages_index'           => 'Articles',
     'page_categories_index' => 'Classement des articles',
-    'design_footer_index'   => 'décoration du pied de page',
+    'design_footer_index'   => 'décoration du pied de Page',
     'design_menu_index'     => 'Configuration navigation',
     'categories_index'      => 'catégorie de produit',
     'products_index'        => 'Produits',

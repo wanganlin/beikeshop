@@ -20,7 +20,7 @@ class PermissionsController extends BaseController
     }
 
     /**
-     * Display the permissions check page.
+     * Display the permissions check Page.
      *
      * @return \Illuminate\View\View
      */

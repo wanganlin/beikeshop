@@ -1,8 +1,8 @@
 <template id="module-editor-image200-template">
   <div class="image-edit-wrapper">
-    <div class="module-editor-row">{{ __('admin/builder.text_set_up') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.text_set_up') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.text_add_pictures') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.text_add_pictures') }}</div>
       <div class="pb-images-selector" v-for="(item, index) in module.images" :key="index">
         <div class="selector-head" @click="itemShow(index)">
           <div class="left">
@@ -15,7 +15,7 @@
         <div :class="'pb-images-list ' + (item.show ? 'active' : '')">
           <div class="pb-images-top">
             <pb-image-selector v-model="item.image"></pb-image-selector>
-            <div class="tag">{{ __('admin/builder.text_suggested_size') }}:
+            <div class="tag">{{ __('Admin/builder.text_suggested_size') }}:
               <span>700 x 300</span>
             </div>
           </div>

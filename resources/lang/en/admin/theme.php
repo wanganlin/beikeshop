@@ -14,5 +14,5 @@ return [
     'theme_name'         => 'Default',
     'enabled_text'       => 'Currently enabled',
     'theme_pop_checkbox' => 'import template data',
-    'theme_pop_text'     => 'If you check the import template data, it may overwrite the existing configured page layout, classification, product and other data, please make a backup first! ',
+    'theme_pop_text'     => 'If you check the import template data, it may overwrite the existing configured Page layout, classification, product and other data, please make a backup first! ',
 ];

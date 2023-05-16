@@ -10,7 +10,7 @@
  */
 
 return [
-    'home'    => 'page de garde',
+    'home'    => 'Page de garde',
     'submit'  => 'nous faire parvenir',
     'cancel'  => 'Annuler',
     'confirm' => 'Bien sûr',

@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('body-class', 'page-account')
+@section('body-class', 'Page-account')
 
 @section('content')
   <x-shop-breadcrumb type="static" value="account.index" />

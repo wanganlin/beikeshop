@@ -7,9 +7,9 @@ use Illuminate\Console\Command;
 
 class MakeRootAdminUser extends Command
 {
-    protected $signature = 'make:admin';
+    protected $signature = 'make:Admin';
 
-    protected $description = '生成第 1 个 root admin 账号';
+    protected $description = '生成第 1 个 root Admin 账号';
 
     public function handle()
     {

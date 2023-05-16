@@ -27,9 +27,9 @@ class PluginController extends Controller
     {
         $plugins         = app('plugin')->getPlugins();
         $data['plugins'] = array_values(PluginResource::collection($plugins)->jsonSerialize());
-        $data            = hook_filter('admin.plugin.index.data', $data);
+        $data            = hook_filter('Admin.plugin.index.data', $data);
 
-        return view('admin::pages.plugins.index', $data);
+        return view('Admin::pages.plugins.index', $data);
     }
 
     /**
@@ -42,9 +42,9 @@ class PluginController extends Controller
         $plugins         = $plugins->where('type', $type);
         $data['plugins'] = array_values(PluginResource::collection($plugins)->jsonSerialize());
         $data['type']    = $type;
-        $data            = hook_filter('admin.plugin.index.data', $data);
+        $data            = hook_filter('Admin.plugin.index.data', $data);
 
-        return view('admin::pages.plugins.index', $data);
+        return view('Admin::pages.plugins.index', $data);
     }
 
     /**
@@ -57,9 +57,9 @@ class PluginController extends Controller
         $plugins         = $plugins->where('type', $type);
         $data['plugins'] = array_values(PluginResource::collection($plugins)->jsonSerialize());
         $data['type']    = $type;
-        $data            = hook_filter('admin.plugin.index.data', $data);
+        $data            = hook_filter('Admin.plugin.index.data', $data);
 
-        return view('admin::pages.plugins.index', $data);
+        return view('Admin::pages.plugins.index', $data);
     }
 
     /**
@@ -72,9 +72,9 @@ class PluginController extends Controller
         $plugins         = $plugins->where('type', $type);
         $data['plugins'] = array_values(PluginResource::collection($plugins)->jsonSerialize());
         $data['type']    = $type;
-        $data            = hook_filter('admin.plugin.index.data', $data);
+        $data            = hook_filter('Admin.plugin.index.data', $data);
 
-        return view('admin::pages.plugins.index', $data);
+        return view('Admin::pages.plugins.index', $data);
     }
 
     /**
@@ -87,9 +87,9 @@ class PluginController extends Controller
         $plugins         = $plugins->where('type', $type);
         $data['plugins'] = array_values(PluginResource::collection($plugins)->jsonSerialize());
         $data['type']    = $type;
-        $data            = hook_filter('admin.plugin.index.data', $data);
+        $data            = hook_filter('Admin.plugin.index.data', $data);
 
-        return view('admin::pages.plugins.index', $data);
+        return view('Admin::pages.plugins.index', $data);
     }
 
     /**
@@ -102,9 +102,9 @@ class PluginController extends Controller
         $plugins         = $plugins->where('type', $type);
         $data['plugins'] = array_values(PluginResource::collection($plugins)->jsonSerialize());
         $data['type']    = $type;
-        $data            = hook_filter('admin.plugin.index.data', $data);
+        $data            = hook_filter('Admin.plugin.index.data', $data);
 
-        return view('admin::pages.plugins.index', $data);
+        return view('Admin::pages.plugins.index', $data);
     }
 
     /**
@@ -117,9 +117,9 @@ class PluginController extends Controller
         $plugins         = $plugins->where('type', $type);
         $data['plugins'] = array_values(PluginResource::collection($plugins)->jsonSerialize());
         $data['type']    = $type;
-        $data            = hook_filter('admin.plugin.index.data', $data);
+        $data            = hook_filter('Admin.plugin.index.data', $data);
 
-        return view('admin::pages.plugins.index', $data);
+        return view('Admin::pages.plugins.index', $data);
     }
 
     /**
@@ -132,9 +132,9 @@ class PluginController extends Controller
         $plugins         = $plugins->where('type', $type);
         $data['plugins'] = array_values(PluginResource::collection($plugins)->jsonSerialize());
         $data['type']    = $type;
-        $data            = hook_filter('admin.plugin.index.data', $data);
+        $data            = hook_filter('Admin.plugin.index.data', $data);
 
-        return view('admin::pages.plugins.index', $data);
+        return view('Admin::pages.plugins.index', $data);
     }
 
     /**
@@ -186,14 +186,14 @@ class PluginController extends Controller
     {
         $plugin     = app('plugin')->getPluginOrFail($code);
         $columnView = $plugin->getColumnView();
-        $view       = $columnView ?: 'admin::pages.plugins.form';
+        $view       = $columnView ?: 'Admin::pages.plugins.form';
 
         $data = [
             'view'   => $view,
             'plugin' => $plugin,
         ];
 
-        $data = hook_filter('admin.plugin.edit.data', $data);
+        $data = hook_filter('Admin.plugin.edit.data', $data);
 
         return view($view, $data);
     }

@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/region.index'))
+@section('title', __('Admin/region.index'))
 
 @section('content')
 <div id="tax-classes-app" class="card" v-cloak>
@@ -13,8 +13,8 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>{{ __('admin/region.name') }}</th>
-            <th>{{ __('admin/region.describe') }}</th>
+            <th>{{ __('Admin/region.name') }}</th>
+            <th>{{ __('Admin/region.describe') }}</th>
             <th>{{ __('common.created_at') }}</th>
             <th>{{ __('common.updated_at') }}</th>
             <th class="text-end">{{ __('common.action') }}</th>
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <el-dialog title="{{ __('admin/region.regions_create') }}" :visible.sync="dialog.show" width="700px"
+  <el-dialog title="{{ __('Admin/region.regions_create') }}" :visible.sync="dialog.show" width="700px"
     @close="closeCustomersDialog('form')" :close-on-click-modal="false" @open="openDialog">
 
     <el-form ref="form" :rules="rules" :model="dialog.form" label-width="120px">
@@ -54,16 +54,16 @@
         <el-input v-model="dialog.form.name" placeholder="{{ __('common.name') }}"></el-input>
       </el-form-item>
 
-      <el-form-item label="{{ __('admin/region.describe') }}" prop="description">
-        <el-input v-model="dialog.form.description" placeholder="{{ __('admin/region.describe') }}"></el-input>
+      <el-form-item label="{{ __('Admin/region.describe') }}" prop="description">
+        <el-input v-model="dialog.form.description" placeholder="{{ __('Admin/region.describe') }}"></el-input>
       </el-form-item>
 
-      <el-form-item label="{{ __('admin/region.index') }}">
+      <el-form-item label="{{ __('Admin/region.index') }}">
         <table class="table table-bordered" style="line-height: 1.6;">
           <thead>
             <tr>
-              <th>{{ __('admin/region.country') }}</th>
-              <th>{{ __('admin/region.zone') }}</th>
+              <th>{{ __('Admin/region.country') }}</th>
+              <th>{{ __('Admin/region.zone') }}</th>
               <th></th>
             </tr>
           </thead>
@@ -71,14 +71,14 @@
             <tr v-for="rule, index in dialog.form.region_zones" :key="index">
               <td>
                 <el-select v-model="rule.country_id" size="mini" filterable
-                  placeholder="{{ __('admin/customer.choose_country') }}" @change="(e) => {countryChange(e, index)}">
+                  placeholder="{{ __('Admin/customer.choose_country') }}" @change="(e) => {countryChange(e, index)}">
                   <el-option v-for="item, option_index in source.countries" :key="index + '-' + option_index" :label="item.name" :value="item.id">
                   </el-option>
                 </el-select>
               </td>
               <td>
                 <el-select v-model="rule.zone_id" size="mini" filterable
-                  placeholder="{{ __('admin/customer.choose_zones') }}">
+                  placeholder="{{ __('Admin/customer.choose_zones') }}">
                   <el-option v-for="item, option_index in rule.zones" :key="index + '-' + option_index" :label="item.name" :value="item.id">
                   </el-option>
                 </el-select>
@@ -132,7 +132,7 @@
 
         rules: {
           name: [{required: true,message: '{{ __('common.error_required', ['name' => __('common.name')]) }}',trigger: 'blur'}, ],
-          description: [{required: true,message: '{{ __('common.error_required', ['name' => __('admin/region.describe')]) }}',trigger: 'blur'}, ],
+          description: [{required: true,message: '{{ __('common.error_required', ['name' => __('Admin/region.describe')]) }}',trigger: 'blur'}, ],
         }
       },
 

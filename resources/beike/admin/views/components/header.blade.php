@@ -9,21 +9,21 @@
       <div class="search-wrap">
         <div class="input-wrap">
           <div class="search-icon"><i class="bi bi-search"></i></div>
-          <input type="text" id="header-search-input" autocomplete="off" class="form-control" placeholder="{{ __('admin/common.header_search_input') }}">
+          <input type="text" id="header-search-input" autocomplete="off" class="form-control" placeholder="{{ __('Admin/common.header_search_input') }}">
           <button class="btn close-icon" type="button"><i class="bi bi-x-lg"></i></button>
         </div>
 
         <div class="dropdown-menu">
           <div class="search-ing"><i class="el-icon-loading"></i></div>
           <div class="dropdown-search">
-            <div class="dropdown-header fw-bold">{{ __('admin/common.header_search_title') }}</div>
+            <div class="dropdown-header fw-bold">{{ __('Admin/common.header_search_title') }}</div>
             <div class="common-links"></div>
             <div class="header-search-no-data"><i class="bi bi-file-earmark"></i> {{ __('common.no_data') }}</div>
           </div>
           <div class="dropdown-wrap">
             @if ($historyLinks)
               <div class="link-item recent-search">
-                <div class="dropdown-header fw-bold mb-2">{{ __('admin/common.recent_view') }}</div>
+                <div class="dropdown-header fw-bold mb-2">{{ __('Admin/common.recent_view') }}</div>
                 <div class="recent-search-links">
                   @foreach ($historyLinks as $link)
                     <a href="{{ $link['url'] }}"><i class="bi bi-search"></i> {{ $link['title'] }}</a>
@@ -32,7 +32,7 @@
               </div>
             @endif
             <div class="link-item">
-              <div class="dropdown-header fw-bold">{{ __('admin/common.common_link') }}</div>
+              <div class="dropdown-header fw-bold">{{ __('Admin/common.common_link') }}</div>
               <div class="common-links">
                 @foreach ($commonLinks as $link)
                   <a class="dropdown-item" href="{{ $link['url'] }}" target="{{ $link['blank'] ? '_blank' : '_self' }}">
@@ -47,7 +47,7 @@
       <ul class="navbar navbar-right">
         @hookwrapper('admin.header.upgrade')
         <li class="nav-item update-btn me-2" style="display: none">
-          <a href="javascript:void(0)" class="btn btn-outline-primary btn-sm">@lang('admin/common.update_nav')</a>
+          <a href="javascript:void(0)" class="btn btn-outline-primary btn-sm">@lang('Admin/common.update_nav')</a>
         </li>
         @endhookwrapper
 
@@ -56,7 +56,7 @@
           <a href="{{ config('beike.api_url') }}/vip/subscription?domain={{ config('app.url') }}&developer_token={{ system_setting('base.developer_token') }}&type=tab-vip" target="_blank" class="nav-link">
             <img src="/image/vip-icon.png" class="img-fluid">
             <span class="vip-text ms-1">VIP</span>
-            <div class="expired-text text-danger ms-2" style="display: none">@lang('admin/common.expired_at')：<span class="ms-0"></span></div>
+            <div class="expired-text text-danger ms-2" style="display: none">@lang('Admin/common.expired_at')：<span class="ms-0"></span></div>
           </a>
         </li>
         @endhookwrapper
@@ -64,14 +64,14 @@
         @hookwrapper('admin.header.license')
         <li class="nav-item">
           <a href="{{ config('beike.api_url') }}/vip/subscription?domain={{ config('app.url') }}&developer_token={{ system_setting('base.developer_token') }}&type=tab-license" target="_blank" class="nav-link">
-            @lang('admin/common.copyright_buy')
+            @lang('Admin/common.copyright_buy')
           </a>
         </li>
         @endhookwrapper
 
         @hookwrapper('admin.header.marketing')
         <li class="nav-item">
-          <a href="{{ admin_route('marketing.index') }}" class="nav-link">@lang('admin/common.marketing')</a>
+          <a href="{{ admin_route('marketing.index') }}" class="nav-link">@lang('Admin/common.marketing')</a>
         </li>
         @endhookwrapper
 
@@ -99,12 +99,12 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
               <li>
                 <a target="_blank" href="{{ shop_route('home.index') }}" class="dropdown-item py-2">
-                  <i class="bi bi-send me-1"></i> {{ __('admin/common.access_frontend') }}
+                  <i class="bi bi-send me-1"></i> {{ __('Admin/common.access_frontend') }}
                 </a>
               </li>
               <li>
                 <a href="{{ admin_route('account.index') }}" class="dropdown-item py-2">
-                  <i class="bi bi-person-circle me-1"></i> {{ __('admin/common.account_index') }}
+                  <i class="bi bi-person-circle me-1"></i> {{ __('Admin/common.account_index') }}
                 </a>
               </li>
               <li><hr class="dropdown-divider"></li>
@@ -139,15 +139,15 @@
 </div>
 
 <div class="update-pop p-3" style="display: none">
-  <div class="mb-4 fs-5 fw-bold text-center">{{ __('admin/common.update_title') }}</div>
+  <div class="mb-4 fs-5 fw-bold text-center">{{ __('Admin/common.update_title') }}</div>
   <div class="py-3 px-4 bg-light mx-3 lh-lg mb-4">
-    <div>{{ __('admin/common.update_new_version') }}：<span class="new-version fs-5 fw-bold text-success"></span></div>
-    <div>{{ __('admin/common.update_old_version') }}：<span class="fs-5">{{ config('beike.version') }}</span></div>
-    <div>{{ __('admin/common.update_date') }}：<span class="update-date fs-5"></span></div>
+    <div>{{ __('Admin/common.update_new_version') }}：<span class="new-version fs-5 fw-bold text-success"></span></div>
+    <div>{{ __('Admin/common.update_old_version') }}：<span class="fs-5">{{ config('beike.version') }}</span></div>
+    <div>{{ __('Admin/common.update_date') }}：<span class="update-date fs-5"></span></div>
   </div>
 
   <div class="d-flex justify-content-center mb-3">
     <button class="btn btn-outline-secondary me-3 ">{{ __('common.cancel') }}</button>
-    <a href="https://beikeshop.com/download" target="_blank" class="btn btn-primary">{{ __('admin/common.update_btn') }}</a>
+    <a href="https://beikeshop.com/download" target="_blank" class="btn btn-primary">{{ __('Admin/common.update_btn') }}</a>
   </div>
 </div>

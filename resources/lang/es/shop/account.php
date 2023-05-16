@@ -1,6 +1,6 @@
 <?php
 /**
- * account.php
+ * AccountData.php
  *
  * @copyright  2022 beikeshop.com - All Rights Reserved
  * @link       https://beikeshop.com

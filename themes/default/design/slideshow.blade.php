@@ -9,7 +9,7 @@
   <div class="module-info mb-3 mb-md-5 {{ !$content['full'] ? 'container' : '' }}">
     <div class="swiper module-swiper-{{ $module_id }} module-slideshow">
       <div class="swiper-wrapper">
-        @foreach($content['images'] as $image)
+        @foreach($content['Images'] as $image)
           <div class="swiper-slide">
             <a href="{{ $image['link']['link'] ?: 'javascript:void(0)' }}" class="d-flex justify-content-center"><img src="{{ $image['image'] }}" class="img-fluid"></a>
           </div>
@@ -23,7 +23,7 @@
 
   <script>
     new Swiper ('.module-swiper-{{ $module_id }}', {
-      loop: '{{ count($content['images']) > 1 ? true : false }}', // 循环模式选项
+      loop: '{{ count($content['Images']) > 1 ? true : false }}', // 循环模式选项
       autoplay: true,
       pauseOnMouseEnter: true,
       clickable :true,

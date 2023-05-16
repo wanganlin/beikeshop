@@ -35,10 +35,10 @@ class Image200 extends Component
         $data['register'] = [
             'code' => 'image200',
             'sort' => 0,
-            'name' => trans('admin/builder.modules_image_200'),
+            'name' => trans('Admin/builder.modules_image_200'),
             'icon' => '&#xe663;',
         ];
 
-        return view('admin::pages.design.module.image200', $data);
+        return view('Admin::pages.design.module.image200', $data);
     }
 }

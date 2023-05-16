@@ -18,7 +18,7 @@ class CustomerService
     public static function create($data)
     {
         $data['locale'] = system_setting('base.locale');
-        $data['from']   = 'admin';
+        $data['from']   = 'Admin';
         $customer       = CustomerRepo::create($data);
 
         return $customer;

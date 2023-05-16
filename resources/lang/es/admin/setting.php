@@ -58,7 +58,7 @@ return [
     'default_currency'       => 'moneda predeterminada',
     'default_customer_group' => 'grupo de clientes predeterminado',
     'admin_name'             => 'directorio de fondo',
-    'admin_name_info'        => 'Directorio de fondo de administración, el predeterminado es admin',
+    'admin_name_info'        => 'Directorio de fondo de administración, el predeterminado es Admin',
     'enable_tax'             => 'Habilitar impuestos',
     'enable_tax_info'        => 'si habilitar el cálculo de impuestos',
     'tax_address'            => 'dirección fiscal',

@@ -112,8 +112,8 @@ class Bootstrap
      */
     private function modifyAdminProductEdit()
     {
-        add_hook_blade('admin.product.edit.extra', function ($callback, $output, $data) {
-            $view = view('LatestProducts::admin.product.edit_extra_field', $data)->render();
+        add_hook_blade('Admin.product.edit.extra', function ($callback, $output, $data) {
+            $view = view('LatestProducts::Admin.product.edit_extra_field', $data)->render();
 
             return $output . $view;
         }, 1);
@@ -124,12 +124,12 @@ class Bootstrap
      */
     private function modifySetting()
     {
-        add_hook_blade('admin.setting.nav.after', function ($callback, $output, $data) {
-            return view('LatestProducts::admin.setting.nav')->render();
+        add_hook_blade('Admin.setting.nav.after', function ($callback, $output, $data) {
+            return view('LatestProducts::Admin.setting.nav')->render();
         });
 
-        add_hook_blade('admin.setting.after', function ($callback, $output, $data) {
-            return view('LatestProducts::admin.setting.tab')->render();
+        add_hook_blade('Admin.setting.after', function ($callback, $output, $data) {
+            return view('LatestProducts::Admin.setting.tab')->render();
         });
     }
 

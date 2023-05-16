@@ -14,7 +14,7 @@ class RegisterAdminErrorViewPaths
     public function __invoke()
     {
         if (is_admin()) {
-            $viewPaths[] = base_path('resources/beike/admin/views');
+            $viewPaths[] = base_path('resources/beike/Admin/views');
             View::replaceNamespace('errors', collect($viewPaths)->map(function ($path) {
                 return "{$path}/errors";
             })->all());

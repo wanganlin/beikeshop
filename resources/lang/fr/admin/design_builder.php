@@ -12,7 +12,7 @@
 return [
     'module_brand'          => 'module de marque',
     'module_banner'         => 'module bannière',
-    'module_four_image_pro' => 'une ligne quatre images PRO',
+    'module_four_image_pro' => 'une ligne quatre Images PRO',
     'module_slideshow'      => 'module diapositive',
     'module_tab_products'   => 'onglet produits',
     'module_product'        => 'module marchandise',

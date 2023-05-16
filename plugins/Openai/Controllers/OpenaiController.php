@@ -18,7 +18,7 @@ use Plugin\Openai\Services\OpenAIService;
 class OpenaiController extends Controller
 {
     /**
-     * OpenAI home page.
+     * OpenAI home Page.
      *
      * @return mixed
      */
@@ -34,7 +34,7 @@ class OpenaiController extends Controller
             if (empty($apiKey)) {
                 $error = trans('Openai::common.empty_api_key');
             }
-            $baseUrl = config('app.url') . '/admin/openai';
+            $baseUrl = config('app.url') . '/Admin/openai';
         }
 
         $data = [
@@ -45,7 +45,7 @@ class OpenaiController extends Controller
             'error'       => $error,
         ];
 
-        return view('Openai::admin.openai', $data);
+        return view('Openai::Admin.openai', $data);
     }
 
     /**

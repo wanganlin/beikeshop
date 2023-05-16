@@ -52,7 +52,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->publishResources();
 
         load_settings();
-        $this->loadRoutesFrom(__DIR__ . '/../Routes/admin.php');
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/Admin.php');
         $this->registerGuard();
 
         $adminName = admin_name();
@@ -61,7 +61,7 @@ class AdminServiceProvider extends ServiceProvider
         }
 
         $this->mergeConfigFrom(__DIR__ . '/../../Config/beike.php', 'beike');
-        $this->loadViewsFrom(resource_path('/beike/admin/views'), 'admin');
+        $this->loadViewsFrom(resource_path('/beike/Admin/views'), 'Admin');
         $this->loadThemeViewPath();
 
         $this->app->booted(function () {
@@ -70,9 +70,9 @@ class AdminServiceProvider extends ServiceProvider
 
         $this->loadAdminViewComponents();
 
-        Config::set('filesystems.disks.catalog', [
+        Config::set('filesystems.disks.Catalog', [
             'driver' => 'local',
-            'root'   => public_path('catalog'),
+            'root'   => public_path('Catalog'),
         ]);
 
         $this->loadDesignComponents();
@@ -132,7 +132,7 @@ class AdminServiceProvider extends ServiceProvider
      */
     protected function loadAdminViewComponents()
     {
-        $this->loadViewComponentsAs('admin', [
+        $this->loadViewComponentsAs('Admin', [
             'header'            => Header::class,
             'sidebar'           => Sidebar::class,
             'filter'            => Filter::class,
@@ -159,7 +159,7 @@ class AdminServiceProvider extends ServiceProvider
     }
 
     /**
-     * 加载首页 page builder 相关组件
+     * 加载首页 Page builder 相关组件
      *
      * @throws \Exception
      */

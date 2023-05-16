@@ -1,12 +1,12 @@
 <template id="module-editor-icons-template">
   <div class="image-edit-wrapper">
-    <div class="module-editor-row">{{ __('admin/builder.text_set_up') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.text_set_up') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.text_module_title') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.text_module_title') }}</div>
       <text-i18n v-model="module.title"></text-i18n>
     </div>
     <div class="module-edit-group" style="margin-bottom: 200px;">
-      <div class="module-edit-title">{{ __('admin/builder.text_add_pictures') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.text_add_pictures') }}</div>
       <div class="pb-images-selector" v-for="(item, index) in module.images" :key="index">
         <div class="selector-head" @click="itemShow(index)">
           <div class="left">
@@ -22,11 +22,11 @@
         <div :class="'pb-images-list ' + (item.show ? 'active' : '')">
           <div class="pb-images-top">
             <pb-image-selector v-model="item.image" :is-language="false"></pb-image-selector>
-            <div class="tag">{{ __('admin/builder.text_suggested_size') }}: 200x200</div>
+            <div class="tag">{{ __('Admin/builder.text_suggested_size') }}: 200x200</div>
           </div>
-          <div class="module-edit-title">{{ __('admin/builder.text_set_title') }}</div>
+          <div class="module-edit-title">{{ __('Admin/builder.text_set_title') }}</div>
           <text-i18n v-model="item.text" style="margin-bottom: 10px"></text-i18n>
-          <div class="module-edit-title">{{ __('admin/builder.text_set_subtitle') }}</div>
+          <div class="module-edit-title">{{ __('Admin/builder.text_set_subtitle') }}</div>
           <text-i18n v-model="item.sub_text" style="margin-bottom: 10px"></text-i18n>
           <link-selector v-model="item.link"></link-selector>
         </div>
@@ -100,7 +100,7 @@ Vue.component('module-editor-icons', {
       style: {
         background_color: ''
       },
-      title: languagesFill('{{ __('admin/builder.text_module_title') }}'),
+      title: languagesFill('{{ __('Admin/builder.text_module_title') }}'),
       floor: languagesFill(''),
       images: []
     }

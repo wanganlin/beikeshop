@@ -141,7 +141,7 @@ return [
     'text_bgi'                         => 'Gambar latar belakang',
     'text_btn'                         => 'tombol',
 
-    // page
+    // Page
     'page_product_title_size'          => 'Ukuran font judul komoditas',
     'page_product_title_color'         => 'warna judul produk',
     'page_product_price_color'         => 'Warna harga produk',

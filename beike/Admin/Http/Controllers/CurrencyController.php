@@ -27,9 +27,9 @@ class CurrencyController extends Controller
         $data = [
             'currencies' => $currencies,
         ];
-        $data = hook_filter('admin.currency.index.data', $data);
+        $data = hook_filter('Admin.currency.index.data', $data);
 
-        return view('admin::pages.currencies.index', $data);
+        return view('Admin::pages.currencies.index', $data);
     }
 
     public function store(CurrencyRequest $request)
@@ -44,7 +44,7 @@ class CurrencyController extends Controller
             'status'        => (int) $request->get('status', 0),
         ];
         $currency = CurrencyRepo::create($data);
-        hook_action('admin.currency.store.after', $currency);
+        hook_action('Admin.currency.store.after', $currency);
 
         return json_success(trans('common.created_success'), $currency);
     }
@@ -71,11 +71,11 @@ class CurrencyController extends Controller
             $currency   = CurrencyRepo::find($currencyId);
             $orderExist = Order::query()->where('currency_code', $currency->code)->exists();
             if ($orderExist) {
-                throw new \Exception(trans('admin/currency.order_exist'));
+                throw new \Exception(trans('Admin/currency.order_exist'));
             }
 
             CurrencyRepo::delete($currencyId);
-            hook_action('admin.currency.destroy.after', $currencyId);
+            hook_action('Admin.currency.destroy.after', $currencyId);
 
             return json_success(trans('common.deleted_success'));
         } catch (\Exception $e) {

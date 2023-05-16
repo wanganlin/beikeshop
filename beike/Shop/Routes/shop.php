@@ -58,7 +58,7 @@ Route::prefix('/')
 
         Route::get('page_categories', [PageCategoryController::class, 'home'])->name('page_categories.home');
         Route::get('page_categories/{page_category}', [PageCategoryController::class, 'show'])->name('page_categories.show');
-        Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
+        Route::get('pages/{Page}', [PageController::class, 'show'])->name('pages.show');
 
         Route::get('products/search', [ProductController::class, 'search'])->name('products.search');
         Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');

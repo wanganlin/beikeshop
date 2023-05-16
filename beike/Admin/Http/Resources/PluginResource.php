@@ -24,7 +24,7 @@ class PluginResource extends JsonResource
             'version'     => $this->version,
             'dir_name'    => $this->dirName,
             'type'        => $this->type,
-            'type_format' => trans('admin/plugin.' . $this->type),
+            'type_format' => trans('Admin/plugin.' . $this->type),
             'icon'        => plugin_resize($this->code, $this->icon),
             'author'      => $this->author,
             'status'      => $this->getStatus(),

@@ -1,4 +1,4 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
 @section('title', __('Server Error'))
 @section('code', '500')
@@ -6,8 +6,8 @@
 
 
 
-{{--@extends('admin::layouts.master')--}}
+{{--@extends('Admin::layouts.master')--}}
 {{----}}
-{{--@section('title', __('admin/common.forbidden'))--}}
+{{--@section('title', __('Admin/common.forbidden'))--}}
 {{--@section('code', '403')--}}
-{{--@section('content', __('admin/common.has_no_permission'))--}}
+{{--@section('content', __('Admin/common.has_no_permission'))--}}

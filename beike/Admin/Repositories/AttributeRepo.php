@@ -111,7 +111,7 @@ class AttributeRepo
     {
         $productIds = ProductAttribute::query()->where('attribute_id', $id)->pluck('product_id')->toArray();
         if ($productIds) {
-            throw new \Exception(trans('admin/attribute.error_cannot_delete_product_used', ['product_ids' => implode(', ', $productIds)]));
+            throw new \Exception(trans('Admin/attribute.error_cannot_delete_product_used', ['product_ids' => implode(', ', $productIds)]));
         }
         $attribute = Attribute::query()->findOrFail($id);
         $attribute->descriptions()->delete();

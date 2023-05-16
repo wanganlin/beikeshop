@@ -35,13 +35,13 @@ class ProductController extends Controller
             'type'            => 'products',
         ];
 
-        $data = hook_filter('admin.product.index.data', $data);
+        $data = hook_filter('Admin.product.index.data', $data);
 
         if ($request->expectsJson()) {
             return $productsFormat;
         }
 
-        return view('admin::pages.products.index', $data);
+        return view('Admin::pages.products.index', $data);
     }
 
     public function trashed(Request $request)
@@ -59,13 +59,13 @@ class ProductController extends Controller
             'type'            => 'trashed',
         ];
 
-        $data = hook_filter('admin.product.trashed.data', $data);
+        $data = hook_filter('Admin.product.trashed.data', $data);
 
         if ($request->expectsJson()) {
             return $products;
         }
 
-        return view('admin::pages.products.index', $data);
+        return view('Admin::pages.products.index', $data);
     }
 
     public function create(Request $request)
@@ -84,7 +84,7 @@ class ProductController extends Controller
                 'product'      => $product,
             ];
 
-            hook_action('admin.product.store.after', $data);
+            hook_action('Admin.product.store.after', $data);
 
             return redirect()->to(admin_route('products.index'))
                 ->with('success', trans('common.created_success'));
@@ -110,7 +110,7 @@ class ProductController extends Controller
                 'request_data' => $requestData,
                 'product'      => $product,
             ];
-            hook_action('admin.product.update.after', $data);
+            hook_action('Admin.product.update.after', $data);
 
             return redirect()->to($this->getRedirect())->with('success', trans('common.updated_success'));
         } catch (\Exception $e) {
@@ -121,7 +121,7 @@ class ProductController extends Controller
     public function destroy(Request $request, Product $product)
     {
         $product->delete();
-        hook_action('admin.product.destroy.after', $product);
+        hook_action('Admin.product.destroy.after', $product);
 
         return json_success(trans('common.deleted_success'));
     }
@@ -131,7 +131,7 @@ class ProductController extends Controller
         $productId = $request->id ?? 0;
         Product::withTrashed()->find($productId)->restore();
 
-        hook_action('admin.product.restore.after', $productId);
+        hook_action('Admin.product.restore.after', $productId);
 
         return ['success' => true];
     }
@@ -144,9 +144,9 @@ class ProductController extends Controller
             $product->load('brand', 'attributes');
         }
 
-        $product    = hook_filter('admin.product.form.product', $product);
+        $product    = hook_filter('Admin.product.form.product', $product);
         $taxClasses = TaxClassRepo::getList();
-        array_unshift($taxClasses, ['title' => trans('admin/builder.text_no'), 'id' => 0]);
+        array_unshift($taxClasses, ['title' => trans('Admin/builder.text_no'), 'id' => 0]);
 
         $data = [
             'product'               => $product,
@@ -163,9 +163,9 @@ class ProductController extends Controller
             '_redirect'          => $this->getRedirect(),
         ];
 
-        $data = hook_filter('admin.product.form.data', $data);
+        $data = hook_filter('Admin.product.form.data', $data);
 
-        return view('admin::pages.products.form.form', $data);
+        return view('Admin::pages.products.form.form', $data);
     }
 
     public function name(int $id)
@@ -208,7 +208,7 @@ class ProductController extends Controller
         $productIds = $request->get('ids');
         ProductRepo::DeleteByIds($productIds);
 
-        hook_action('admin.product.destroy_by_ids.after', $productIds);
+        hook_action('Admin.product.destroy_by_ids.after', $productIds);
 
         return json_success(trans('common.deleted_success'), []);
     }

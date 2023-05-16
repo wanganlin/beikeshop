@@ -23,7 +23,7 @@ class LoginController extends Controller
             return redirect()->back();
         }
 
-        return view('admin::pages.login.login', \request()->only('admin_email', 'admin_password'));
+        return view('Admin::pages.login.login', \request()->only('admin_email', 'admin_password'));
     }
 
     public function store(LoginRequest $loginRequest)

@@ -63,7 +63,7 @@ Vue.component('module-editor-image100', {
       full: true,
       images: [
         {
-          image: languagesFill('catalog/demo/banner/banner-2-en.png'),
+          image: languagesFill('Catalog/demo/banner/banner-2-en.png'),
           show: true,
           link: {
             type: 'product',

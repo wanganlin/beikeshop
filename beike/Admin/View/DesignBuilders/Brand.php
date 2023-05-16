@@ -35,10 +35,10 @@ class Brand extends Component
         $data['register'] = [
             'code' => 'brand',
             'sort' => 0,
-            'name' => trans('admin/design_builder.module_brand'),
+            'name' => trans('Admin/design_builder.module_brand'),
             'icon' => '&#xe602;',
         ];
 
-        return view('admin::pages.design.module.brand', $data);
+        return view('Admin::pages.design.module.brand', $data);
     }
 }

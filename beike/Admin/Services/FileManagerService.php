@@ -17,7 +17,7 @@ class FileManagerService
 
     public function __construct()
     {
-        $this->fileBasePath = public_path('catalog');
+        $this->fileBasePath = public_path('Catalog');
     }
 
     /**
@@ -101,7 +101,7 @@ class FileManagerService
         });
 
         return [
-            'images'      => $currentImages->values(),
+            'Images'      => $currentImages->values(),
             'image_total' => $imageCollection->count(),
             'image_page'  => $page,
         ];
@@ -114,10 +114,10 @@ class FileManagerService
      */
     public function createDirectory($folderName)
     {
-        $catalogFolderPath = "catalog/{$folderName}";
+        $catalogFolderPath = "Catalog/{$folderName}";
         $folderPath        = public_path($catalogFolderPath);
         if (is_dir($folderPath)) {
-            throw new \Exception(trans('admin/file_manager.directory_already_exist'));
+            throw new \Exception(trans('Admin/file_manager.directory_already_exist'));
         }
         create_directories($catalogFolderPath);
     }
@@ -130,11 +130,11 @@ class FileManagerService
      */
     public function deleteDirectoryOrFile($filePath)
     {
-        $filePath = public_path("catalog/{$filePath}");
+        $filePath = public_path("Catalog/{$filePath}");
         if (is_dir($filePath)) {
             $files = glob($filePath . '/*');
             if ($files) {
-                throw new \Exception(trans('admin/file_manager.directory_not_empty'));
+                throw new \Exception(trans('Admin/file_manager.directory_not_empty'));
             }
             @rmdir($filePath);
         } elseif (file_exists($filePath)) {
@@ -154,7 +154,7 @@ class FileManagerService
             return;
         }
         foreach ($files as $file) {
-            $filePath = public_path("catalog/{$basePath}/$file");
+            $filePath = public_path("Catalog/{$basePath}/$file");
             if (file_exists($filePath)) {
                 @unlink($filePath);
             }
@@ -170,9 +170,9 @@ class FileManagerService
      */
     public function updateName($originPath, $newPath)
     {
-        $originPath = public_path("catalog/{$originPath}");
+        $originPath = public_path("Catalog/{$originPath}");
         if (! is_dir($originPath) && ! file_exists($originPath)) {
-            throw new \Exception(trans('admin/file_manager.target_not_exist'));
+            throw new \Exception(trans('Admin/file_manager.target_not_exist'));
         }
         $originBase = dirname($originPath);
         $newPath    = $originBase . '/' . $newPath;
@@ -205,7 +205,7 @@ class FileManagerService
      */
     private function hasSubFolders($folderPath): bool
     {
-        $path     = public_path("catalog/{$folderPath}");
+        $path     = public_path("Catalog/{$folderPath}");
         $subFiles = glob($path . '/*');
         foreach ($subFiles as $subFile) {
             if (is_dir($subFile)) {
@@ -226,7 +226,7 @@ class FileManagerService
      */
     private function handleImage($filePath, $baseName): array
     {
-        $path = "catalog{$filePath}";
+        $path = "Catalog{$filePath}";
 
         return [
             'path'       => $path,

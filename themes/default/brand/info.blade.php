@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('body-class', 'page-categories')
+@section('body-class', 'Page-categories')
 @section('title', $brand->name)
 
 @section('content')

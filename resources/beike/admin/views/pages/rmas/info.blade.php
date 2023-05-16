@@ -1,10 +1,10 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/rma.index'))
+@section('title', __('Admin/rma.index'))
 
 @section('content')
   <div class="card mb-4">
-    <div class="card-header"><h6 class="card-title">{{ __('admin/rma.rma_details') }}</h6></div>
+    <div class="card-header"><h6 class="card-title">{{ __('Admin/rma.rma_details') }}</h6></div>
     <div class="card-body">
       <div class="row">
         <div class="col-lg-4 col-12">
@@ -15,7 +15,7 @@
                 <td>{{ $rma['id'] }}</td>
               </tr>
               <tr>
-                  <td>{{ __('admin/rma.customers_name') }}：</td>
+                  <td>{{ __('Admin/rma.customers_name') }}：</td>
                   <td>{{ $rma['name'] }}</td>
               </tr>
               <tr>
@@ -29,7 +29,7 @@
           <table class="table table-borderless">
             <tbody>
               <tr>
-                <td style="width:40%">{{ __('admin/builder.modules_product') }}：</td>
+                <td style="width:40%">{{ __('Admin/builder.modules_product') }}：</td>
                 <td>{{ $rma['product_name'] }}</td>
               </tr>
               <tr>
@@ -37,11 +37,11 @@
                 <td>{{ $rma['sku'] }}</td>
               </tr>
               <tr>
-                <td>{{ __('admin/rma.quantity') }}：</td>
+                <td>{{ __('Admin/rma.quantity') }}：</td>
                 <td>{{ $rma['quantity'] }}</td>
               </tr>
               <tr>
-                <td>{{ __('admin/rma.reasons_return') }}：</td>
+                <td>{{ __('Admin/rma.reasons_return') }}：</td>
                 <td>{{ $rma['reason'] }}</td>
               </tr>
             </tbody>
@@ -55,10 +55,10 @@
     <div class="card-header"><h6 class="card-title">{{ __('common.status') }}</h6></div>
     <div class="card-body" id="app">
       <el-form ref="form" :model="form" :rules="rules" label-width="140px">
-        <el-form-item label="{{ __('admin/rma.current_state') }}">
+        <el-form-item label="{{ __('Admin/rma.current_state') }}">
           {{ $rma['status'] }}
         </el-form-item>
-        <el-form-item label="{{ __('admin/rma.modify_status') }}" prop="status">
+        <el-form-item label="{{ __('Admin/rma.modify_status') }}" prop="status">
           <el-select size="small" v-model="form.status" placeholder="{{ __('common.please_choose') }}">
             <el-option
               v-for="item in statuses"
@@ -72,18 +72,18 @@
           <el-switch v-model="form.notify">
           </el-switch>
         </el-form-item> --}}
-        <el-form-item label="{{ __('admin/rma.remarks') }}">
+        <el-form-item label="{{ __('Admin/rma.remarks') }}">
           <textarea class="form-control w-max-500" v-model="form.comment"></textarea>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('form')">{{ __('admin/rma.update_status') }}</el-button>
+          <el-button type="primary" @click="submitForm('form')">{{ __('Admin/rma.update_status') }}</el-button>
         </el-form-item>
       </el-form>
     </div>
   </div>
 
   <div class="card mb-4">
-    <div class="card-header"><h6 class="card-title">{{ __('admin/rma.operation_history') }}</h6></div>
+    <div class="card-header"><h6 class="card-title">{{ __('Admin/rma.operation_history') }}</h6></div>
     <div class="card-body">
       <div class="table-push">
         <table class="table ">

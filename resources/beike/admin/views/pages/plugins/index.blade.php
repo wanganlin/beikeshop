@@ -1,8 +1,8 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/plugin.plugin_list'))
+@section('title', __('Admin/plugin.plugin_list'))
 
-@section('page-title-right')
+@section('Page-title-right')
   @hookwrapper('admin.plugin.marketing')
   <a href="{{ admin_route('marketing.index', isset($type) ? ['type' => $type]: '') }}" class="btn btn-outline-info">{{ __('common.get_more') }}</a>
   @endhookwrapper
@@ -16,11 +16,11 @@
         <table class="table" v-if="plugins.length">
           <thead>
             <tr>
-              <th>{{ __('admin/plugin.plugin_code') }}</th>
-              <th>{{ __('admin/plugin.plugin_type') }}</th>
-              <th width="50%">{{ __('admin/plugin.plugin_description') }}</th>
-              <th>{{ __('admin/common.status') }}</th>
-              <th>{{ __('admin/common.action') }}</th>
+              <th>{{ __('Admin/plugin.plugin_code') }}</th>
+              <th>{{ __('Admin/plugin.plugin_type') }}</th>
+              <th width="50%">{{ __('Admin/plugin.plugin_description') }}</th>
+              <th>{{ __('Admin/common.status') }}</th>
+              <th>{{ __('Admin/common.action') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -42,13 +42,13 @@
               <td>
                 <div v-if="plugin.installed">
                   <span :style="!plugin.status ? 'cursor: not-allowed':''">
-                    <a v-if="plugin.type != 'theme'" :class="['btn btn-outline-secondary btn-sm', !plugin.status ? 'disabled' : '' ]" :href="plugin.edit_url">{{ __('admin/common.edit') }}</a>
-                    <a v-else :class="['btn btn-outline-secondary btn-sm', !plugin.status ? 'disabled' : '' ]" href="{{ admin_route('theme.index') }}">{{ __('admin/plugin.to_enable') }}</a>
+                    <a v-if="plugin.type != 'theme'" :class="['btn btn-outline-secondary btn-sm', !plugin.status ? 'disabled' : '' ]" :href="plugin.edit_url">{{ __('Admin/common.edit') }}</a>
+                    <a v-else :class="['btn btn-outline-secondary btn-sm', !plugin.status ? 'disabled' : '' ]" href="{{ admin_route('theme.index') }}">{{ __('Admin/plugin.to_enable') }}</a>
                   </span>
-                  <a class="btn btn-outline-danger btn-sm" @click="installedPlugin(plugin.code, 'uninstall', index)">{{ __('admin/common.uninstall') }}</a>
+                  <a class="btn btn-outline-danger btn-sm" @click="installedPlugin(plugin.code, 'uninstall', index)">{{ __('Admin/common.uninstall') }}</a>
                 </div>
                 <div v-else>
-                  <a class="btn btn-outline-success btn-sm" @click="installedPlugin(plugin.code, 'install', index)">{{ __('admin/common.install') }}</a>
+                  <a class="btn btn-outline-success btn-sm" @click="installedPlugin(plugin.code, 'install', index)">{{ __('Admin/common.install') }}</a>
                 </div>
               </td>
             </tr>
@@ -92,7 +92,7 @@
 
         installedPlugin(code, type, index) {
           if (type == 'uninstall') {
-            layer.confirm('{{ __('admin/plugin.uninstall_hint') }}', {
+            layer.confirm('{{ __('Admin/plugin.uninstall_hint') }}', {
               title: "{{ __('common.text_hint') }}",
               btn: ['{{ __('common.cancel') }}', '{{ __('common.confirm') }}'],
               area: ['400px'],

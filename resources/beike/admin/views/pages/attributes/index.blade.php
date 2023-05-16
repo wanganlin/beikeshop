@@ -1,12 +1,12 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/attribute.index'))
+@section('title', __('Admin/attribute.index'))
 
 @section('content')
   <div id="app" class="card" v-cloak>
     <div class="card-body">
       <div class="d-flex justify-content-between mb-4">
-        <button type="button" class="btn btn-primary" @click="checkedCreate">{{ __('admin/attribute.create_at') }}</button>
+        <button type="button" class="btn btn-primary" @click="checkedCreate">{{ __('Admin/attribute.create_at') }}</button>
       </div>
       <div class="table-push h-min-500">
         <table class="table">
@@ -14,7 +14,7 @@
             <tr>
               <th>{{ __('common.id') }}</th>
               <th>{{ __('common.name') }}</th>
-              <th>{{ __('admin/attribute_group.index') }}</th>
+              <th>{{ __('Admin/attribute_group.index') }}</th>
               <th>{{ __('common.created_at') }}</th>
               <th width="150px">{{ __('common.action') }}</th>
             </tr>
@@ -39,7 +39,7 @@
         :total="attributes.total"></el-pagination>
     </div>
 
-    <el-dialog title="{{ __('admin/attribute.index') }}" :visible.sync="dialog.show" width="670px"
+    <el-dialog title="{{ __('Admin/attribute.index') }}" :visible.sync="dialog.show" width="670px"
       @close="closeDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="155px">
@@ -53,7 +53,7 @@
           </el-form-item>
         </el-form-item>
 
-        <el-form-item label="{{ __('admin/attribute_group.index') }}" required prop="attribute_group_id">
+        <el-form-item label="{{ __('Admin/attribute_group.index') }}" required prop="attribute_group_id">
           <el-select v-model="dialog.form.attribute_group_id" placeholder="{{ __('common.please_choose') }}">
             <el-option
               v-for="item in source.attribute_group"
@@ -108,7 +108,7 @@
 
         rules: {
           attribute_group_id: [
-            {required: true, message: '{{ __('common.error_required', ['name' => __('admin/attribute_group.index')] ) }}', trigger: 'blur'},
+            {required: true, message: '{{ __('common.error_required', ['name' => __('Admin/attribute_group.index')] ) }}', trigger: 'blur'},
           ],
           sort_order: [{required: true,message: '{{ __('common.error_required', ['name' => __('common.sort_order')])}}',trigger: 'blur'}, ],
         },
@@ -147,10 +147,10 @@
             $http.post('attributes', this.dialog.form).then((res) => {
               this.loadData();
               setTimeout(() => this.dialog.show = false, 100)
-              this.$confirm('{{ __('admin/attribute.to_info_values') }}', '{{ __('common.created_success') }}', {
+              this.$confirm('{{ __('Admin/attribute.to_info_values') }}', '{{ __('common.created_success') }}', {
                 distinguishCancelAndClose: true,
-                confirmButtonText: '{{ __('admin/attribute.btn_at') }}',
-                cancelButtonText: '{{ __('admin/attribute.btn_later') }}',
+                confirmButtonText: '{{ __('Admin/attribute.btn_at') }}',
+                cancelButtonText: '{{ __('Admin/attribute.btn_later') }}',
               }).then(() => {
                 location = this.linkEdit(res.data.id);
               }).catch(()=>{})

@@ -1,23 +1,23 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/rma.index'))
+@section('title', __('Admin/rma.index'))
 
 @section('content')
   <div id="customer-app" class="card h-min-600">
     <div class="card-body">
-      <div class="mb-2">{{ __('admin/rma.rma_list_title') }}</div>
+      <div class="mb-2">{{ __('Admin/rma.rma_list_title') }}</div>
       @if (count($rmas))
         <div class="table-push">
           <table class="table">
             <thead>
               <tr>
-                <th>{{ __('admin/rma.customers_name') }}</th>
+                <th>{{ __('Admin/rma.customers_name') }}</th>
                 <th>{{ __('common.email') }}</th>
                 <th>{{ __('common.phone') }}</th>
-                <th>{{ __('admin/builder.modules_product') }}</th>
+                <th>{{ __('Admin/builder.modules_product') }}</th>
                 <th>{{ __('product.sku') }}</th>
-                <th>{{ __('admin/rma.quantity') }}</th>
-                <th>{{ __('admin/rma.service_type') }}</th>
+                <th>{{ __('Admin/rma.quantity') }}</th>
+                <th>{{ __('Admin/rma.service_type') }}</th>
                 <th>{{ __('common.status') }}</th>
                 <th>{{ __('common.action') }}</th>
               </tr>
@@ -49,7 +49,7 @@
             </tbody>
           </table>
         </div>
-        {{ $rmas->links('admin::vendor/pagination/bootstrap-4') }}
+        {{ $rmas->links('Admin::vendor/pagination/bootstrap-4') }}
       @else
         <x-admin-no-data />
       @endif

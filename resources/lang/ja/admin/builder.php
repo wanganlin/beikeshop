@@ -142,7 +142,7 @@ return [
     'text_bgi'                         => '背景画像',
     'text_btn'                         => 'ボタン',
 
-    // page
+    // Page
     'page_product_title_size'          => '商品タイトルのフォントサイズ',
     'page_product_title_color'         => '商品タイトルの色',
     'page_product_price_color'         => '商品価格の色',

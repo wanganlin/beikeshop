@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('body-class', 'page-order-success')
+@section('body-class', 'Page-order-success')
 
 @section('content')
   <div class="container">

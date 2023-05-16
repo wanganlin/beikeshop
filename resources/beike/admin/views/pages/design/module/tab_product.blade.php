@@ -1,14 +1,14 @@
 <template id="module-editor-tab-product-template">
   <div class="module-editor-tab-product-template">
-    <div class="module-editor-row">{{ __('admin/builder.text_set_up') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.text_set_up') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.text_module_title') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.text_module_title') }}</div>
       <text-i18n v-model="module.title"></text-i18n>
     </div>
 
-    <div class="module-editor-row">{{ __('admin/builder.modules_content') }}</div>
+    <div class="module-editor-row">{{ __('Admin/builder.modules_content') }}</div>
     <div class="module-edit-group">
-      <div class="module-edit-title">{{ __('admin/builder.modules_set_product') }}</div>
+      <div class="module-edit-title">{{ __('Admin/builder.modules_set_product') }}</div>
       <el-tabs v-model="editableTabsValue" class="tab-edit-category" type="card" editable @edit="handleTabsEdit">
         <el-tab-pane
           v-for="(item, index) in module.tabs"
@@ -19,12 +19,12 @@
 
         <div class="tab-info">
           <div class="module-edit-group">
-            <div class="module-edit-title">{{ __('admin/builder.text_set_title') }}</div>
+            <div class="module-edit-title">{{ __('Admin/builder.text_set_title') }}</div>
             <text-i18n v-model="item.title"></text-i18n>
           </div>
 
           <div class="module-edit-group">
-            <div class="module-edit-title">{{ __('admin/builder.modules_product') }}</div>
+            <div class="module-edit-title">{{ __('Admin/builder.modules_product') }}</div>
 
             <div class="autocomplete-group-wrapper">
               <el-autocomplete
@@ -33,7 +33,7 @@
                 value-key="name"
                 size="small"
                 :fetch-suggestions="querySearch"
-                placeholder="{{ __('admin/builder.modules_keywords_search') }}"
+                placeholder="{{ __('Admin/builder.modules_keywords_search') }}"
                 :highlight-first-item="true"
                 @select="handleSelect"
               ></el-autocomplete>
@@ -55,7 +55,7 @@
                     </div>
                   </draggable>
                 </template>
-                <template v-else>{{ __('admin/builder.modules_please_products') }}</template>
+                <template v-else>{{ __('Admin/builder.modules_please_products') }}</template>
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@ Vue.component('module-editor-tab-product', {
       },
       floor: languagesFill(''),
       tabs: [{title: languagesFill('Tab 1'), products: []}],
-      title: languagesFill('{{ __('admin/builder.text_module_title') }}'),
+      title: languagesFill('{{ __('Admin/builder.text_module_title') }}'),
     }
 
     app.source.modules.push(register)

@@ -20,7 +20,7 @@ class ProductResource extends JsonResource
 
         $data = [
             'id'              => $this->id,
-            'images'          => array_map(function ($image) {
+            'Images'          => array_map(function ($image) {
                 return image_resize($image);
             }, $this->images ?? []),
             'name'            => $this->description->name ?? '',

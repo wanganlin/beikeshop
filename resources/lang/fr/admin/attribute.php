@@ -19,7 +19,7 @@ return [
     'before_attribute'                 => 'Please select the left attribute first',
     'btn_at'                           => 'Go now',
     'btn_later'                        => 'Later',
-    'to_info_values'                   => 'Please go to the details page to edit attribute values',
+    'to_info_values'                   => 'Please go to the details Page to edit attribute values',
     'error_cannot_delete_product_used' => 'Attribute used by products (ID: :product_ids), can not be deleted!',
 
     'attributes_index'                 => 'Index',

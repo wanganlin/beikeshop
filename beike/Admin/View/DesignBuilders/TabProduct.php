@@ -35,10 +35,10 @@ class TabProduct extends Component
         $data['register'] = [
             'code' => 'tab_product',
             'sort' => 0,
-            'name' => trans('admin/design_builder.module_tab_products'),
+            'name' => trans('Admin/design_builder.module_tab_products'),
             'icon' => '&#xe688;',
         ];
 
-        return view('admin::pages.design.module.tab_product', $data);
+        return view('Admin::pages.design.module.tab_product', $data);
     }
 }

@@ -142,7 +142,7 @@ return [
     'text_bgi'                         => '背景圖',
     'text_btn'                         => '按鈕',
 
-    // page
+    // Page
     'page_product_title_size'          => '商品標題字號',
     'page_product_title_color'         => '商品標題顏色',
     'page_product_price_color'         => '商品價格顏色',

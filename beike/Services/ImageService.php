@@ -20,7 +20,7 @@ class ImageService
 
     private $imagePath;
 
-    private $placeholderImage = 'catalog/placeholder.png';
+    private $placeholderImage = 'Catalog/placeholder.png';
 
     /**
      * @param $image

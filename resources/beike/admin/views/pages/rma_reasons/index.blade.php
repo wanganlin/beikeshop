@@ -1,6 +1,6 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.rma_reasons_index'))
+@section('title', __('Admin/common.rma_reasons_index'))
 
 @section('content')
   <div id="tax-classes-app" class="card" v-cloak>
@@ -30,7 +30,7 @@
       </table>
     </div>
 
-    <el-dialog title="{{ __('admin/common.rma_reasons_index') }}" :visible.sync="dialog.show" width="500px"
+    <el-dialog title="{{ __('Admin/common.rma_reasons_index') }}" :visible.sync="dialog.show" width="500px"
       @close="closeCustomersDialog('form')" :close-on-click-modal="false">
 
       <el-form ref="form" :rules="rules" :model="dialog.form" label-width="100px">
@@ -54,7 +54,7 @@
 @endsection
 
 @push('footer')
-  @include('admin::shared.vue-image')
+  @include('Admin::shared.vue-image')
 
   <script>
     new Vue({

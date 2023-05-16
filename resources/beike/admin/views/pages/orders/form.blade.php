@@ -1,8 +1,8 @@
-@extends('admin::layouts.master')
+@extends('Admin::layouts.master')
 
-@section('title', __('admin/common.order'))
+@section('title', __('Admin/common.order'))
 
-@section('page-title-right')
+@section('Page-title-right')
 @hook('order.detail.title.right')
 @endsection
 
@@ -10,7 +10,7 @@
 @section('content')
   @hookwrapper('admin.order.form.base')
   <div class="card mb-4">
-    <div class="card-header"><h6 class="card-title">{{ __('admin/common.order') }}</h6></div>
+    <div class="card-header"><h6 class="card-title">{{ __('Admin/common.order') }}</h6></div>
     <div class="card-body order-top-info">
       <div class="row">
         <div class="col-lg-4 col-12">
@@ -146,7 +146,7 @@
           <el-form-item label="{{ __('order.express_number') }}" v-if="form.status == 'shipped'" prop="express_number">
             <el-input class="w-max-500" v-model="form.express_number" size="small" v-if="form.status == 'shipped'" placeholder="{{ __('order.express_number') }}"></el-input>
           </el-form-item>
-          <el-form-item label="{{ __('admin/order.notify') }}">
+          <el-form-item label="{{ __('Admin/order.notify') }}">
             <el-checkbox :true-label="1" :false-label="0" v-model="form.notify"></el-checkbox>
           </el-form-item>
           <el-form-item label="{{ __('order.comment') }}">
@@ -339,7 +339,7 @@
         },
 
         rules: {
-          status: [{required: true, message: '{{ __('admin/order.error_status') }}', trigger: 'blur'}, ],
+          status: [{required: true, message: '{{ __('Admin/order.error_status') }}', trigger: 'blur'}, ],
           express_code: [{required: true,message: '{{ __('common.error_required', ['name' => __('order.express_company')]) }}',trigger: 'blur'}, ],
           express_number: [{required: true,message: '{{ __('common.error_required', ['name' => __('order.express_number')]) }}',trigger: 'blur'}, ],
         }

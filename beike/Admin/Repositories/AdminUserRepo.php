@@ -95,7 +95,7 @@ class AdminUserRepo
     public static function deleteAdminUser($adminUserId)
     {
         if ($adminUserId == 1) {
-            throw new NotAcceptableHttpException(trans('admin/customer.cannot_delete_root'));
+            throw new NotAcceptableHttpException(trans('Admin/customer.cannot_delete_root'));
         }
         $adminUser = AdminUser::query()->find($adminUserId);
         $adminUser->delete();
