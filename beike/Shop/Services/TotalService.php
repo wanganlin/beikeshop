@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
 
 class TotalService
 {
-    private const TOTAL_CODES = [
+    protected const TOTAL_CODES = [
         'subtotal',
         'tax',
         'shipping',
@@ -25,9 +25,9 @@ class TotalService
         'order_total',
     ];
 
-    public Cart $currentCart;
+    protected Cart $currentCart;
 
-    public array $cartProducts;
+    protected array $cartProducts;
 
     public array $taxes = [];
 
@@ -35,7 +35,7 @@ class TotalService
 
     public float $amount = 0;
 
-    public string $shippingMethod = '';
+    protected string|array $shippingMethod = '';
 
     public function __construct($currentCart, $cartProducts)
     {
@@ -53,6 +53,11 @@ class TotalService
         $this->shippingMethod = $methodCode;
 
         return $this;
+    }
+
+    public function getShippingMethod(): string
+    {
+        return $this->shippingMethod;
     }
 
     /**
@@ -129,5 +134,10 @@ class TotalService
         $carts = $this->cartProducts;
 
         return collect($carts)->sum('subtotal');
+    }
+
+    public function getCartProducts()
+    {
+        return $this->cartProducts;
     }
 }
